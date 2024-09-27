@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChaosWeb - The Disorderly UI Experiment</title>
+</head>
+<body>
+    <h1 id="chaos-header">ChaosWeb - The Disorderly UI Experiment</h1>
+
+    <style>
+        @keyframes wave {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        #chaos-header span {
+            display: inline-block;
+            animation: wave 1s infinite;
+        }
+
+        #chaos-header span:nth-child(odd) {
+            animation-delay: 0.1s;
+        }
+
+        #chaos-header span:nth-child(even) {
+            animation-delay: 0.2s;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.getElementById('chaos-header');
+            const words = header.textContent.split(' ');
+            header.innerHTML = words.map(word => `<span>${word}</span>`).join(' ');
+        });
+    </script>
+</body>
+</html>

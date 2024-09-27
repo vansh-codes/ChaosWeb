@@ -1,0 +1,26 @@
+name: "🌀 Confusion Report"
+description: "Lost in the chaos? Share your moments of confusion here!"
+title: "CONFUSION:"
+labels: ["confusion", "feedback"]
+body:
+  - type: textarea
+    attributes:
+      label: "What left you confused?"
+      description: "Describe the part of ChaosWeb that bewildered you the most. Let us know how lost you felt and where!"
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: "What were you expecting?"
+      description: "Share what you *thought* would happen before things went off the rails."
+    validations:
+      required: true
+  - type: checkboxes
+    attributes:
+      label: "Confirm"
+      options:
+        - label: "I understand that confusion is a part of the ChaosWeb experience"
+          required: true
+        - label: "I agree to follow this project's Code of Conduct"
+          required: true
+        - label: "I want to work on improving this confusing element"
