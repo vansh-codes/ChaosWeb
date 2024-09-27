@@ -22,7 +22,7 @@ Welcome to **ChaosWeb** — a web design experiment where nothing behaves as it 
 ChaosWeb is not about smooth navigation or polished interfaces. It’s about creating a chaotic user journey full of surprises, designed to subvert your expectations. Users will find themselves laughing, confused, and maybe even a bit annoyed, as they explore the mess.
 
 ### Live Preview:
-**[Live Demo](#)** (Link coming soon!)
+**[Live Demo](vansh-codes.github.io/ChaosWeb/)**
 
 ---
 
@@ -66,7 +66,9 @@ This project serves as an exploration of **anti-user experience (anti-UX)** and 
 
 ## 🤝 Contributing
 
-If you have ideas to make ChaosWeb even more chaotic, feel free to fork the repo and submit a pull request! Let’s make the internet messy together.
+If you have ideas to make ChaosWeb even more chaotic, feel free to cerate an issue, fork the repo and submit a pull request! Let’s make the internet messy together.
+Create issue: [new issue](https://github.com/vansh-codes/ChaosWeb/issues/new/choose)
+Create pull request: [new pull request](https://github.com/vansh-codes/ChaosWeb/compare)
 
 ---
 
@@ -77,6 +79,7 @@ Because sometimes, breaking the rules is fun. **ChaosWeb** is a way to shake off
 ---
 
 **Have fun exploring the chaos of the web!**
+Show some ❤️ by ⭐ the repository!
 
 ---
 
