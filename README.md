@@ -1,6 +1,11 @@
 # ChaosWeb: The Disorderly UI Experiment
 
+
 Welcome to **ChaosWeb** — a web design experiment where nothing behaves as it should, and everything is delightfully out of order! If you’re tired of the conventional and predictable nature of websites, **ChaosWeb** offers a creative break from the norm with unpredictable navigation, bizarre sliders, and a world where scrolling defies gravity.
+<div align="center">
+   
+<img src="https://github.com/user-attachments/assets/c25c833c-86ee-452c-b263-c015919d2e85" height=200  width=200 alt="ChaosWeb"/>
+</div>
 
 ## 🚀 What is ChaosWeb?
 
@@ -70,6 +75,9 @@ If you have ideas to make ChaosWeb even more chaotic, feel free to cerate an iss
 Create issue: [new issue](https://github.com/vansh-codes/ChaosWeb/issues/new/choose)
 Create pull request: [new pull request](https://github.com/vansh-codes/ChaosWeb/compare)
 
+## ❓ Have Doubts
+
+Raise discussion here: [raise a discussion](https://github.com/vansh-codes/ChaosWeb/discussions)
 ---
 
 ## 🔥 Why Build This?
