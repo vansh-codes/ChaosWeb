@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap');
 body {
-    font-family: 'Oswald', sans-serif; /* Apply Oswald font to the body */
+    font-family: 'Oswald', sans-serif; 
     background: linear-gradient(135deg, #000000, #222121);    animation: noise 0.2s steps(10) infinite;
     background-size: 150% 150%;
-    background-attachment: fixed; /* Keep the image fixed during scrolling */
+    background-attachment: fixed; 
     
-    color: #ffffff; /* Keeping white text color for contrast */
+    color: #ffffff; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,17 +23,17 @@ body {
 
 
 .contact-form-container {
-    background-color: rgba(161, 161, 161, 0.2); /* Soft translucent white for better readability */
+    background-color: rgba(161, 161, 161, 0.2); 
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 0 15px rgba(162, 152, 152, 0.515); /* Softer shadow for subtle depth */
+    box-shadow: 0 0 15px rgba(162, 152, 152, 0.515); 
     width: 320px;
-    border: 2px solid rgba(255, 251, 251, 0.779); /* Light border to match form container */
+    border: 2px solid rgba(255, 251, 251, 0.779); 
 }
 
 h1 {
     text-align: center;
-    color: #850dcb; /* Warm amber color for the header */
+    color: #850dcb; 
     margin-bottom: 20px;
 }
 
@@ -47,14 +47,14 @@ input {
     margin-left: -10px;
     border: none;
     border-radius: 5px;
-    background-color: #5b6a73aa; /* Dark slate gray for input background */
-    color: #ECEFF1; /* Light gray text for readability */
+    background-color: #5b6a73aa; 
+    color: #ECEFF1; 
     outline: none;
     transition: background-color 0.3s;
 }
 
 input:focus {
-    background-color: #455A64; /* Slightly lighter on focus */
+    background-color: #455A64; 
 }
 input::placeholder{
     padding: 10px;
@@ -65,14 +65,14 @@ button {
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #099d1d; /* Bright blue for buttons */
+    background-color: #099d1d; 
     color: #ffffff;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #0ac419; /* Darker blue on hover */
+    background-color: #0ac419; 
 }
 
 .popup {
@@ -81,8 +81,8 @@ button:hover {
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #FFC107; /* Warm golden yellow for the popup */
-    color: #212121; /* Dark text for contrast */
+    background-color: #FFC107;
+    color: #212121;
     padding: 15px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);

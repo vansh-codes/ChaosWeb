@@ -7,7 +7,7 @@
   }
   
   body {
-    font-family: 'Oswald', sans-serif; /* Apply Oswald font to the body */
+    font-family: 'Oswald', sans-serif; 
     height: 100vh;
     background: linear-gradient(135deg, #000000, #333333);
     animation: noise 0.2s steps(10) infinite;
@@ -32,13 +32,13 @@
     }
     
     #chaos-header {
-        font-size: 3rem; /* Font size */
-        font-weight: 700; /* Bold text */
-        letter-spacing: 1.5px; /* Letter spacing */
-        color: #b21af3; /* Gold color for the header */
+        font-size: 3rem;
+        font-weight: 700; 
+        letter-spacing: 1.5px; 
+        color: #b21af3; 
         text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
-        text-align: center; /* Center alignment */
-        margin: 30px 0; /* Spacing */
+        text-align: center; 
+        margin: 30px 0;
     }
     #chaos-header span {
         display: inline-block;
@@ -66,13 +66,13 @@
   }
 .nav-item.collided {
     background-color: #f88; /* Change color when colliding */
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease; 
 }
 .nav-item {
     position: absolute;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.1); /* White with 80% opacity */
-    border: 2px solid rgba(221, 221, 221, 0.8); /* Light grey with 80% opacity */
+    background-color: rgba(255, 255, 255, 0.1); 
+    border: 2px solid rgba(221, 221, 221, 0.8); 
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     display: flex;
