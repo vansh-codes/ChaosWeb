@@ -26,6 +26,33 @@ Welcome to **ChaosWeb** — a web design experiment where nothing behaves as it 
 
 ChaosWeb is not about smooth navigation or polished interfaces. It’s about creating a chaotic user journey full of surprises, designed to subvert your expectations. Users will find themselves laughing, confused, and maybe even a bit annoyed, as they explore the mess.
 
+## 💪 Outreach
+
+ChaosWeb is proudly part of global initiatives engaging with passionate developers and open-source enthusiasts worldwide:
+
+ <table>
+  <tr>
+    <th>Name</th>
+    <th>Logo</th>
+    <th>Purpose</th>
+  </tr>
+<!--   <tr>
+    <td>Product Hunt</td>
+    <td><a href="https://www.producthunt.com/posts/helpops-hub?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-helpops&#0045;hub" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=491182&theme=light" alt="HelpOps&#0045;hub - Ensuring&#0032;You&#0032;Never&#0032;Get&#0032;Stuck&#0032;In&#0032;DevOps&#0032;Again&#0033; | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a></td>
+    <td> A platform where people launch different kind of products/projects and share them with the community </td>
+  </tr> -->
+  <tr>
+    <td>GSSoC'2024-Extd </td>
+    <td><a href="https://gssoc.girlscript.tech/project"><img src="https://github.com/user-attachments/assets/1bd8ab15-604e-4ac9-a33e-dc753a07be23" alt="GirlScriptSummerOfCode"></a></td>
+    <td> The coding period is from October 1st to October 30th, during which contributors make contributions and earn points on the platform.</td>
+  </tr>
+  <tr>
+    <td>Hacktoberfest 2024 </td>
+    <td><a href="https://hacktoberfest.com/" ><img src="https://github.com/user-attachments/assets/027eb349-43f2-4834-9343-1e8ba0bf54ed" alt="logo of Hacktoberfest 2024"></a></td>
+    <td> Hacktoberfest is a month-long October event welcoming all skill levels to join the open source community </td>
+  </tr>
+</table>
+
 ### Live Preview:
 **[Live Demo](vansh-codes.github.io/ChaosWeb/)**
 
