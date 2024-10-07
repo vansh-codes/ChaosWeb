@@ -25,4 +25,9 @@ body:
         - label: "I agree to follow this project's Code of Conduct"
           required: true
         - label: "I found a genuine bug amidst the chaos"
+          required: true
         - label: "I'm enjoying the mess!"
+          required: true
+        - label: "I'm GSSOC'24 Extd registered Contributor"
+        - label: "I'm Hacktoberfest registered Contributor"
+
