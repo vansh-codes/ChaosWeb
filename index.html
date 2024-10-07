@@ -3,12 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChaosWeb - The Disorderly UI Experiment</title>
-</head>
-<body>
-    <h1 id="chaos-header">ChaosWeb - The Disorderly UI Experiment</h1>
+    <title>ChaosWeb - The Disorderly UI Experiment</title>  <style>
+        
+       <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure full height for the body */
+            margin: 0;
+        }
 
-    <style>
+        #root {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .follow-us {
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+            margin-top: auto; /* Keep this at the bottom */
+        }
+
+        .follow-us h2 {
+            color: grey; /* Grey color for the heading */
+            font-size: 28px; /* Increased size for the heading */
+            margin-bottom: 15px; /* Space between heading and icons */
+        }
+
+        .follow-us a {
+            margin: 0 15px;
+            color: grey; /* Grey color for icons */
+            text-decoration: none;
+        }
+
+        .follow-us a:hover {
+            color: #007bff; /* Change color on hover */
+        }
+
+        .follow-us a:focus {
+            outline: 2px solid #007bff;
+            outline-offset: 2px;
+        }
+
+        .follow-us img {
+            width: 50px; /* Set logo size */
+            height: 50px;
+            filter: grayscale(100%); /* Grey color for icons */
+            transition: filter 0.3s; /* Smooth transition effect */
+        }
+
+        .follow-us a:hover img {
+            filter: grayscale(0%); /* Color on hover */
+        }
+
         @keyframes wave {
             0%, 100% {
                 transform: translateY(0);
@@ -16,6 +68,11 @@
             50% {
                 transform: translateY(-10px);
             }
+        }
+
+        #chaos-header {
+            text-align: center; /* Center the header text */
+            margin: 20px 0; /* Space above and below the header */
         }
 
         #chaos-header span {
@@ -29,14 +86,31 @@
 
         #chaos-header span:nth-child(even) {
             animation-delay: 0.2s;
-        }
-    </style>
+        }</style>
+</head>
+<body>
+    <h1 id="chaos-header">ChaosWeb - The Disorderly UI Experiment</h1>
+
+  
 
     <a href="#">Tester link</a>
     <button>Tester button</button>
     <input placeholder="test">
-
+  
     <script src="js/script.js"></script>
     <script src="js/sound.js"></script>
 </body>
+<br><br>
+<div class="follow-us">
+    
+    <a href="https://www.linkedin.com/in/vanshchaurasiya24/" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Logo" />
+    </a>
+    <a href="https://x.com/VanshChaurasiy4" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter Logo" />
+    </a>
+    <a href="https://github.com/vansh-codes" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub Logo" />
+    </a>
+</div>
 </html>
