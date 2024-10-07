@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap');
+body {
+    font-family: 'Oswald', sans-serif; /* Apply Oswald font to the body */
+    background: linear-gradient(135deg, #000000, #222121);    animation: noise 0.2s steps(10) infinite;
+    background-size: 150% 150%;
+    background-attachment: fixed; /* Keep the image fixed during scrolling */
+    
+    color: #ffffff; /* Keeping white text color for contrast */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+@keyframes noise {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+
+.contact-form-container {
+    background-color: rgba(161, 161, 161, 0.2); /* Soft translucent white for better readability */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(162, 152, 152, 0.515); /* Softer shadow for subtle depth */
+    width: 320px;
+    border: 2px solid rgba(255, 251, 251, 0.779); /* Light border to match form container */
+}
+
+h1 {
+    text-align: center;
+    color: #850dcb; /* Warm amber color for the header */
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 10px 10px 10px 10px;
+    margin-left: -10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #5b6a73aa; /* Dark slate gray for input background */
+    color: #ECEFF1; /* Light gray text for readability */
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+input:focus {
+    background-color: #455A64; /* Slightly lighter on focus */
+}
+input::placeholder{
+    padding: 10px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #099d1d; /* Bright blue for buttons */
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0ac419; /* Darker blue on hover */
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #FFC107; /* Warm golden yellow for the popup */
+    color: #212121; /* Dark text for contrast */
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.5s forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-50%) translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+}
