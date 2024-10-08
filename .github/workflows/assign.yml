@@ -1,0 +1,61 @@
+name: Assign on Comment
+on:
+  issue_comment:
+    types:
+      - created
+
+jobs:
+  assign:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check if 'Go ahead' command is present
+        id: check_command
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.ASSIGN_PAT }}
+          script: |
+            const commentBody = context.payload.comment.body;
+            const isGoAheadCommand = commentBody.trim().toLowerCase() === 'go ahead';
+            const issueBody = context.payload.issue.body;
+
+            // Check if specific checkboxes are checked
+            const isGSSOCChecked = issueBody.includes('[x] I\'m GSSOC\'24 Extd registered Contributor');
+            const isHacktoberfestChecked = issueBody.includes('[x] I\'m Hacktoberfest registered Contributor');
+
+            // Determine labels based on checkboxes
+            let labelsToAdd = ['chaos']; // Add 'chaos' label by default
+            if (isGSSOCChecked) {
+              labelsToAdd.push('gssoc-ext');
+            }
+            if (isHacktoberfestChecked) {
+              labelsToAdd.push('hacktoberfest', 'hacktoberfest-accepted');
+            }
+
+            console.log(`Go ahead command present: ${isGoAheadCommand}`);
+            console.log(`GSSOC Checked: ${isGSSOCChecked}`);
+            console.log(`Hacktoberfest Checked: ${isHacktoberfestChecked}`);
+            console.log(`Labels to Add: ${labelsToAdd}`);
+
+            // Set outputs for next steps
+            core.setOutput('assign_issue', isGoAheadCommand.toString());
+            core.setOutput('labels', labelsToAdd.join(','));
+
+      - name: Assign the issue and add labels
+        if: steps.check_command.outputs.assign_issue == 'true'
+        id: assign_issue
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          script: |
+            const { owner, repo, number } = context.issue;
+            const assignee = context.payload.issue.user.login; // Assign issue to the issue creator
+            const labels = core.getInput('labels').split(',');
+
+            // Assign the issue
+            await github.issues.addAssignees({ owner, repo, issue_number: number, assignees: [assignee] });
+            console.log(`Assigned the issue to ${assignee}.`);
+
+            // Add labels to the issue
+            await github.issues.addLabels({ owner, repo, issue_number: number, labels });
+            console.log(`Added labels: ${labels.join(', ')}.`);
