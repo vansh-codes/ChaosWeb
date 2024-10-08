@@ -18,6 +18,7 @@
             background: linear-gradient(135deg, #000000, #333333);
             animation: noise 0.2s steps(10) infinite;
             font-family: Arial, sans-serif;
+            overflow-x: scroll;
         }
 
         .timeline-container {
@@ -37,7 +38,7 @@
             height: 250px;
             width: 230px;
             border-radius: 8px;
-            animation: run 1s ease-in 1s 1 alternate both running;
+            animation: run 3s ease-in 1s infinite alternate both running;
         }
 
         .event {
@@ -53,17 +54,24 @@
             box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
             font-size: 1.2em;
             cursor: pointer;
+            animation: run 2s ease-in 1s infinite alternate both running;
             
 
         }
 
         @keyframes run {
-            from {
-                transform: translateX(-100vw);
+            0% {
+                transform: translateX(-25vw);
+                transform: t;
             }
 
-            to {
+            50% {
+                top: 50px;
                 transform: translateX(0vw);
+                transform: translateY(-10vh);
+            }
+            100% {
+                transform: translateX(25vw);
             }
         }
 
@@ -155,7 +163,7 @@
                 Pandemic</div>
         </div>
     </div>
-    <!-- <script>
+    <script>
         document.addEventListener("DOMContentLoaded", () => {
             const events = document.querySelectorAll(".even");
             const positions = []; // Store positions to check for overlaps
@@ -167,7 +175,7 @@
 
                     do {
                         overlap = false;
-                        randomX = Math.random() * (window.innerWidth); // Horizontally up to 2 screen widths
+                        randomX = Math.random() * (window.innerWidth*1.5); // Horizontally up to 2 screen widths
                         randomY = Math.random() * (window.innerHeight*3); // Vertically within half the screen height
 
                         // Check for overlap with existing positions
@@ -197,6 +205,6 @@
             });
         });
     </script>
-</body> -->
+</body>
 
 </html>
