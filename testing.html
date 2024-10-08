@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChaosWeb - The Disorderly UI Experiment</title>
+</head>
+<body>
+    <h1 id="chaos-header">ChaosWeb - The Disorderly UI Experiment</h1>
+
+    <style>
+        @keyframes wave {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        #chaos-header span {
+            display: inline-block;
+            animation: wave 1s infinite;
+        }
+
+        #chaos-header span:nth-child(odd) {
+            animation-delay: 0.1s;
+        }
+
+        #chaos-header span:nth-child(even) {
+            animation-delay: 0.2s;
+        }
+    </style>
+
+    <a href="#">Tester link</a>
+    <button>Tester button</button>
+    <input placeholder="test">
+
+    <script src="js/script.js"></script>
+    <script src="js/sound.js"></script>
+</body>
+</html>
