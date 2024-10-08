@@ -13,7 +13,7 @@ jobs:
         id: check_command
         uses: actions/github-script@v4
         with:
-          github-token: ${{ secrets.ASSIGN_PAT }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const commentBody = context.payload.comment.body;
             const isGoAheadCommand = commentBody.trim().toLowerCase() === 'go ahead';
