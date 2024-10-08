@@ -236,3 +236,12 @@ document.getElementById("contactForm").addEventListener("submit", function(event
 function navigateTo(url) {
     window.location.href = url;
 }
+document.getElementById("contactForm").addEventListener("submit", function(event){
+    event.preventDefault();  // Prevents the form from submitting normally
+
+    // Display a simple popup message after submission
+    var popup = document.getElementById("popup");
+    popup.innerHTML = "Thank you for contacting us!";
+    popup.style.display = "block";
+});
+
