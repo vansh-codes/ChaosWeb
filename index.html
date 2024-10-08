@@ -1,6 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+      <style>
+              .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+
+
+        @keyframes move {
+            0% { transform: translateX(0) translateY(0) rotate(0deg); }
+            25% { transform: translateX(300px) translateY(100px) rotate(45deg); }
+            50% { transform: translateX(-300px) translateY(-200px) rotate(-45deg); }
+            75% { transform: translateX(200px) translateY(150px) rotate(90deg); }
+            100% { transform: translateX(0) translateY(0) rotate(0deg); }
+        }
+
+        button {
+            background-color: #00f;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ff0;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 1.5em;
+            display: none;
+        }
+      </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChaosWeb - The Disorderly UI Experiment</title>
@@ -37,6 +73,31 @@
             <span>Timeline</span>
         </div>
     </div>
+    <div class="container">
+        <div class="box">
+            <div class="box2"></div>
+        </div>
+        <button id="actionButton">Do Something</button>
+        <p id="errorMessage" class="error-message">Oops! That didn't work.</p>
+    </div>
+
+    <script>
+        const actionButton = document.getElementById('actionButton');
+        const errorMessage = document.getElementById('errorMessage');
+
+        // Button that does not behave as expected
+        actionButton.addEventListener('click', () => {
+            if (Math.random() > 0.5) {
+                actionButton.textContent = "Nothing happened!";
+                errorMessage.style.display = 'block';
+            } else {
+                alert("You clicked the button but... nothing works here!");
+            }
+        });
+
+        // Random chaos effect for the background color
+ 
+    </script>
 
     <script src="js/script.js"></script>
 </body>
