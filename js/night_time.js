@@ -1,13 +1,9 @@
 function redirectBasedOnTime() {
-const currentHour = new Date().getHours(); 
-    
-    if (currentHour >= 2 && currentHour < 5) { 
-        window.location.href = 'night_time.html'; 
-        } 
-    else {
-        window.location.href = 'index.html'; 
-        }
-    }
-    redirectBasedOnTime();
-    setTimeout(redirectBasedOnTime, 60000);
-   
+    const currentTime = new Date().getHours();
+                
+    if (currentTime >= 1 & currentTime<6) {
+        window.location.href = "night_time.html"; 
+        } else {
+             window.location.href = "ContactUs.html";    
+            }
+}
