@@ -6,13 +6,29 @@
     box-sizing: border-box;
 }
 
+
+
+
 body {
     font-family: 'Oswald', sans-serif;
     height: 100vh;
-    background: linear-gradient(135deg, #000000, #333333);
+    background: linear-gradient(135deg, #ff18fb, #1908ff);
     animation: noise 0.2s steps(10) infinite;
     background-size: 150% 150%;
     background-attachment: fixed;
+
+        animation: moveGradient 10s linear infinite; /* Add the animation */
+    
+    
+    @keyframes moveGradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        100% {
+            background-position: 100% 50%;
+        }
+    }
+    
     /* Keep the image fixed during scrolling */
 }
 
@@ -55,7 +71,7 @@ body {
     font-size: 3rem;
     font-weight: 700;
     letter-spacing: 1.5px;
-    color: #b21af3;
+    color: #5d0d7e;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
     /* Subtle shadow for depth */
     text-align: center;
