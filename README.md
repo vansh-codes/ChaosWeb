@@ -54,12 +54,12 @@ ChaosWeb is proudly part of global initiatives engaging with passionate develope
 </table>
 
 ### Live Preview:
-**[Live Demo](vansh-codes.github.io/ChaosWeb/)**
+**[Live Demo](https://chaosweb.vercel.app/)**
 
 ---
 
 ## 🛠️ Tech Stack
-
+- **REACT**: Use React for Chaos
 - **HTML**: The foundation of the chaos.
 - **CSS**: Styles that never behave as you’d expect.
 - **JavaScript**: Bringing the madness to life with unpredictable interactions.
@@ -80,10 +80,11 @@ This project serves as an exploration of **anti-user experience (anti-UX)** and 
 2. **Navigate to the project directory**:
    ```bash
    cd ChaosWeb
+   cd chaosweb-v@2
    ```
 
 3. **Open in Browser**:
-   Open `index.html` in your preferred web browser and enjoy the chaos!
+   Run `npm run dev` in your preferred web browser and enjoy the chaos!
 
 ---
 
