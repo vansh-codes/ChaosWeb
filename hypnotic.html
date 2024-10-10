@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hypnotic Chaos</title>
+    <link rel="stylesheet" href="preloaderStyle.css">
     <style>
         .parent {
             width: 100vw;
@@ -52,11 +53,59 @@
 </head>
 
 <body class="parent">
+    <!-- preloader -->
+    <div class="container">
+        <div class="preloader">
+            <div class="preloader__wheel-wrapper">
+                <div class="preloader__wheel"><span class="preloader__content">l</span>
+                    <div class="preloader__inner-wheel"></div>
+                    <div class="preloader__second-inner-whell"></div>
+                </div>
+            </div>
+            <div class="preloader__wheel-wrapper">
+                <div class="preloader__wheel"><span class="preloader__content">o</span>
+                    <div class="preloader__inner-wheel"></div>
+                    <div class="preloader__second-inner-whell"></div>
+                </div>
+            </div>
+            <div class="preloader__wheel-wrapper">
+                <div class="preloader__wheel"><span class="preloader__content">a</span>
+                    <div class="preloader__inner-wheel"></div>
+                    <div class="preloader__second-inner-whell"></div>
+                </div>
+            </div>
+            <div class="preloader__wheel-wrapper">
+                <div class="preloader__wheel"><span class="preloader__content">d</span>
+                    <div class="preloader__inner-wheel"></div>
+                    <div class="preloader__second-inner-whell"></div>
+                </div>
+            </div>
+            <div class="preloader__wheel-wrapper">
+                <div class="preloader__wheel"><span class="preloader__content">i</span>
+                    <div class="preloader__inner-wheel"></div>
+                    <div class="preloader__second-inner-whell"></div>
+                </div>
+            </div>
+            <div class="preloader__wheel-wrapper">
+                <div class="preloader__wheel"><span class="preloader__content">n</span>
+                    <div class="preloader__inner-wheel"></div>
+                    <div class="preloader__second-inner-whell"></div>
+                </div>
+            </div>
+            <div class="preloader__wheel-wrapper">
+                <div class="preloader__wheel"><span class="preloader__content">g</span>
+                    <div class="preloader__inner-wheel"></div>
+                    <div class="preloader__second-inner-whell"></div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="content">
         <div class="chaotic-text top-text">Welcome to Chaos! Where sanity is overrated.</div>
         <canvas id="myCanvas" width="300" height="300"></canvas>
         <div class="chaotic-text bottom-text">Relax? Sure, if you like chaos!</div>
     </div>
+    <script src="preloader.js"></script>
     <script>
         window.onload = function() {
             var STEPS = 1;
