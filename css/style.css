@@ -9,11 +9,10 @@
 
 
 .search-container {
-    position: fixed; /* Use fixed positioning to keep it in view */
     top: 10px; /* Adjust top position as needed */
     right: 10px; /* Keep it on the right side */
     width: auto; /* Let it be auto width */
-    max-width: 100%; /* Ensure it doesn’t exceed the screen width */
+    max-width: 100%; /* Ensure it doesn’t exceed the screen with */
     z-index: 1000; /* Keep it on top of other elements */
 }
 
