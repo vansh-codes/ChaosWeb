@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap');
+
+/* Keyframes for Noise Animation */
 @keyframes noise {
     0% {
         background-position: 0 0;
@@ -8,53 +10,68 @@
     }
 }
 
-
+/* Contact Form Container */
 .contact-form-container {
     background-color: rgba(161, 161, 161, 0.2); 
-    padding: 20px;
+    padding: 30px; 
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(162, 152, 152, 0.515); 
-    width: 320px;
+    width: 100%;
+    max-width: 400px;
+    position: absolute; /* Allows precise positioning */
+    top: 20px; /* Adjust the distance from the top */
+    left: 20px; /* Adjust the distance from the left */
     border: 2px solid rgba(255, 251, 251, 0.779); 
 }
 
+/* Heading Styles */
 h1 {
     text-align: center;
     color: #850dcb; 
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
 }
 
+/* Form Group */
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px; /* Increased spacing between form fields */
 }
 
+/* Input Field Styles */
 input {
-    width: 100%;
-    padding: 10px 10px 10px 10px;
-    margin-left: -10px;
+    width: 100%; 
+    padding: 12px 15px; 
     border: none;
     border-radius: 5px;
     background-color: #5b6a73aa; 
     color: #ECEFF1; 
     outline: none;
     transition: background-color 0.3s;
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
 }
 
 input:focus {
     background-color: #455A64; 
 }
-input::placeholder{
-    padding: 10px;
+
+input::placeholder {
+    padding-left: 5px;
+    color: #cfd8dc;
 }
 
+/* Submit Button */
 button {
     width: 100%;
-    padding: 10px;
+    padding: 12px; 
     border: none;
     border-radius: 5px;
     background-color: #099d1d; 
     color: #ffffff;
     cursor: pointer;
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
     transition: background-color 0.3s ease;
 }
 
@@ -62,6 +79,7 @@ button:hover {
     background-color: #0ac419; 
 }
 
+/* Popup Box */
 .popup {
     display: none;
     position: fixed;
@@ -76,6 +94,7 @@ button:hover {
     animation: slideIn 0.5s forwards;
 }
 
+/* Animation for Popup */
 @keyframes slideIn {
     from {
         transform: translateX(-50%) translateY(20px);
@@ -84,5 +103,23 @@ button:hover {
     to {
         transform: translateX(-50%) translateY(0);
         opacity: 1;
+    }
+}
+
+/* Responsive Media Query */
+@media (max-width: 600px) {
+    .contact-form-container {
+        padding: 20px; 
+        width: 90%; 
+        left: 10px; /* Adjust positioning for smaller screens */
+        top: 10px; /* Adjust positioning for smaller screens */
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    button {
+        padding: 10px; 
     }
 }
