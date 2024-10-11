@@ -7,7 +7,6 @@
 }
 /* search bar css*/
 
-
 .search-container {
     top: 10px; /* Adjust top position as needed */
     right: 10px; /* Keep it on the right side */
@@ -98,11 +97,7 @@ input[type="text"].disturbing {
 input[type="text"]:hover {
     animation: colorChange 1s infinite; /* Change color on hover */
 }
-  /* .search-container {
-    position: relative;
-    width: 100%;
-    max-width: 400px;
-  } */
+
   .suggestions {
     position: absolute;
     border: 1px solid #fff;
@@ -148,8 +143,6 @@ input[type="text"]:hover {
     animation: colorChange 3s infinite; /* Change colors every 3 seconds */
 }
 
-  
-
   #results-list {
     margin-top: 10px;
     list-style: none;
@@ -168,29 +161,28 @@ input[type="text"]:hover {
   #results-list li.active {
     display: block; /* Show the matched results */
   }
-/*   
-  @media (max-width: 768px) {
-    body {
-      padding: 10px;
-    }
-  
-    #search-bar {
-      font-size: 14px;
-    }
-  
-    #results-list li {
-      font-size: 16px;
-    }
-  } */
-  
+ 
 body {
     font-family: 'Oswald', sans-serif;
     height: 100vh;
-    background: linear-gradient(135deg, #000000, #333333);
-    animation: noise 0.2s steps(10) infinite;
-    background-size: 150% 150%;
     background-attachment: fixed;
-    /* Keep the image fixed during scrolling */
+     background: linear-gradient(-45deg, #0d00ff, #ab1fce, #fd0098, #000000);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+   
 }
 
 @keyframes noise {
@@ -232,7 +224,7 @@ body {
     font-size: 3rem;
     font-weight: 700;
     letter-spacing: 1.5px;
-    color: #b21af3;
+    color: #5d0d7e;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
     /* Subtle shadow for depth */
     text-align: center;
