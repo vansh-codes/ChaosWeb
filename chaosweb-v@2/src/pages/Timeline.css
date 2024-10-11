@@ -1,0 +1,119 @@
+.timeline {
+    width: 100%;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #000000, #333333);
+    animation: noise 0.2s steps(10) infinite;
+    font-family: Arial, sans-serif;
+    overflow-x: scroll;
+
+}
+
+.timeline-container {
+    text-align: center;
+    min-height: 100vh;
+    align-items: center;
+}
+
+.timeline {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.img-timeline {
+    height: 250px;
+    width: 230px;
+    border-radius: 8px;
+    animation: run 3s ease-in 1s infinite alternate both running;
+}
+
+.event {
+    height: 300px;
+    width: 250px;
+    position: relative;
+    background-color: #abe7e3;
+    border: 2px solid #ffffff;
+    display: flex-box;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    font-size: 1.2em;
+    cursor: pointer;
+    animation: run 2s ease-in 1s infinite alternate both running;
+    
+
+}
+
+@keyframes run {
+    0% {
+        transform: translateX(-25vw);
+        transform: t;
+    }
+
+    50% {
+        top: 50px;
+        transform: translateX(0vw);
+        transform: translateY(-10vh);
+    }
+    100% {
+        transform: translateX(25vw);
+    }
+}
+
+.h1-timeline {
+    font-family: 'Poppins', sans-serif;
+    /* Modern sans-serif font */
+    font-size: 3.5em;
+    /* Large font size */
+    color: #2c3e50;
+    /* Dark slate color */
+    text-align: center;
+    /* Center aligned */
+    padding: 15px 20px;
+    /* Padding around the text */
+    background-color: #ecf0f1;
+    /* Light gray background */
+    border-radius: 12px;
+    /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    /* Soft shadow for depth */
+    margin: 20px 0;
+    /* Margin above and below */
+    transition: transform 0.3s ease, color 0.3s ease;
+    /* Smooth transitions */
+    position: relative;
+    /* Position for pseudo-element */
+}
+
+/* Decorative line below the heading */
+.h1-timeline::after {
+    content: '';
+    display: block;
+    width: 50%;
+    /* Line width */
+    height: 4px;
+    /* Line height */
+    background-color: #3b007d;
+    /* Blue color for the line */
+    margin: 10px auto 0;
+    /* Center the line */
+    border-radius: 5px;
+    /* Rounded ends */
+}
+
+/* Hover effect for the heading */
+.h1-timeline:hover {
+    color: #79009e;
+    /* Change text color on hover */
+    transform: translateY(-3px);
+    /* Slight upward movement on hover */
+}
+
+
+/* Event hover effect */
+.event:hover {
+    transform: scale(1.05);
+    transition: all 0.5s;
+}

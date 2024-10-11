@@ -5,38 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChaosWeb - The Disorderly UI Experiment</title>
     <link rel="stylesheet" href="preloaderStyle.css">
+    <link rel="stylesheet" href="style1.css">
+
 </head>
 <body>
-    <h1 id="chaos-header">ChaosWeb - The Disorderly UI Experiment</h1>
-    
-
-    <style>
-        @keyframes wave {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        #chaos-header span {
-            display: inline-block;
-            animation: wave 1s infinite;
-        }
-
-        #chaos-header span:nth-child(odd) {
-            animation-delay: 0.1s;
-        }
-
-        #chaos-header span:nth-child(even) {
-            animation-delay: 0.2s;
-        }
-    </style>
-
-    <a href="#">Tester link</a>
-    <button>Tester button</button>
-    <input placeholder="test">
     <!-- preloader -->
     <div class="container">
         <div class="preloader">
@@ -84,9 +56,12 @@
             </div>
         </div>
     </div>
-
-    <script src="js/script.js"></script>
-    <script src="js/sound.js"></script>
-    <script src="preloader.js"></script>
+    <div class="moon1">
+        <img src="assets/moon1.png" width="650px"></img>
+    </div>
+    <div class="text">Too late to reach us.</div>
+    <div class="text">Come back during daylight.</div>
 </body>
+<script src="preloader.js"></script>
+<script src="js/night_time.js"></script>
 </html>
