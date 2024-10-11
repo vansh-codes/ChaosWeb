@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import "./contact.css";
 
 const Contact = () => {
+  const formRef = useRef(null); // Create a ref for the contact form
+
   useEffect(() => {
     // Create script elements
     const script1 = document.createElement("script");
@@ -23,8 +25,19 @@ const Contact = () => {
     };
   }, []);
 
+  // Function to stop the chaotic movement on click
+  const handleClick = () => {
+    if (formRef.current) {
+      formRef.current.style.animationPlayState = 'paused'; // Stop the animation
+    }
+  };
+
   return (
-    <div className="contact-form-container">
+    <div
+      className="contact-form-container"
+      ref={formRef} // Attach the ref here
+      onClick={handleClick} // Add click event to stop animation
+    >
       <h1>Contact Us</h1>
       <form id="contactForm">
         <div className="form-group">
