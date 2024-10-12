@@ -1,60 +1,90 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap');
-@keyframes noise {
-    0% {
-        background-position: 0 0;
-    }
-    100% {
-        background-position: 100% 100%;
-    }
-}
-
-
+/* Contact Form Container */
 .contact-form-container {
     background-color: rgba(161, 161, 161, 0.2); 
-    padding: 20px;
+    padding: 30px; 
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(162, 152, 152, 0.515); 
-    width: 320px;
+    width: 100%;
+    max-width: 400px;
     border: 2px solid rgba(255, 251, 251, 0.779); 
+    position: absolute;
+    animation: chaoticMovement 10s infinite alternate ease-in-out;
+    transition: transform 0.5s ease-in-out;
+    cursor: pointer; /* Makes it clear that the form can be clicked */
 }
 
+/* Heading Styles */
 h1 {
     text-align: center;
     color: #850dcb; 
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
 }
 
-.form-group {
-    margin-bottom: 15px;
+/* Animation for chaotic movement */
+@keyframes chaoticMovement {
+    0% { 
+        top: 10%; 
+        left: 10%;
+    }
+    25% {
+        top: 80%;
+        left: 20%;
+    }
+    50% {
+        top: 50%;
+        left: 70%;
+    }
+    75% {
+        top: 20%;
+        left: 50%;
+    }
+    100% {
+        top: 70%;
+        left: 80%;
+    }
 }
 
-input {
+/* On hover, make the form move faster */
+.contact-form-container:hover {
+    animation-duration: 0.5s; /* Moves away faster */
+}
+
+/* Input Field Styles */
+input, textarea {
     width: 100%;
-    padding: 10px 10px 10px 10px;
-    margin-left: -10px;
+    padding: 12px 15px; 
     border: none;
     border-radius: 5px;
     background-color: #5b6a73aa; 
     color: #ECEFF1; 
     outline: none;
     transition: background-color 0.3s;
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
 }
 
-input:focus {
+input:focus, textarea:focus {
     background-color: #455A64; 
 }
-input::placeholder{
-    padding: 10px;
+
+input::placeholder, textarea::placeholder {
+    padding-left: 5px;
+    color: #cfd8dc;
 }
 
+/* Submit Button */
 button {
     width: 100%;
-    padding: 10px;
+    padding: 12px; 
     border: none;
     border-radius: 5px;
     background-color: #099d1d; 
     color: #ffffff;
     cursor: pointer;
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
     transition: background-color 0.3s ease;
 }
 
@@ -62,27 +92,20 @@ button:hover {
     background-color: #0ac419; 
 }
 
-.popup {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #FFC107;
-    color: #212121;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    animation: slideIn 0.5s forwards;
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateX(-50%) translateY(20px);
-        opacity: 0;
+/* Responsive Media Query */
+@media (max-width: 600px) {
+    .contact-form-container {
+        padding: 20px;
+        width: 90%;
+        left: 10px;
+        top: 10px;
     }
-    to {
-        transform: translateX(-50%) translateY(0);
-        opacity: 1;
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    button {
+        padding: 10px;
     }
 }
