@@ -4,64 +4,141 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChaosWeb - The Disorderly UI Experiment</title>
-    <link rel="stylesheet" href="preloaderStyle.css">
-    <link rel="stylesheet" href="style1.css">
+    <style>
+        /* Common Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            transition: background-color 0.5s, color 0.5s;
+        }
 
+        .moon1 {
+            margin-top: 100px;
+            animation: fadeIn 2s ease;
+        }
+
+        .text {
+            font-size: 2em;
+            margin: 20px;
+            display: none;
+            animation: fadeIn 3s ease;
+        }
+
+        /* Button Styles */
+        .toggle-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Night Mode Styles */
+        body.night-mode {
+            background-color: #001b44;
+            color: #fff;
+        }
+
+        body.night-mode .toggle-btn {
+            background-color: #333;
+            color: #fff;
+        }
+
+        body.night-mode .moon1 img {
+            opacity: 1;
+        }
+
+        /* Day Mode Styles */
+        body.day-mode {
+            background-color: #f0f8ff;
+            color: #111;
+        }
+
+        body.day-mode .toggle-btn {
+            background-color: #ffc107;
+            color: #111;
+        }
+
+        body.day-mode .moon1 img {
+            opacity: 0.3; /* Make the moon dimmer during day */
+        }
+
+        @keyframes twinkling {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.2;
+            }
+        }
+
+        /* Smooth fade-in effect */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- preloader -->
-    <div class="container">
-        <div class="preloader">
-            <div class="preloader__wheel-wrapper">
-                <div class="preloader__wheel"><span class="preloader__content">l</span>
-                    <div class="preloader__inner-wheel"></div>
-                    <div class="preloader__second-inner-whell"></div>
-                </div>
-            </div>
-            <div class="preloader__wheel-wrapper">
-                <div class="preloader__wheel"><span class="preloader__content">o</span>
-                    <div class="preloader__inner-wheel"></div>
-                    <div class="preloader__second-inner-whell"></div>
-                </div>
-            </div>
-            <div class="preloader__wheel-wrapper">
-                <div class="preloader__wheel"><span class="preloader__content">a</span>
-                    <div class="preloader__inner-wheel"></div>
-                    <div class="preloader__second-inner-whell"></div>
-                </div>
-            </div>
-            <div class="preloader__wheel-wrapper">
-                <div class="preloader__wheel"><span class="preloader__content">d</span>
-                    <div class="preloader__inner-wheel"></div>
-                    <div class="preloader__second-inner-whell"></div>
-                </div>
-            </div>
-            <div class="preloader__wheel-wrapper">
-                <div class="preloader__wheel"><span class="preloader__content">i</span>
-                    <div class="preloader__inner-wheel"></div>
-                    <div class="preloader__second-inner-whell"></div>
-                </div>
-            </div>
-            <div class="preloader__wheel-wrapper">
-                <div class="preloader__wheel"><span class="preloader__content">n</span>
-                    <div class="preloader__inner-wheel"></div>
-                    <div class="preloader__second-inner-whell"></div>
-                </div>
-            </div>
-            <div class="preloader__wheel-wrapper">
-                <div class="preloader__wheel"><span class="preloader__content">g</span>
-                    <div class="preloader__inner-wheel"></div>
-                    <div class="preloader__second-inner-whell"></div>
-                </div>
-            </div>
-        </div>
+
+    <!-- Toggle Day/Night Button -->
+    <button id="toggleMode" class="toggle-btn">Switch to Day Mode</button>
+
+
+
+    <!-- Main Content Section -->
+    <div class="moon1" id="section-3">
+        <img src="assets/moon1.png" width="650px" alt="Moon">
     </div>
-    <div class="moon1">
-        <img src="assets/moon1.png" width="650px"></img>
-    </div>
-    <div class="text">Too late to reach us.</div>
-    <div class="text">Come back during daylight.</div>
+    <div class="text">Hello contributor's </div>
+    <div class="text">Choose Your Mood Theme..</div>
+
+    <!-- Cute Footer for Night Mode -->
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleButton = document.getElementById('toggleMode');
+            const bodyElement = document.body;
+
+            // Check current mode and set text accordingly
+            function updateButtonText() {
+                if (bodyElement.classList.contains('day-mode')) {
+                    toggleButton.textContent = 'Switch to Night Mode';
+                } else {
+                    toggleButton.textContent = 'Switch to Day Mode';
+                }
+            }
+
+            // Toggle between day and night mode
+            toggleButton.addEventListener('click', function () {
+                bodyElement.classList.toggle('day-mode');
+                bodyElement.classList.toggle('night-mode');
+                updateButtonText();
+            });
+
+            // Set default mode based on time
+            const hours = new Date().getHours();
+            if (hours >= 7 && hours <= 19) {
+                bodyElement.classList.add('day-mode');
+            } else {
+                bodyElement.classList.add('night-mode');
+            }
+
+            updateButtonText();
+        });
+    </script>
 </body>
-<script src="preloader.js"></script>
-<script src="js/night_time.js"></script>
 </html>

@@ -6,29 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChaosWeb - The Disorderly UI Experiment</title>
     <link rel="stylesheet" href="preloaderStyle.css">
-
     <style>
         body {
             background: #000;
             text-align: center;
             align-items: center;
+            overflow: hidden;
+            transition: background 0.5s, color 0.5s;
         }
 
         @keyframes wave {
             0% {
                 transform: translateY(0);
-                
             }
-            25%{
+
+            25% {
                 background: #d5fa01;
                 color: #000;
             }
+
             50% {
                 transform: translateY(-10px);
                 background: #00076e;
                 color: white;
             }
-            100%{
+
+            100% {
                 background: #35fc3c;
                 transform: scale(1.03);
                 color: #050051;
@@ -111,6 +114,30 @@
             font-weight: 600;
             animation: wave 1s infinite;
         }
+
+        #toggleThemeBtn {
+            padding: 10px 20px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        #toggleThemeBtn:hover {
+            background-color: #e64a19;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #tester_section {
+                width: 90%;
+                margin-left: 5%;
+            }
+        }
     </style>
 </head>
 
@@ -118,8 +145,10 @@
     <h1 id="chaos-header">ChaosWeb - The Disorderly UI Experiment</h1>
     <div id="tester_section">
         <a id="testLink" href="#">Tester link</a>
-        <p><input id="testBox" type="text" placeholder="test"></p>
-        <button id="testBtn">Tester</button>
+        <p><input id="testBox" type="text" placeholder="Enter something..."></p>
+        <button id="testBtn">Show Link</button>
+        <button id="toggleThemeBtn">Toggle Dark/Light Theme</button>
+        <p id="userInputMessage"></p>
     </div>
     <!-- preloader -->
     <div class="container">
@@ -172,6 +201,42 @@
     <script src="js/script.js"></script>
     <script src="js/sound.js"></script>
     <script src="preloader.js"></script>
+    <script>
+        // Toggle Dark/Light Theme
+        const toggleThemeBtn = document.getElementById("toggleThemeBtn");
+        toggleThemeBtn.addEventListener("click", function() {
+            const body = document.body;
+            body.classList.toggle("dark-theme");
+            if (body.classList.contains("dark-theme")) {
+                body.style.background = "#111";
+                body.style.color = "#fff";
+                toggleThemeBtn.innerText = "Switch to Light Theme";
+            } else {
+                body.style.background = "#fff";
+                body.style.color = "#000";
+                toggleThemeBtn.innerText = "Switch to Dark Theme";
+            }
+        });
+
+        // Show Link Functionality
+        const testBtn = document.getElementById("testBtn");
+        const testLink = document.getElementById("testLink");
+        const testBox = document.getElementById("testBox");
+        const userInputMessage = document.getElementById("userInputMessage");
+
+        testBtn.addEventListener("click", function() {
+            const userInput = testBox.value.trim();
+            if (userInput) {
+                testLink.style.visibility = "visible";
+                testLink.innerText = "Link based on input: " + userInput;
+                testLink.href = "#" + userInput; // Example of using user input
+                userInputMessage.innerText = "You entered: " + userInput;
+            } else {
+                testLink.style.visibility = "hidden";
+                userInputMessage.innerText = "";
+            }
+        });
+    </script>
 </body>
 
 </html>

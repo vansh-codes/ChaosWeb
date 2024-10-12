@@ -6,4 +6,5 @@ function redirectBasedOnTime() {
         } else {
              window.location.href = "ContactUs.html";    
             }
+            
 }
