@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
 import "./navbar.css";
-import logo from "../assets/logo/ChaosWeb.svg";
+import logo from "../assets/logo/logo.png";
 
 const Navbar = () => {
   const navigate = useNavigate(); // Initialize navigate hook

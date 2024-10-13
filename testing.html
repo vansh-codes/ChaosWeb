@@ -1,28 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChaosWeb - The Disorderly UI Experiment</title>
     <link rel="stylesheet" href="preloaderStyle.css">
-</head>
-<body>
-    <h1 id="chaos-header">ChaosWeb - The Disorderly UI Experiment</h1>
-    
 
     <style>
+        body {
+            background: #000;
+            text-align: center;
+            align-items: center;
+        }
+
         @keyframes wave {
-            0%, 100% {
+            0% {
                 transform: translateY(0);
+                
+            }
+            25%{
+                background: #d5fa01;
+                color: #000;
             }
             50% {
                 transform: translateY(-10px);
+                background: #00076e;
+                color: white;
+            }
+            100%{
+                background: #35fc3c;
+                transform: scale(1.03);
+                color: #050051;
+            }
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translate(15%, 15%) rotate(0deg);
+            }
+
+            25% {
+                transform: translate(15%, 15%) rotate(-10deg);
+            }
+
+            50% {
+                transform: translate(15%, 15%) rotate(50deg);
+                transform: scale(1.2);
+            }
+
+            75% {
+                transform: translate(15%, 15%) rotate(-5deg);
+            }
+
+            100% {
+                transform: translate(15%, 15%) rotate(360deg);
             }
         }
 
         #chaos-header span {
             display: inline-block;
             animation: wave 1s infinite;
+            color: rgb(246, 255, 0);
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 70px;
+            padding: 5px;
+            border-radius: 5px;
         }
 
         #chaos-header span:nth-child(odd) {
@@ -32,11 +76,51 @@
         #chaos-header span:nth-child(even) {
             animation-delay: 0.2s;
         }
-    </style>
 
-    <a href="#">Tester link</a>
-    <button>Tester button</button>
-    <input placeholder="test">
+        #tester_section {
+            width: 500px;
+            margin-left: 25%;
+            align-items: center;
+        }
+
+        #testLink {
+            visibility: hidden;
+        }
+
+        #testBox {
+            padding: 15px;
+            background: #00f7ff;
+            border: 2px solid aqua;
+            border-radius: 10px;
+            color: #1100ff;
+            font-weight: 500;
+            font-size: 24px;
+            animation: shake 1.5s infinite alternate;
+            width: 80%;
+            margin-bottom: 75px;
+        }
+
+        #testBtn {
+            padding: 15px;
+            background: #2bfffb;
+            color: #0008ff;
+            border-radius: 10px;
+            border: none;
+            margin-left: 25%;
+            font-size: 24px;
+            font-weight: 600;
+            animation: wave 1s infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="chaos-header">ChaosWeb - The Disorderly UI Experiment</h1>
+    <div id="tester_section">
+        <a id="testLink" href="#">Tester link</a>
+        <p><input id="testBox" type="text" placeholder="test"></p>
+        <button id="testBtn">Tester</button>
+    </div>
     <!-- preloader -->
     <div class="container">
         <div class="preloader">
@@ -89,4 +173,5 @@
     <script src="js/sound.js"></script>
     <script src="preloader.js"></script>
 </body>
+
 </html>

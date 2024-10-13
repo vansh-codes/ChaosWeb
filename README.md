@@ -121,3 +121,15 @@ Show some ❤️ by ⭐ the repository!
 
 ### License
 This project is licensed under the MIT License.
+
+<div>
+  <h2><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f497/512.webp" width="35" height="35"> Contributors</h2>
+</div>
+
+Thank you for contributing to our project! Your help is greatly appreciated in making BasicNative even better. 😊
+
+<center>
+<a href="https://github.com/vansh-codes/ChaosWeb/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=vansh-codes/ChaosWeb" />
+</a>
+</center>
