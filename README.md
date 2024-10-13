@@ -1,17 +1,30 @@
-# ChaosWeb: The Disorderly UI Experiment
+# 😵‍💫🌀ChaosWeb: The Disorderly UI Experiment
 
 
 Welcome to **ChaosWeb** — a web design experiment where nothing behaves as it should, and everything is delightfully out of order! If you’re tired of the conventional and predictable nature of websites, **ChaosWeb** offers a creative break from the norm with unpredictable navigation, bizarre sliders, and a world where scrolling defies gravity.
-<div align="center">
-   
-<img src="https://github.com/user-attachments/assets/c25c833c-86ee-452c-b263-c015919d2e85" height=200  width=200 alt="ChaosWeb"/>
-</div>
 
+   
+<img src="https://github.com/user-attachments/assets/97e1f5c1-a235-4d91-b17d-8ba30d610b50" height=200  width=300 alt="ChaosWeb"/>
+
+
+ <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+ 
 ## 🚀 What is ChaosWeb?
+
+
+   
+<img src="https://github.com/user-attachments/assets/6e2e9576-adec-4755-8dc7-89879defe43e" height=200  width=300 alt="ChaosWeb"/>
+
 
 **ChaosWeb** is a quirky and deliberately chaotic HTML, CSS, and JavaScript website project designed to challenge the norms of web design. It’s a place where everything is intentionally messy and unpredictable. The goal isn’t usability, but rather to create an anti-UI experience that’s confusing, frustrating, yet strangely fun to explore.
 
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+
+
 ## 🤯 Example Features of the Chaos:
+
+<img src="https://github.com/user-attachments/assets/d9a07d64-bb66-466d-b908-bde4d6ab79e2" height=200  width=300 alt="ChaosWeb"/>
+
 
 - **Unreliable Navbar:** Click on a menu item, and watch as a completely unrelated dropdown opens up.
 - **Reverse Scrolling:** Scroll vertically to see horizontal movement, and horizontally to scroll vertically. Nothing is as it seems!
@@ -22,11 +35,23 @@ Welcome to **ChaosWeb** — a web design experiment where nothing behaves as it 
 - **Misleading Animations:** Hover effects and animations that lead your cursor astray.
 - **Hidden Secrets:** Easter eggs of disorder await the most curious adventurers.
 
+  <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+  
+
 ## 🤹‍♂️ The Experience
+
+<img src="https://github.com/user-attachments/assets/c1b8c97a-fbed-41ee-a7ec-20b55c554291" height=200  width=300 alt="ChaosWeb"/>
+
 
 ChaosWeb is not about smooth navigation or polished interfaces. It’s about creating a chaotic user journey full of surprises, designed to subvert your expectations. Users will find themselves laughing, confused, and maybe even a bit annoyed, as they explore the mess.
 
+ <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+
+ 
 ## 💪 Outreach
+
+<img src="https://github.com/user-attachments/assets/7702b9b7-4398-4de7-a8f1-31bf62dca311" height=200  width=300 alt="ChaosWeb"/>
+
 
 ChaosWeb is proudly part of global initiatives engaging with passionate developers and open-source enthusiasts worldwide:
 
@@ -53,24 +78,40 @@ ChaosWeb is proudly part of global initiatives engaging with passionate develope
   </tr>
 </table>
 
-### Live Preview:
-**[Live Demo](https://chaosweb.vercel.app/)**
+  <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+  
+## 💥Live Preview:
+**[Chaos web🚀](https://chaosweb.vercel.app/)**
 
----
 
+ <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+
+ 
 ## 🛠️ Tech Stack
+
+<img src="https://github.com/user-attachments/assets/94ddf790-355c-4d53-a18c-1da8fd4e86e8" height=200  width=300 alt="ChaosWeb"/>
+
 - **REACT**: Use React for Chaos
 - **HTML**: The foundation of the chaos.
 - **CSS**: Styles that never behave as you’d expect.
 - **JavaScript**: Bringing the madness to life with unpredictable interactions.
 
+  <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+
 ## 🎯 Purpose
 
+ <img src="https://github.com/user-attachments/assets/901fe5f6-5a9a-4da4-9ae2-c4b9c143a39a" height=200  width=300 alt="ChaosWeb"/>
+
+ 
 This project serves as an exploration of **anti-user experience (anti-UX)** and the deliberate breakage of web design rules. It's a playground for developers to experiment with unusual UI/UX patterns, break away from the ordinary, and perhaps learn something new by going against the grain.
 
----
 
+ <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+
+ 
 ## 🧪 How to Install & Run
+
+ <img src="https://github.com/user-attachments/assets/6c639003-5011-405c-950a-785200be935d" height=200  width=300 alt="ChaosWeb"/>
 
 1. **Clone the Repository**:
    ```bash
@@ -81,50 +122,80 @@ This project serves as an exploration of **anti-user experience (anti-UX)** and 
    ```bash
    cd ChaosWeb
    cd chaosweb-v@2
-   ```
+
 
 3. **Open in Browser**:
    Run `npm run dev` in your preferred web browser and enjoy the chaos!
 
----
+
+
+ <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+ 
+
 
 ## 🚧 Future Features
 
+ <img src="https://github.com/user-attachments/assets/29e5e302-d215-4312-81dc-b5ddaad94cdc" height=200  width=300 alt="ChaosWeb"/>
+ 
 - **Randomized Element Movement**: Elements that float, drift, and change positions as you scroll.
 - **Inverted Controls**: Buttons that do the opposite of what you think they will.
 - **Mystery Popups**: Popups that appear and disappear at random, leaving users puzzled.
 - **More Easter Eggs**: Add hidden interactions that will reward curious users.
 
----
+ <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+ 
+
 
 ## 🤝 Contributing
+
+ <img src="https://github.com/user-attachments/assets/38882eb1-cac3-41b5-90d2-acf08efbd549" height=200  width=300 alt="ChaosWeb"/>
+ 
 
 If you have ideas to make ChaosWeb even more chaotic, feel free to cerate an issue, fork the repo and submit a pull request! Let’s make the internet messy together.
 Create issue: [new issue](https://github.com/vansh-codes/ChaosWeb/issues/new/choose)
 Create pull request: [new pull request](https://github.com/vansh-codes/ChaosWeb/compare)
 
+ <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+ 
+
+
 ## ❓ Have Doubts
 
-Raise discussion here: [raise a discussion](https://github.com/vansh-codes/ChaosWeb/discussions)
----
+  <img src="https://github.com/user-attachments/assets/761e4b39-8eab-4ef4-a3d9-b575e05a465b" height=200  width=300 alt="ChaosWeb"/>
+  
+### 🙋‍♂️Raise discussion here: [raise a discussion](https://github.com/vansh-codes/ChaosWeb/discussions)
+
+ <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+ 
 
 ## 🔥 Why Build This?
 
+<img src="https://github.com/user-attachments/assets/2ec096cf-b881-4c43-8727-18a332bc86ff" height=200  width=300 alt="ChaosWeb"/>
+
 Because sometimes, breaking the rules is fun. **ChaosWeb** is a way to shake off the constraints of traditional web design and embrace the joy of unpredictability. If you’re a developer looking to play around with unconventional ideas, this is the perfect sandbox for you.
 
----
+
+
 
 **Have fun exploring the chaos of the web!**
 Show some ❤️ by ⭐ the repository!
 
----
+ <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+ 
 
-### License
+### 📜License
 This project is licensed under the MIT License.
+
+
+ <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
 <div>
   <h2><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f497/512.webp" width="35" height="35"> Contributors</h2>
 </div>
+
+
+<img src="https://github.com/user-attachments/assets/f5b5e64a-a16e-4303-82d8-c9215026f37a" height=200  width=300 alt="ChaosWeb"/>
+
 
 Thank you for contributing to our project! Your help is greatly appreciated in making BasicNative even better. 😊
 
@@ -133,3 +204,6 @@ Thank you for contributing to our project! Your help is greatly appreciated in m
   <img src="https://contrib.rocks/image?repo=vansh-codes/ChaosWeb" />
 </a>
 </center>
+
+ <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+ 
