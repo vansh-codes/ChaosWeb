@@ -212,23 +212,23 @@ input[type="text"].disturbing {
 }
 
 @keyframes colorChange {
-    0% { background-color: #FF5733; }   
-    10% { background-color: #33FF57; }   
-    20% { background-color: #3357FF; }   
-    30% { background-color: #F3FF33; } 
-    40% { background-color: #FF33A1; }  
-    50% { background-color: #8E44AD; }   
-    60% { background-color: #F39C12; }   
-    70% { background-color: #D35400; }   
-    80% { background-color: #1ABC9C; }   
-    90% { background-color: #3498DB; }   
-    100% { background-color: #FF5733; }   
+    0% { background-color: #FF5733; }
+    10% { background-color: #33FF57; }
+    20% { background-color: #3357FF; }
+    30% { background-color: #F3FF33; }
+    40% { background-color: #FF33A1; }
+    50% { background-color: #8E44AD; }
+    60% { background-color: #F39C12; }
+    70% { background-color: #D35400; }
+    80% { background-color: #1ABC9C; }
+    90% { background-color: #3498DB; }
+    100% { background-color: #FF5733; }
 }
 input[type="text"]:hover {
     animation: colorChange 1s infinite; /* Change color on hover */
 }
 
-  .suggestions {
+.suggestions {
     position: absolute;
     border: 1px solid #fff;
     background-color: rgba(255, 255, 255, 0.9);
@@ -275,8 +275,8 @@ input[type="text"]:hover {
 #results-list {
     margin-top: 10px;
     list-style: none;
-  }
-  #results-list li {
+}
+#results-list li {
     padding: 10px;
     background-color: #fff;
     border: 1px solid #ccc;
@@ -284,19 +284,18 @@ input[type="text"]:hover {
     margin-bottom: 5px;
     font-size: 18px;
     display: none; /* Hide by default */
-  }
+}
 #results-list li.active {
     display: block; /* Show the matched results */
-  }
- 
-body {
+}
+body
+{
     font-family: 'Oswald', sans-serif;
     height: 100vh;
     background-attachment: fixed;
     background: linear-gradient(-45deg, #010108, #26142b, #3d0125, #000000);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
-	#000000
 }
 
 @keyframes gradient {
@@ -309,7 +308,6 @@ body {
 	100% {
 		background-position: 0% 50%;
 	}
-   
 }
 
 @keyframes noise {
