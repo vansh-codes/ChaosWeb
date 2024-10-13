@@ -37,18 +37,25 @@ body {
         transform: translateY(-10px);
     }
 }
-
-.nav{
+.nav {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 20px;
 }
 
-.nav > img {
+.nav>img {
     margin: 30px 0 0 0;
-    border: 1px solid red;
-    height: 190px;
-    width: 190px;
+    border-radius: 50%;
+    height: 170px;
+    width: 170px;
+    box-shadow: 0px 1px 10px skyblue, 0px 1px 20px skyblue;    
+    transition-duration: 0.4s;
+}
+
+#chaos-logo:hover{
+    transform: scale(1.05);
+    transition-duration: 0.2s;
 }
 
 #chaos-header {
@@ -60,6 +67,7 @@ body {
     /* Subtle shadow for depth */
     text-align: center;
     margin: 30px 0;
+    margin-left: 40px;
 }
 
 #chaos-header span {

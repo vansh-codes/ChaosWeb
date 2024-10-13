@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate for naviga
 import "./navbar.css";
 import logo from "../assets/logo/ChaosWeb.svg";
 import Popup from "/src/components/popup"; // Import Popup component
+import logo from "../assets/logo/logo.png";
 
 const Navbar = () => {
   const [showPopup, setShowPopup] = useState(false); // State to control popup visibility
