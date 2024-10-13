@@ -10,7 +10,20 @@
 <link rel="shortcut icon" href="./assets/logo/favicon.ico" type="image/x-icon">
 
 </head>
-<body>
+<body style="z-index: 1;">
+    <!--ading squares in background-->
+    <ul class="bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
     <!--ALL SVGs taken from https://undraw.co/-->
 <!-- preloader -->
     <div class="container">
@@ -59,13 +72,24 @@
             </div>
         </div>
     </div>
+    <div style="display: flex;">
+    <img src="./assets/logo/chaosweb_topborder-removebg.png" alt="top-border">
+    <img src="./assets/logo/chaosweb_topborder-removebg.png" alt="top-border">
+    </div>
     <nav class="nav">
-        <img src="./assets/logo/ChaosWeb.jpg" alt="ChaosWeb Logo" id="chaos-logo">
-        <h1 id="chaos-header">ChaosWeb - The Disorderly UI Experiment</h1>
+        <center>
         <div class="search-container">
+            <img style=" width:15%; height: 15%;" src="./assets/logo/ChaosWeb.jpg" alt="ChaosWeb Logo" id="chaos-logo">
+            <h1>
+                <span style="font-size: 80px; color: yellow;">ChaosWeb</span>
+                <span style="font-size: 50px; color: rgb(255, 114, 255);"> - The</span>
+                <span style="font-size: 80px; color: yellowgreen; " > Disorderly</span>
+                <span style="font-size: 30px; color:aqua"> UI</span>
+                <span style="font-size: 60px; color:rgb(255, 88, 11)"> Experiment</span>
+            </h1>
             <input type="text" id="search-bar" placeholder="Search Animals..." oninput="playAnimalSound(); showSuggestions()">
             <div id="suggestions" class="suggestions-container"></div>
-        </div>
+        </div></center>
         <audio id="elephant" src="sfx/tiger.mp3"></audio>
         <audio id="tiger" src="sfx/rooster.mp3"></audio>
         <audio id="cat" src="sfx/elephant1.mp3"></audio>
