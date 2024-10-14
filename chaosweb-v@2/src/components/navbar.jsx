@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
 import "./navbar.css";
 import logo from "../assets/logo/ChaosWeb.svg";
-
+import InvertColorToggle from "./InvertColorToggle";
 const Navbar = () => {
   const navigate = useNavigate(); // Initialize navigate hook
 
@@ -582,6 +582,9 @@ const Navbar = () => {
             </svg>
           <span>Testing</span>
         </div>
+        <div className="nav-item">
+            <InvertColorToggle />
+          </div>
         <div
           className="nav-item"
           id="timeline"
