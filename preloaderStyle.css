@@ -10,8 +10,13 @@
 }
 ::-webkit-scrollbar-thumb{
     background-color:#b21af3 ;
-    border-radius: 10vw;
+    border-radius: 1em;
+	transition: background-color 0.3s ease;
+	height: 40%;
 } 
+::-webkit-scrollbar-thumb:hover {
+    background-color: #d296e8; 
+}
 @supports (scrollbar-color:#b21af3){
     *{
         scrollbar-color:#b21af3;
