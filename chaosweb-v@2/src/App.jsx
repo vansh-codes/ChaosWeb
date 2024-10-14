@@ -4,7 +4,7 @@ import Home from "./pages/home";
 import Contact from "./pages/contact";
 import Timeline from "./pages/timeline";
 import HypnoticChaos from "./pages/HypnoticChaos";
-
+import Review from "./pages/Review";
 
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/review" element={<Review />} />
         <Route path="/timeline" element={<Timeline />} />
         <Route path="/hypnotic" element={<HypnoticChaos />} />
       </Routes>
