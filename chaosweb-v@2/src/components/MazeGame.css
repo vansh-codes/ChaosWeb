@@ -1,0 +1,90 @@
+
+.maze {
+    text-align: center;         
+    position: relative;         
+    overflow: hidden;          
+    padding-top: 70px;         
+  }
+  
+  .maze-heading {
+    display: inline-block;      
+    transition: all 0.3s ease; 
+    position: absolute;         
+    top: 0;                    
+    left: 50%;                  
+    transform: translateX(-50%);
+    margin-bottom: 500%;
+    font-size: 100%;
+  }
+.maze-grid {
+    display: inline-block;
+    margin: 20px 0;
+}
+
+.maze-row {
+    display: flex;
+}
+
+.maze-cell {
+    width: 40px;  
+    height: 40px; 
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    transition: background-color 0.3s; 
+}
+
+/* Styles for walls */
+.wall {
+    background-color: #000000; /* Black for walls */
+}
+
+/* Styles for player */
+.player {
+    background-color: #ff0000; /* Red for player */
+}
+
+/* Styles for start point */
+.start {
+    background-color: #00ff00; /* Green for start */
+    border: 2px solid #004d00; /* Darker green border for visibility */
+    box-shadow: 0 0 10px #00ff00; /* Glow effect */
+}
+
+/* Styles for end point */
+.end {
+    background-color: #0000ff; /* Blue for end */
+    border: 2px solid #000099; /* Darker blue border for visibility */
+    box-shadow: 0 0 10px #0000ff; /* Glow effect */
+}
+
+/* Styles for the game over message */
+.game-over {
+    color: green;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+/* Animation for the heading */
+h2 {
+    animation: colorChange 0.5s linear infinite; /* Faster color change */
+    transition: font-size 0.5s, top 0.5s, left 0.5s; /* Smooth transition for size, and position */
+    position: absolute; /* Position for pseudo-element */
+}
+
+/* Define keyframes for color change */
+@keyframes colorChange {
+    0% { color: red; }
+    25% { color: orange; }
+    50% { color: yellow; }
+    75% { color: green; }
+    100% { color: blue; }
+}
+
+/* Optional: You can add a position animation for more dynamic movement */
+@keyframes moveHeading {
+    0% { top: 0; left: 0; }
+    25% { top: 10px; left: 10px; }
+    50% { top: 0; left: 20px; }
+    75% { top: -10px; left: 10px; }
+    100% { top: 0; left: 0; }
+}
