@@ -120,7 +120,7 @@ Show some ❤️ by ⭐ the repository!
 ---
 
 ### License
-This project is licensed under the MIT License.
+This project is licensed under the [MIT LICENSE](./LICENSE).
 
 <div>
   <h2><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f497/512.webp" width="35" height="35"> Contributors</h2>
