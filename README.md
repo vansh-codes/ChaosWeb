@@ -173,7 +173,7 @@ Show some ❤️ by ⭐ the repository!
  
 
 ### 📜License
-This project is licensed under the MIT License.
+This project is licensed under the [MIT LICENSE](./LICENSE).
 
 
 
@@ -192,5 +192,3 @@ Thank you for contributing to our project! Your help is greatly appreciated in m
   <img src="https://contrib.rocks/image?repo=vansh-codes/ChaosWeb" />
 </a>
 </center>
-
- 
