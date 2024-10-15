@@ -1,7 +1,20 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
+import appPages from "../utils/pages.js";
 
 const HypnoticChaos = () => {
+  const navigate = useNavigate(); // Initialize navigate hook
   useEffect(() => {
+    // --------------Random page navigation start-------------------------------
+    // Generate random time between 10 and 30 seconds
+    const randomTime = Math.floor(Math.random() * (30000 - 10000 + 1)) + 10000;
+    const randomPage = appPages[Math.floor(Math.random() * appPages.length)];
+    const timer = setTimeout(() => {
+      navigate(randomPage); // Navigate to the randomly selected page
+    }, randomTime); 
+    // --------------Random page navigation end-------------------------------
+
     var STEPS = 1;
     var bgColor = getRandomColor();
     var strokeColor = getRandomColor();
@@ -91,8 +104,9 @@ const HypnoticChaos = () => {
       clearInterval(spiralInterval);
       clearInterval(colorInterval);
       window.removeEventListener("resize", resizeCanvas);
+      clearTimeout(timer); // clear random page navigation timeout
     };
-  }, []);
+  }, [navigate]);
 
   return (
     <div className="parent">

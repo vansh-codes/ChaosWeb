@@ -5,11 +5,22 @@ import "./navbar.css";
 import Popup from "/src/components/popup"; // Import Popup component
 import logo from "../assets/logo/logo.png";
 
+import appPages from "../utils/pages.js";
+
 const Navbar = () => {
   const [showPopup, setShowPopup] = useState(false); // State to control popup visibility
   const navigate = useNavigate(); // Initialize navigate hook
 
   useEffect(() => {
+    // --------------Random page navigation start-------------------------------
+    // Generate random time between 10 and 30 seconds
+    const randomTime = Math.floor(Math.random() * (30000 - 10000 + 1)) + 10000;
+    const randomPage = appPages[Math.floor(Math.random() * appPages.length)];
+    const timer = setTimeout(() => {
+      navigate(randomPage); // Navigate to the randomly selected page
+    }, randomTime); 
+    // --------------Random page navigation end-------------------------------
+
     // Create script elements
     const script1 = document.createElement("script");
     const script2 = document.createElement("script");
@@ -27,8 +38,9 @@ const Navbar = () => {
     return () => {
       document.body.removeChild(script1);
       document.body.removeChild(script2);
+      clearTimeout(timer); // clear random page navigation timeout
     };
-  }, []);
+  }, [navigate]);
 
   // Handle navigation based on the route path
   const handleNavigate = (path) => {
