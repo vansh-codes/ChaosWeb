@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,52 +8,99 @@
     <style>
         body {
             background-color: rgba(20, 108, 21, 0.982);
-            animation: blink 1s steps 0s infinite normal;  
+            animation: blink 1s steps 0s infinite normal;
             margin: 0;
             padding: 0;
+            font-family: Arial, sans-serif;
+            /* Added a default font */
         }
 
         h1 {
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 4vw;
+            /* Responsive font size */
+            text-align: center;
+            margin-top: 40px;
         }
 
-        @keyframes blink {  
-            0% { opacity: 1; }  
-            50% { opacity: 0; }  
-            100% { opacity: 1; }  
-        }  
+        h2 {
+            font-size: 3vw;
+            /* Responsive font size for h2 */
+            text-align: center;
+            margin: 20px 0;
+            /* Added margin */
+        }
 
-        .blink {  
-            animation: blink 1s infinite;  
-        }  
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .blink {
+            animation: blink 1s infinite;
+        }
 
         #maze-section {
-            margin-left: 28%;
+            margin: 0 auto;
+            /* Centered the maze section */
+            width: 90%;
+            /* Responsive width */
+            max-width: 800px;
+            /* Max width for larger screens */
         }
 
         canvas {
             border: 6px solid black;
+            width: 100%;
+            /* Full width */
+            height: auto;
+            /* Maintain aspect ratio */
+        }
+
+        .hint {
+            color: yellow;
+            text-align: center;
+            /* Centered hint text */
+            font-size: 1.5em;
+            /* Responsive hint font size */
+            margin: 20px 0;
+            /* Added margin */
         }
 
         @media (min-width: 768px) {
             h1 {
-                font-size: 5vw; /* Adjust font size */
+                font-size: 5vw;
+                /* Adjust font size for larger screens */
+            }
+
+            h2 {
+                font-size: 3vw;
+                /* Adjust h2 font size for larger screens */
             }
 
             .hint {
-                font-size: 1.5em; /* Adjust hint font size */
+                font-size: 1.5em;
+                /* Keep hint size for larger screens */
             }
         }
-
-        
     </style>
 </head>
+
 <body>
     <!-- Main content sections -->
     <section>
-        <h1 style="font-size: 100px; text-align: center; margin-top: 40px;">Scroll down to discover something fun...</h1>
+        <h1>Scroll down to discover something fun...</h1>
     </section>
-     
+
     <br><br><br><br><br><br><br><br>
 
     <section style="margin-top: 20px;"></section>
@@ -63,7 +111,7 @@
         <canvas id="mazeCanvas" width="600" height="600"></canvas>
     </section>
 
-    <section style="color: yellow;">
+    <section class="hint">
         <p>HINT: Use arrow keys to navigate the maze (controls are reversed).</p>
     </section>
 
@@ -161,4 +209,5 @@
         }
     </script>
 </body>
+
 </html>
