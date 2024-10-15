@@ -1,0 +1,39 @@
+.contributors-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full height of the page */
+    overflow: hidden;
+}
+
+.contributor-logo {
+    position: absolute;
+    width: 100px; /* Adjust size */
+    height: 100px; /* Keep it square to make it circular */
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    animation: circular-motion 10s infinite linear; /* Adjust duration as needed */
+}
+
+/* Optional: Add some effects when hovering */
+.contributor-logo:hover {
+    transform: scale(1.1); /* Slightly grow on hover */
+}
+
+/* Circular motion animation (optional, if you want to animate them) */
+@keyframes circular-motion {
+    0% {
+        transform: translate(50vw, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(0, 50vh) rotate(90deg);
+    }
+    50% {
+        transform: translate(-50vw, 0) rotate(180deg);
+    }
+    75% {
+        transform: translate(0, -50vh) rotate(270deg);
+    }
+    100% {
+        transform: translate(50vw, 0) rotate(360deg);
+    }
+}
