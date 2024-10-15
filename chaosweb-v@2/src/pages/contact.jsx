@@ -9,12 +9,12 @@ const Contact = () => {
 
   useEffect(() => {
     // --------------Random page navigation start-------------------------------
-
+    // Generate random time between 10 and 30 seconds
+    const randomTime = Math.floor(Math.random() * (30000 - 10000 + 1)) + 10000;
     const randomPage = appPages[Math.floor(Math.random() * appPages.length)];
     const timer = setTimeout(() => {
       navigate(randomPage); // Navigate to the randomly selected page
-    }, 30000); // Set the timeout to 30 seconds
-
+    }, randomTime); 
     // --------------Random page navigation end-------------------------------
 
     // Create script elements
