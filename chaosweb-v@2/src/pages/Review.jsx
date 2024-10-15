@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
 
+import appPages from "../utils/pages.js";
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./review.css";
@@ -13,12 +15,19 @@ import img5 from "../assets/girl2.jpeg";
 const Review = () => {
   const navigate = useNavigate(); // Initialize navigate hook
   useEffect(() => {
-    // Auto page redirect or navigate after a particular seconds
-    setTimeout(() => {
-      // Set the timeout
-      navigate("/timeline");
-    }, 30000);
-  }, []);
+    // --------------Random page navigation start-------------------------------
+
+    const randomPage = appPages[Math.floor(Math.random() * appPages.length)];
+    const timer = setTimeout(() => {
+      navigate(randomPage); // Navigate to the randomly selected page
+    }, 30000); // Set the timeout to 30 seconds
+
+    // --------------Random page navigation end-------------------------------
+
+    return () => {
+      clearTimeout(timer); // clear random page navigation timeout
+    };
+  }, [navigate]);
   const reviews = [
     {
       id: 1,

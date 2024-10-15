@@ -1,15 +1,21 @@
 import React, { useEffect } from "react";
-import "./Timeline.css";
 import { useNavigate } from "react-router-dom";
+
+import appPages from "../utils/pages.js";
+import "./Timeline.css";
 
 const Timeline = () => {
   const navigate = useNavigate(); // Initialize navigate hook
   useEffect(() => {
+    // --------------Random page navigation start-------------------------------
 
-    setTimeout(() => {
-      // Set the timeout
-      navigate("/hypnotic");
-    }, 30000);
+    const randomPage = appPages[Math.floor(Math.random() * appPages.length)];
+    const timer = setTimeout(() => {
+      navigate(randomPage); // Navigate to the randomly selected page
+    }, 30000); // Set the timeout to 30 seconds
+
+    // --------------Random page navigation end-------------------------------
+
     const events = document.querySelectorAll(".event");
     const positions = []; // Store positions to check for overlaps
 
@@ -48,7 +54,11 @@ const Timeline = () => {
         positions.push([randomX, randomY]); // Store the position
       }, index * 1000); // Delay each event's movement by 1 second for a staggered effect
     });
-  }, []);
+
+    return () => {
+      clearTimeout(timer); // clear random page navigation timeout
+    };
+  }, [navigate]);
 
   return (
     <div className="timeline">

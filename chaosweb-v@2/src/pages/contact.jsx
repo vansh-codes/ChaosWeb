@@ -1,17 +1,21 @@
 import React, { useEffect, useRef } from "react";
 import "./contact.css";
 import { useNavigate } from "react-router-dom";
+import appPages from "../utils/pages.js";
 
 const Contact = () => {
   const navigate = useNavigate(); // Initialize navigate hook
   const formRef = useRef(null); // Create a ref for the contact form
 
   useEffect(() => {
-    // Auto page redirect or navigate after a particular seconds
-    setTimeout(() => {
-      // Set the timeout
-      navigate("/review");
-    }, 30000);
+    // --------------Random page navigation start-------------------------------
+
+    const randomPage = appPages[Math.floor(Math.random() * appPages.length)];
+    const timer = setTimeout(() => {
+      navigate(randomPage); // Navigate to the randomly selected page
+    }, 30000); // Set the timeout to 30 seconds
+
+    // --------------Random page navigation end-------------------------------
 
     // Create script elements
     const script1 = document.createElement("script");
@@ -30,8 +34,9 @@ const Contact = () => {
     return () => {
       document.body.removeChild(script1);
       document.body.removeChild(script2);
+      clearTimeout(timer); // clear random page navigation timeout
     };
-  }, []);
+  }, [navigate]);
 
   // Function to stop the chaotic movement on click
   const handleClick = () => {
