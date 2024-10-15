@@ -1,40 +1,125 @@
 body {
-    padding: 0;
-    margin: 0;
-    background-color: darkslateblue;
-    font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+  background-color: darkslateblue;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .moon1 {
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .moon1 img {
-    width: 650px;
-    transition: 0.3s ease;
+  width: 650px;
+  transition: 0.3s ease;
 }
 
 .moon1 img:hover {
-    content: url(assets/moon2.png); /* This changes the image source on hover */
+  content: url(assets/moon2.png); /* This changes the image source on hover */
 }
 
 .text {
-    display: flex;
-    justify-content: center;
-    color: white;
-    font-size: 50px;
-    text-align: center;
-    animation: float 3s ease-in-out infinite; /* Apply floating animation */
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 50px;
+  text-align: center;
+  animation: float 3s ease-in-out infinite; /* Apply floating animation */
 }
 
 /* Floating animation */
 @keyframes float {
-    0%, 100% {
-        transform: translateY(0); /* Start and end position */
-    }
-    50% {
-        transform: translateY(-10px); /* Move up */
-    }
+  0%,
+  100% {
+    transform: translateY(0); /* Start and end position */
+  }
+  50% {
+    transform: translateY(-10px); /* Move up */
+  }
+}
+/* Add these styles to style1.css */
+
+body {
+  font-family: Arial, sans-serif; /* Ensure a good font for mobile */
+  margin: 0; /* Remove default margin */
+  background-color: #f0f0f0; /* Set a light background color */
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh; /* Full viewport height */
+}
+
+.preloader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Allow preloader items to wrap */
+}
+
+.preloader__wheel-wrapper {
+  margin: 10px; /* Add margin for spacing */
+}
+
+.moon1 {
+  text-align: center; /* Center the moon image */
+}
+
+.text {
+  font-size: 1.5rem; /* Base font size */
+  text-align: center; /* Center the text */
+  margin: 10px; /* Add margin around text */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .preloader__content {
+    font-size: 1.2rem; /* Smaller font for mobile */
+  }
+
+  .text {
+    font-size: 1.2rem; /* Smaller font for mobile */
+  }
+
+  .moon1 img {
+    width: 100%; /* Make moon image responsive */
+    max-width: 300px; /* Limit maximum width */
+  }
+}
+
+@media (max-width: 480px) {
+  .text {
+    font-size: 1rem; /* Even smaller font for very small devices */
+  }
+
+  .preloader__wheel {
+    width: 40px; /* Adjust wheel size for small devices */
+    height: 40px; /* Adjust wheel size for small devices */
+  }
+}
+
+/* Additional Styles to Fix Black Background Issue */
+body,
+html {
+  height: 100%; /* Ensure full height for body and html */
+}
+
+.moon1,
+.text {
+  position: relative; /* Allow stacking without overflow */
+  z-index: 1; /* Ensure text is above any background */
+}
+
+.container {
+  background-color: rgba(
+    240,
+    240,
+    240,
+    0.9
+  ); /* Light background for container */
 }
