@@ -1,10 +1,18 @@
 import React, { useEffect, useRef } from "react";
 import "./contact.css";
+import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
+  const navigate = useNavigate(); // Initialize navigate hook
   const formRef = useRef(null); // Create a ref for the contact form
 
   useEffect(() => {
+    // Auto page redirect or navigate after a particular seconds
+    setTimeout(() => {
+      // Set the timeout
+      navigate("/review");
+    }, 30000);
+
     // Create script elements
     const script1 = document.createElement("script");
     const script2 = document.createElement("script");
@@ -28,7 +36,7 @@ const Contact = () => {
   // Function to stop the chaotic movement on click
   const handleClick = () => {
     if (formRef.current) {
-      formRef.current.style.animationPlayState = 'paused'; // Stop the animation
+      formRef.current.style.animationPlayState = "paused"; // Stop the animation
     }
   };
 

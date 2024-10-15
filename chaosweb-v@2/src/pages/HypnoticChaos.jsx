@@ -1,7 +1,15 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const HypnoticChaos = () => {
+  const navigate = useNavigate(); // Initialize navigate hook
   useEffect(() => {
+
+    setTimeout(() => {
+      // Set the timeout
+      navigate("/");
+    }, 30000);
+
     var STEPS = 1;
     var bgColor = getRandomColor();
     var strokeColor = getRandomColor();

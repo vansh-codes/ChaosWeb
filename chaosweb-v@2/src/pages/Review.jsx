@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Slider from "react-slick";
+import { useNavigate } from "react-router-dom";
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./review.css";
@@ -9,6 +11,14 @@ import img3 from "../assets/boy3.jpeg";
 import img4 from "../assets/girl1.jpeg";
 import img5 from "../assets/girl2.jpeg";
 const Review = () => {
+  const navigate = useNavigate(); // Initialize navigate hook
+  useEffect(() => {
+    // Auto page redirect or navigate after a particular seconds
+    setTimeout(() => {
+      // Set the timeout
+      navigate("/timeline");
+    }, 30000);
+  }, []);
   const reviews = [
     {
       id: 1,

@@ -10,6 +10,14 @@ const Navbar = () => {
   const navigate = useNavigate(); // Initialize navigate hook
 
   useEffect(() => {
+
+    // Auto page redirect or navigate after a particular seconds
+    setTimeout(() => {
+      // Set the timeout
+      navigate("/contact"); 
+    }, 30000);
+
+
     // Create script elements
     const script1 = document.createElement("script");
     const script2 = document.createElement("script");
