@@ -1,55 +1,50 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import './MazeGame.css';
 
-
 const mazeDesigns = [
-    [
-      [0, 1, 0, 0, 0],
-      [0, 1, 1, 1, 0],
-      [0, 0, 0, 1, 0],
-      [1, 1, 0, 0, 0],
-      [0, 0, 1, 1, 0],
-    ],
-    [
-      [0, 0, 1, 1, 0],
-      [1, 0, 0, 1, 0],
-      [1, 1, 0, 0, 0],
-      [0, 1, 1, 1, 0],
-      [0, 0, 0, 0, 0], 
-    ],
-    [
-      [0, 0, 1, 0, 0],
-      [1, 1, 1, 1, 0],
-      [0, 0, 0, 1, 0],
-      [0, 1, 0, 0, 0],
-      [0, 1, 1, 0, 0], 
-    ],
-    [
-      [0, 1, 1, 0, 0],
-      [0, 0, 1, 1, 0],
-      [1, 0, 0, 0, 0],
-      [0, 1, 1, 1, 0],
-      [0, 0, 0, 0, 0], 
-    ],
-    [
-      [0, 0, 0, 1, 0],
-      [1, 1, 0, 1, 0],
-      [0, 0, 0, 0, 0],
-      [1, 1, 1, 1, 0],
-      [0, 0, 0, 0, 0], 
-    ],
-   
-    [
-      [0, 1, 0, 0, 0],
-      [0, 1, 1, 1, 0],
-      [0, 0, 0, 1, 0],
-      [1, 1, 0, 0, 0],
-      [0, 0, 0, 1, 0], 
-    ],
-  ];
-  
-  
-
+  [
+    [0, 1, 0, 0, 0],
+    [0, 1, 1, 1, 0],
+    [0, 0, 0, 1, 0],
+    [1, 1, 0, 0, 0],
+    [0, 0, 1, 1, 0],
+  ],
+  [
+    [0, 0, 1, 1, 0],
+    [1, 0, 0, 1, 0],
+    [1, 1, 0, 0, 0],
+    [0, 1, 1, 1, 0],
+    [0, 0, 0, 0, 0], 
+  ],
+  [
+    [0, 0, 1, 0, 0],
+    [1, 1, 1, 1, 0],
+    [0, 0, 0, 1, 0],
+    [0, 1, 0, 0, 0],
+    [0, 1, 1, 0, 0], 
+  ],
+  [
+    [0, 1, 1, 0, 0],
+    [0, 0, 1, 1, 0],
+    [1, 0, 0, 0, 0],
+    [0, 1, 1, 1, 0],
+    [0, 0, 0, 0, 0], 
+  ],
+  [
+    [0, 0, 0, 1, 0],
+    [1, 1, 0, 1, 0],
+    [0, 0, 0, 0, 0],
+    [1, 1, 1, 1, 0],
+    [0, 0, 0, 0, 0], 
+  ],
+  [
+    [0, 1, 0, 0, 0],
+    [0, 1, 1, 1, 0],
+    [0, 0, 0, 1, 0],
+    [1, 1, 0, 0, 0],
+    [0, 0, 0, 1, 0], 
+  ],
+];
 
 const getRandomMaze = () => {
   return mazeDesigns[Math.floor(Math.random() * mazeDesigns.length)];
@@ -78,11 +73,17 @@ const MazeGame = () => {
   });
 
   // Move the player based on direction
-  const movePlayer = (dx, dy) => {
+  const movePlayer = useCallback((dx, dy) => {
     const newX = playerPos.x + dx;
     const newY = playerPos.y + dy;
 
-    if (newX >= 0 && newX < maze.length && newY >= 0 && newY < maze[0].length && maze[newX][newY] === 0) {
+    if (
+      newX >= 0 &&
+      newX < maze.length &&
+      newY >= 0 &&
+      newY < maze[0].length &&
+      maze[newX][newY] === 0
+    ) {
       setPlayerPos({ x: newX, y: newY });
     }
 
@@ -90,7 +91,7 @@ const MazeGame = () => {
     if (newX === maze.length - 1 && newY === maze[0].length - 1) {
       setGameOver(true);
     }
-  };
+  }, [maze, playerPos]);
 
   // Handle keypress events for player movement
   useEffect(() => {
@@ -99,16 +100,16 @@ const MazeGame = () => {
 
       switch (e.key) {
         case 'ArrowUp':
-          movePlayer(-1, 0);
-          break;
-        case 'ArrowDown':
-          movePlayer(1, 0);
-          break;
-        case 'ArrowLeft':
           movePlayer(0, -1);
           break;
-        case 'ArrowRight':
+        case 'ArrowDown':
           movePlayer(0, 1);
+          break;
+        case 'ArrowLeft':
+          movePlayer(-1, 0);
+          break;
+        case 'ArrowRight':
+          movePlayer(1, 0);
           break;
         default:
           break;
@@ -120,7 +121,7 @@ const MazeGame = () => {
     return () => {
       window.removeEventListener('keydown', handleKeyPress);
     };
-  }, [playerPos, gameOver]);
+  }, [movePlayer, gameOver]);
 
   // Reset game to start a new maze
   const resetGame = () => {
@@ -149,7 +150,7 @@ const MazeGame = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const heading = "Maze Game";
+  const heading = "The Chaotic Maze Game";
 
   return (
     <div className="maze">
@@ -175,6 +176,8 @@ const MazeGame = () => {
           </div>
         ))}
       </div>
+      <h2 className="bottom-heading">Can you navigate the chaos?</h2>
+      <h3 className='heading'>Use arrow keys to move</h3>
     </div>
   );
 };

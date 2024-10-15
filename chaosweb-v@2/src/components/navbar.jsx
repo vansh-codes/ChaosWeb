@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
 import "./navbar.css";
-
-import logo from "../assets/logo/ChaosWeb.svg";
-
+// import logo from "../assets/logo/ChaosWeb.svg";
 import InvertColorToggle from "./InvertColorToggle";
-
+// import MazeGame from "./MazeGame";
 import Popup from "/src/components/popup"; // Import Popup component
 import logo from "../assets/logo/logo.png";
+
+
 
 
 const Navbar = () => {
@@ -124,8 +124,10 @@ const Navbar = () => {
         </div>
 
         <div className="nav-item" onClick={() => handleNavigate("/maze")}>
+ 
   Maze Game
 </div>
+
 
 
         {/* Treasure Button start */}
@@ -413,6 +415,9 @@ const Navbar = () => {
             </svg>
           <span>About Us</span>
         </div>
+        <div className="nav-item">
+          <InvertColorToggle /> {/* This will render the button */}
+        </div>
         <div
           className="nav-item"
           id="contact"
@@ -622,9 +627,7 @@ const Navbar = () => {
             </svg>
           <span>Testing</span>
         </div>
-        <div className="nav-item">
-            <InvertColorToggle />
-          </div>
+        
         <div
           className="nav-item"
           id="timeline"
@@ -906,6 +909,8 @@ const Navbar = () => {
             </svg>
           <span>Hypnotic Chaos</span>
         </div>
+
+
       </div>
 
       {/* Render the Popup component conditionally */}

@@ -4,7 +4,7 @@ import Home from "./pages/home";
 import Contact from "./pages/contact";
 import Timeline from "./pages/timeline";
 import HypnoticChaos from "./pages/HypnoticChaos";
-import InvertColorToggle from "./components/InvertColorToggle";
+// import InvertColorToggle from './components/InvertColorToggle';
 import MazeGame from './components/MazeGame';
 import './index.css'
 
@@ -14,8 +14,7 @@ function App() {
   return (
     
        <Router>
-      
-     
+    
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />

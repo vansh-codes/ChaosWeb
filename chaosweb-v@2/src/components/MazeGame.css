@@ -1,12 +1,14 @@
-
 .maze {
     text-align: center;         
     position: relative;         
     overflow: hidden;          
-    padding-top: 70px;         
-  }
-  
-  .maze-heading {
+    padding-top: 70px;
+    background: linear-gradient(120deg, rgba(0, 189, 252, 0.8), rgba(209, 25, 255, 0.8));
+    background-size: 200% 200%;
+    animation: backgroundShift 10s ease infinite; /* Background shifting */
+}
+
+.maze-heading {
     display: inline-block;      
     transition: all 0.3s ease; 
     position: absolute;         
@@ -14,15 +16,19 @@
     left: 50%;                  
     transform: translateX(-50%);
     margin-bottom: 500%;
-    font-size: 100%;
-  }
+    font-size: 48px;
+    animation: fadeInOut 1s infinite, chaoticHeadingMovement 7s ease-in-out infinite; /* Added chaotic movement */
+}
+
 .maze-grid {
     display: inline-block;
     margin: 20px 0;
+    animation: shakeRows 6s ease-in-out infinite; /* Shake rows */
 }
 
 .maze-row {
     display: flex;
+    animation: bounceRows 4s ease-in-out infinite alternate; /* Bounce effect */
 }
 
 .maze-cell {
@@ -30,31 +36,36 @@
     height: 40px; 
     border: 1px solid #ccc;
     box-sizing: border-box;
-    transition: background-color 0.3s; 
+    transition: background-color 0.3s, transform 0.3s, opacity 0.5s; 
+    animation: sizeChange 2s infinite alternate, fadeInOut 5s infinite alternate, rotateSpin 4s linear infinite; /* Added rotation and spin effect */
 }
 
 /* Styles for walls */
 .wall {
-    background-color: #000000; /* Black for walls */
+    background-color: #000000;
+    animation: shakeWalls 3s ease-in-out infinite, rotate 8s linear infinite; /* Added slower rotation */
 }
 
 /* Styles for player */
 .player {
-    background-color: #ff0000; /* Red for player */
+    background-color: #ff0000;
+    animation: jumpPlayer 2s ease-in-out infinite, shakePlayer 3s infinite; /* Added shake */
 }
 
 /* Styles for start point */
 .start {
-    background-color: #00ff00; /* Green for start */
-    border: 2px solid #004d00; /* Darker green border for visibility */
-    box-shadow: 0 0 10px #00ff00; /* Glow effect */
+    background-color: #00ff00;
+    border: 2px solid #004d00;
+    box-shadow: 0 0 10px #00ff00;
+    animation: spinStart 6s linear infinite, opacityChange 2s infinite alternate; /* Added opacity change */
 }
 
 /* Styles for end point */
 .end {
-    background-color: #0000ff; /* Blue for end */
-    border: 2px solid #000099; /* Darker blue border for visibility */
-    box-shadow: 0 0 10px #0000ff; /* Glow effect */
+    background-color: #0000ff;
+    border: 2px solid #000099;
+    box-shadow: 0 0 10px #0000ff;
+    animation: flashEnd 1s ease-in-out infinite alternate, shakeEnd 3s infinite; /* Added shake effect */
 }
 
 /* Styles for the game over message */
@@ -66,12 +77,68 @@
 
 /* Animation for the heading */
 h2 {
-    animation: colorChange 0.5s linear infinite; /* Faster color change */
-    transition: font-size 0.5s, top 0.5s, left 0.5s; /* Smooth transition for size, and position */
-    position: absolute; /* Position for pseudo-element */
+    animation: colorChange 0.5s linear infinite; /* Color changing effect */
+    transition: font-size 0.5s, top 0.5s, left 0.5s;
 }
 
-/* Define keyframes for color change */
+/* Bottom heading remains unchanged */
+.bottom-heading {
+    font-size: 25px; /* Keep the font size */
+  
+    color: white; /* Text color */
+    padding: 20px; /* Padding for better appearance */
+    border-radius: 10px; /* Rounded corners */
+    position: absolute; /* Position it absolutely */
+    top: 20px; /* Adjust as needed */
+    left: 20px; /* Position at the top left corner */
+    animation: none;
+}
+
+
+/* Define keyframes for animations */
+@keyframes shakeRows {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-5px); }
+}
+
+@keyframes bounceRows {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes shakeWalls {
+    0%, 100% { transform: translate(0); }
+    25% { transform: translate(-3px, -3px); }
+    50% { transform: translate(3px, 3px); }
+    75% { transform: translate(-3px, 3px); }
+}
+
+@keyframes jumpPlayer {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes shakePlayer {
+    0%, 100% { transform: translate(0); }
+    50% { transform: translate(-3px, 3px); }
+}
+
+@keyframes spinStart {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes flashEnd {
+    0% { background-color: #0000ff; }
+    100% { background-color: #ff00ff; }
+}
+
+@keyframes shakeEnd {
+    0%, 100% { transform: translate(0); }
+    50% { transform: translate(3px, -3px); }
+}
+
 @keyframes colorChange {
     0% { color: red; }
     25% { color: orange; }
@@ -80,11 +147,106 @@ h2 {
     100% { color: blue; }
 }
 
-/* Optional: You can add a position animation for more dynamic movement */
-@keyframes moveHeading {
-    0% { top: 0; left: 0; }
-    25% { top: 10px; left: 10px; }
-    50% { top: 0; left: 20px; }
-    75% { top: -10px; left: 10px; }
-    100% { top: 0; left: 0; }
+/* Keyframes for the background movement */
+@keyframes backgroundShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Keyframes for chaotic movement of bottom heading */
+@keyframes chaoticMovement {
+    0% { left: 10%; top: 20%; }
+    10% { left: 5%; top: 50%; }
+    20% { left: 15%; top: 10%; }
+    30% { left: 30%; top: 70%; }
+    40% { left: 25%; top: 30%; }
+    50% { left: 70%; top: 20%; }
+    60% { left: 90%; top: 60%; }
+    70% { left: 80%; top: 40%; }
+    80% { left: 50%; top: 80%; }
+    90% { left: 30%; top: 90%; }
+    100% { left: 10%; top: 50%; }
+}
+
+/* Keyframes for chaotic heading movement */
+@keyframes chaoticHeadingMovement {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg) scale(1);
+        left: 50%; top: 0;
+    }
+    10% {
+        transform: translate(-50%, -50%) rotate(10deg) scale(1.1);
+        left: 55%; top: 5%;
+    }
+    20% {
+        transform: translate(-50%, -50%) rotate(-10deg) scale(0.9);
+        left: 45%; top: 15%;
+    }
+    30% {
+        transform: translate(-50%, -50%) rotate(15deg) scale(1.2);
+        left: 40%; top: 25%;
+    }
+    40% {
+        transform: translate(-50%, -50%) rotate(-15deg) scale(0.85);
+        left: 60%; top: 35%;
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(20deg) scale(1.1);
+        left: 55%; top: 45%;
+    }
+    60% {
+        transform: translate(-50%, -50%) rotate(-20deg) scale(1);
+        left: 50%; top: 50%;
+    }
+    70% {
+        transform: translate(-50%, -50%) rotate(25deg) scale(1.05);
+        left: 40%; top: 55%;
+    }
+    80% {
+        transform: translate(-50%, -50%) rotate(-25deg) scale(1);
+        left: 55%; top: 60%;
+    }
+    90% {
+        transform: translate(-50%, -50%) rotate(30deg) scale(1.1);
+        left: 60%; top: 50%;
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(0deg) scale(1);
+        left: 50%; top: 70%;
+    }
+}
+
+/* Keyframes for wave motion */
+@keyframes bounceWave {
+    0% { transform: translateY(0); }
+    25% { transform: translateY(-5px); }
+    50% { transform: translateY(10px); }
+    75% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
+/* Keyframes for random size changes */
+@keyframes sizeChange {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    50% { transform: scale(0.9); }
+    75% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Keyframes for opacity change */
+@keyframes fadeInOut {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Keyframes for rotating and spinning maze cells */
+@keyframes rotateSpin {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(180deg); }
+    50% { transform: rotate(360deg); }
+    75% { transform: rotate(540deg); }
+    100% { transform: rotate(720deg); }
 }
