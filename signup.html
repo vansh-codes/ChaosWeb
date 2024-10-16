@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaos Web - Sign Up</title>
+    <style>
+        img{
+            width: 170px;
+            height: 170px;
+            /* border: white 5px solid; */
+            position: absolute;
+            top: 10px;
+            left: 50px;
+            border-radius: 50%;
+            box-shadow: 0 1px 10px #87ceeb, 0 1px 20px #87ceeb;
+        }
+        body {
+            /* position: relative; */
+            background: url('3d-effect-hypnosis-spiral-vector-7844424.jpg') center center fixed, #000;
+            background-size: cover;
+            animation: moveBackground 15s infinite linear;
+            color: #fff;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            font-size: 22px;
+            z-index: 1;
+        }
+
+        @keyframes moveBackground {
+            0% { background-position: 0 0; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0 0; }
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+            z-index: -1;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        .container {
+            margin-top: 100px;
+            position: relative;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+            margin-top: 50px;
+        }
+
+        label {
+            font-size: 28px;
+            display: block;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+        }
+
+        input {
+            padding: 15px;
+            border: 3px solid #fff;
+            background: #333;
+            color: #fff;
+            width: 300px;
+            display: block;
+            font-size: 20px;
+        }
+
+        button {
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #555, #888);
+            color: #fff;
+            border: 2px solid #aaa;
+            cursor: pointer;
+            font-size: 22px;
+            border-radius: 10px;
+            position: absolute;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #777, #999);
+            transform: rotate(10deg) scale(1.1);
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        #errorMessage {
+            color: red;
+            display: none;
+            font-size: 26px;
+        }
+
+        /* Style for the logo */
+        .logo {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 10;
+            width: 100px; /* Adjust the size of the logo */
+            height: auto;
+        }
+
+        /* Blank screen effect */
+        .blank-screen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <!-- Add the logo here -->
+    <img src="https://chaosweb.vercel.app/assets/logo-DJRpIUaM.png" type="image/x-icon">
+
+    <div class="container">
+        <h1>Create Your Account</h1>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" required>
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword" required>
+        </div>
+        <button id="signupButton">Sign Up</button>
+        <button id="backButton">Back to Sign In</button>
+    </div>
+
+    <!-- Blank screen div -->
+    <div class="blank-screen"></div>
+
+    <script>
+        // Function to smoothly move buttons
+        function moveButtons() {
+            const buttons = document.querySelectorAll('button'); // Select all buttons
+
+            buttons.forEach(button => {
+                // Get the dimensions of the window (screen)
+                const windowWidth = window.innerWidth;
+                const windowHeight = window.innerHeight;
+
+                // Generate random target positions within the screen
+                const randomX = Math.random() * (windowWidth - button.offsetWidth);
+                const randomY = Math.random() * (windowHeight - button.offsetHeight);
+
+                // Set the button's position to the random coordinates with smooth transition
+                button.style.transition = 'left 1s, top 1s'; // Smooth movement with 1s duration
+                button.style.position = 'absolute'; // Ensure the button is positioned absolutely
+                button.style.left = `${randomX}px`;
+                button.style.top = `${randomY}px`;
+            });
+
+            // Call the function again after a delay
+            setTimeout(moveButtons, 1500); // Adjust the timeout for how often the buttons move
+        }
+
+        // Start moving the buttons
+        moveButtons();
+
+        // Function to generate random color
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        // Function to trigger blank screen with blinking colors
+        function triggerBlankScreen() {
+            const blankScreen = document.querySelector('.blank-screen');
+            blankScreen.style.display = 'block'; // Show the blank screen
+
+            const interval = setInterval(() => {
+                // Set a random background color on each interval
+                blankScreen.style.backgroundColor = getRandomColor();
+            }, 200); // Change color every 200ms for a rapid blinking effect
+
+            // Turn off the blank screen after 3 seconds of blinking
+            setTimeout(() => {
+                blankScreen.style.display = 'none'; // Hide the blank screen
+                clearInterval(interval); // Stop the blinking
+            }, 3000); // Blink for 3 seconds
+        }
+
+        // Set up the interval to trigger the blank screen every 15 seconds
+        setInterval(triggerBlankScreen, 15000);
+    </script>
+</body>
+</html>
