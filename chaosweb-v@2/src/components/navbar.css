@@ -6,6 +6,21 @@
     box-sizing: border-box;
 }
 
+
+.toggle-button {
+    padding: 10px 20px;
+    background-color: #696d6e; /* Replace with your preferred color */
+    color: white; /* Text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .toggle-button:hover {
+    background-color: #3700b3; /* Darker shade on hover */
+  }
+  
 body {
     font-family: 'Oswald', sans-serif;
     height: 100vh;
