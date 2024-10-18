@@ -199,39 +199,9 @@
                 <button type="submit">Submit</button>
             </div>
         </form>
+        <div id="popup" class="popup"></div>
     </div>
-    <div id="popup" class="popup"></div>
     </div>
-
-    <script>
-        function animateInputText(inputField, originalText) {
-            let currentIndex = 0;
-
-            function typeLetter() {
-                if (currentIndex < originalText.length) {
-                    inputField.value += originalText[currentIndex];
-                    currentIndex++;
-                    setTimeout(typeLetter, 200);
-                } else {
-                    setTimeout(clearAndRestart, 1000);
-                }
-            }
-
-            function clearAndRestart() {
-                inputField.value = '';
-                currentIndex = 0;
-                typeLetter();
-            }
-
-            clearAndRestart();
-        }
-
-        // Attach the event to each input field
-        document.querySelectorAll('.anim').forEach((inputField) => {
-            const originalText = inputField.value;
-            animateInputText(inputField, originalText);
-        });
-    </script>
     <script src="preloader.js"></script>
     <script src="js/script.js"></script>
     <script src="js/night_time.js"></script>
