@@ -1,53 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hypnotic Chaos</title>
     <link rel="stylesheet" href="preloaderStyle.css">
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+            /* Ensure the body takes the full height of the viewport */
+            overflow: hidden;
+            /* Prevent scrollbars from appearing */
+        }
+
         .parent {
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center; 
-            position: relative; 
-            overflow: hidden; 
-            background-color: black; 
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background-color: black;
+            /* Background color can be changed if needed */
         }
+
         .content {
-            text-align: center; 
-            position: relative; 
+            text-align: center;
+            position: relative;
+            width: 100%;
+            /* Ensures it takes full width */
         }
+
         .chaotic-text {
             position: absolute;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 2rem; 
-            color: white; 
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
-            white-space: nowrap; 
+            font-size: 2rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            white-space: nowrap;
+            animation: shake 0.5s infinite;
         }
+
         .top-text {
-            top: 10%; 
+            top: 20%;
+            /* Adjusted for better visibility */
         }
+
         .bottom-text {
-            bottom: 10%; 
+            bottom: 20%;
+            /* Adjusted for better visibility */
         }
+
         @keyframes shake {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
-            25% { transform: translate(-50%, -50%) rotate(-5deg); }
-            50% { transform: translate(-50%, -50%) rotate(5deg); }
-            75% { transform: translate(-50%, -50%) rotate(-5deg); }
-            100% { transform: translate(-50%, -50%) rotate(0deg); }
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            25% {
+                transform: translate(-50%, -50%) rotate(-5deg);
+            }
+
+            50% {
+                transform: translate(-50%, -50%) rotate(5deg);
+            }
+
+            75% {
+                transform: translate(-50%, -50%) rotate(-5deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
         }
-        .chaotic-text {
-            animation: shake 0.5s infinite; 
-        }
+
         #myCanvas {
-            margin: auto; 
+            width: 100%;
+            /* Responsive width */
+            height: 100%;
+            /* Responsive height */
+            max-width: 100%;
+            /* Maximum width */
+            margin: auto;
+            display: block;
+            /* Centering */
+        }
+
+        /* Responsive font size */
+        @media (max-width: 768px) {
+            .chaotic-text {
+                font-size: 1.5rem;
+                /* Smaller font on mobile */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .chaotic-text {
+                font-size: 1rem;
+                /* Even smaller font on very small screens */
+            }
         }
     </style>
 </head>
@@ -107,92 +168,93 @@
     </div>
     <script src="preloader.js"></script>
     <script>
-        window.onload = function() {
+        window.onload = function () {
             var STEPS = 1;
             var bgColor = getRandomColor();
             var strokeColor = getRandomColor();
-            var SPIRAL_SCALE = 2; 
-        
+            var SPIRAL_SCALE = 2;
+
             function getRandomColor() {
                 var r = Math.floor(Math.random() * 256);
                 var g = Math.floor(Math.random() * 256);
                 var b = Math.floor(Math.random() * 256);
                 return { r, g, b };
             }
-        
+
             function luminance(r, g, b) {
-                var a = [r, g, b].map(function(v) {
+                var a = [r, g, b].map(function (v) {
                     v /= 255;
                     return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
                 });
                 return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
             }
-        
+
             function contrast(color1, color2) {
                 var lum1 = luminance(color1.r, color1.g, color1.b) + 0.05;
                 var lum2 = luminance(color2.r, color2.g, color2.b) + 0.05;
                 return lum1 > lum2 ? lum1 / lum2 : lum2 / lum1;
             }
-        
+
             function getContrastingStrokeColor(bgColor) {
                 var strokeColor;
                 do {
                     strokeColor = getRandomColor();
-                } while (contrast(bgColor, strokeColor) < 2.5); 
+                } while (contrast(bgColor, strokeColor) < 2.5);
                 return strokeColor;
             }
-        
+
             function resizeCanvas() {
                 var canvas = document.getElementById("myCanvas");
                 canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
+                canvas.height = window.innerHeight * 0.6; // Maintain aspect ratio
             }
-        
+
             function CreateSpiral(mod) {
                 var canvas = document.getElementById("myCanvas");
                 var cxt = canvas.getContext("2d");
                 var X = canvas.width / 2;
                 var Y = canvas.height / 2;
-        
+
                 cxt.save();
                 STEPS += 0.001;
-        
+
                 cxt.fillStyle = `rgb(${bgColor.r}, ${bgColor.g}, ${bgColor.b})`;
                 cxt.fillRect(0, 0, canvas.width, canvas.height);
-        
+
                 cxt.strokeStyle = `rgb(${strokeColor.r}, ${strokeColor.g}, ${strokeColor.b})`;
-        
+
                 cxt.beginPath();
                 cxt.moveTo(X, Y);
                 var increment = 2 * Math.PI / STEPS;
                 var theta = increment;
-        
+
                 while (theta < 40 * Math.PI) {
                     var newX = X + (theta * SPIRAL_SCALE) * Math.cos(theta - mod);
                     var newY = Y + (theta * SPIRAL_SCALE) * Math.sin(theta - mod);
                     cxt.lineTo(newX, newY);
                     theta += increment;
                 }
-        
+
                 cxt.stroke();
-                cxt.restore(); 
+                cxt.restore();
             }
-        
+
             var counter = 0;
-        
-            setInterval(function() {
+
+            setInterval(function () {
                 CreateSpiral(counter);
                 counter += 0.001;
             }, 10);
-        
-            setInterval(function() {
+
+            setInterval(function () {
                 bgColor = getRandomColor();
                 strokeColor = getContrastingStrokeColor(bgColor);
             }, 150);
-        
+
             window.addEventListener('resize', resizeCanvas);
-            resizeCanvas(); 
+            resizeCanvas();
         }
     </script>
 </body>
+
 </html>
