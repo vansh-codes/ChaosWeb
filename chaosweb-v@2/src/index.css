@@ -1,4 +1,28 @@
+/* Inverted body style */
+body.inverted {
+    filter: 
+        invert(1)
+        hue-rotate(180deg)
+        saturate(0.5)
+        brightness(1.2)
+        contrast(2)
+        sepia(0);
+    opacity: 1; 
+}
 
+body.inverted img,
+body.inverted video {
+    filter: 
+        invert(1)
+        hue-rotate(180deg)
+        saturate(0.3)
+        brightness(1.5)
+        contrast(2)
+        sepia(0);
+    opacity: 1; 
+}
+
+/* Custom scrollbar styles */
 ::-webkit-scrollbar {
   width: 7px;
 }
