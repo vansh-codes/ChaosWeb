@@ -55,7 +55,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="nav">
+      <nav className="nav ">
         <img src={logo} alt="ChaosWeb Logo" id="chaos-logo" />
         <h1 id="chaos-header">ChaosWeb - The Disorderly UI Experiment</h1>
       </nav>
