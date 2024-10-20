@@ -25,7 +25,7 @@ const ButtonCollection = () => {
         <h1 className="text-6xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 drop-shadow-md">
           Button Mania
         </h1>
-        <p className="text-lg text-gray-400">Explre the Unknown with our buttons</p>
+        <p className="text-lg text-gray-400">Explore the Unknown with our buttons</p>
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 shake-slow">
