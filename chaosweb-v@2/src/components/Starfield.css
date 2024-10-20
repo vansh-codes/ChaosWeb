@@ -1,0 +1,100 @@
+/* Starfield background and elements */
+.starfield {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+    background: linear-gradient(to top, #0d0d25, #1a1a2e); /* Dark sky gradient */
+    overflow: auto;
+  }
+  
+  /* Star styles */
+  .star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: white;
+    opacity: 0.75;
+    border-radius: 50%;
+    animation: twinkle infinite;
+  }
+  
+  @keyframes twinkle {
+    0%, 100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  
+  /* Moon styles */
+
+  
+  /* Cloud styles 
+  .cloud {
+    position: absolute;
+    width: 300px;
+    height: 100px;
+    background: #ffffff;
+    background: linear-gradient(180deg, #ffffff 70%, #d4d4d4);
+    border-radius: 50%;
+    opacity: 0.3;
+    z-index: 9;
+    animation: moveClouds 40s linear infinite;
+    filter: blur(15px);
+
+  }
+  
+  .cloud::before, .cloud::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    background: inherit;
+    border-radius: 50%;
+    
+  }
+  
+  .cloud::before {
+    top: -40px;
+    left: 50px;
+  }
+  
+  .cloud::after {
+    top: -20px;
+    left: 150px;
+  }
+  */
+  /* Cloud animation for movement */
+  @keyframes moveClouds {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(150%);
+    }
+  }
+  
+  /* Individual cloud positions */
+  /* .cloud-1 {
+    top: 20%;
+    animation-duration: 60s;
+    animation-delay: 0s;
+  }
+  
+  .cloud-2 {
+    top: 50%;
+    animation-duration: 30s;
+    animation-delay: 10s;
+  }
+  
+  .cloud-3 {
+    top: 75%;
+    animation-duration: 10s;
+    animation-delay: 20s;
+  }
+   */

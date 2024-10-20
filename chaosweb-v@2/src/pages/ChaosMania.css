@@ -1,0 +1,146 @@
+
+
+
+
+.snowy-heading {
+    font-size: 3em; /* Size of the heading */
+    text-align: center; /* Center the heading */
+    position: relative; /* Relative positioning for the snow effect */
+    color: #6b4ded; /* White text color */
+    margin-bottom: 40px;
+}
+.imaging {
+    position: fixed; /* Fixed positioning */
+    bottom: 0; /* Position it at the bottom */
+    left: 0; /* Align to the left */
+    width: 100%; /* Full width */
+}
+.imaging img {
+    width: 100%; /* Full width of the container */
+    object-fit: cover; /* Maintain aspect ratio and cover */
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
+    display: block; /* Remove bottom space typically caused by inline elements */
+    height: 200px;
+}
+
+.snowy-heading::before,
+.snowy-heading::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.6);
+    filter: blur(8px);
+    z-index: -1; /* Position behind the text */
+}
+
+.snowy-heading::before {
+    transform: translateY(-5px); /* Slight offset for a layered look */
+}
+
+.snowy-heading::after {
+    transform: translateY(5px); /* Slight offset for a layered look */
+}
+
+/* Optional: Add a glowing effect */
+.snowy-heading {
+    text-shadow: 
+        0 0 5px rgba(255, 255, 255, 0.6),
+        0 0 10px rgba(255, 255, 255, 0.6),
+        0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+.cube-text{
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.cube-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 200px;
+    padding: 40px;
+}
+
+.cube {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  transform-style: preserve-3d;
+  transform: rotateX(-30deg) rotateY(35deg) translate(-50%, -50%);
+}
+
+.cube > div {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-style: preserve-3d;
+}
+.cube:hover > div {
+    animation: melt 6s ease-in both;
+}
+
+.cube-face {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  background: linear-gradient(rgba(237, 237, 237, 0.2), rgba(153, 153, 153, 0.1));
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.2), inset 0 0 4px rgba(255, 255, 255, 0.2);
+  transform-origin: center center;
+}
+
+.cube > div > div:nth-child(1) {
+  transform: translate3d(0, 0, 50px);
+}
+.cube > div > div:nth-child(2) {
+  transform: rotateX(90deg) translate3d(0, 0, 50px);
+}
+.cube > div > div:nth-child(3) {
+  transform: rotateX(180deg) translate3d(0, 0, 50px);
+}
+.cube > div > div:nth-child(4) {
+  transform: rotateX(270deg) translate3d(0, 0, 50px);
+}
+.cube:hover > div > div:nth-child(4) {
+    animation: puddle 6s ease-in both;
+
+  }
+
+.cube > div > div:nth-child(5) {
+  transform: rotateY(90deg) translate3d(0, 0, 50px);
+}
+.cube > div > div:nth-child(6) {
+  transform: rotateY(-90deg) translate3d(0, 0, 50px);
+}
+
+@keyframes melt {
+  0% {
+    transform: translate3d(0, 0, 0) scaleY(1);
+  }
+  90% {
+    transform: translate3d(0, 50px, 0) scaleY(0.01);
+  }
+  100% {
+    transform: translate3d(0, 50px, 0) scaleY(0);
+  }
+}
+
+@keyframes puddle {
+  100% {
+    box-shadow: 0px 0px 0 75px rgba(255, 255, 255, 0.2);
+  }
+}
+

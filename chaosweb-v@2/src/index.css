@@ -1,4 +1,8 @@
 /* Inverted body style */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body.inverted {
     filter: 
         invert(1)
