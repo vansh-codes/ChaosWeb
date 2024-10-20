@@ -38,6 +38,9 @@ const Contributors = () => {
 
   return (
     <div className="contributors-container">
+      <button className="back-home-button" onClick={() => navigate("/")}>
+        Back to Home
+      </button>
       {contributors.length > 0 ? (
         contributors.map((contributor, index) => (
           <img

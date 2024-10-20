@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import monkeyImage from "/src/assets/monkey.jpg";
-import hamsterSound from "/src/assets/hamsterSound.mp3"
+import monkeyImage from "./monkey.jpg";
+import hamsterSound from "./hamsterSound.mp3";
 
 const Popup = ({ showPopup, setShowPopup }) => {
   const [isImageVisible, setIsImageVisible] = useState(false); // State to control image visibility

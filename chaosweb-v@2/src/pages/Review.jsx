@@ -3,7 +3,6 @@ import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
 
 import appPages from "../utils/pages.js";
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./review.css";
@@ -80,6 +79,9 @@ const Review = () => {
 
   return (
     <div className="review-section">
+      <button className="back-home-button" onClick={() => navigate("/")}>
+        Back to Home
+      </button>
       <h2 className="review-title">What Our Users Say</h2>
       <Slider {...settings}>
         {reviews.map((review) => (

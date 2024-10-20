@@ -12,7 +12,22 @@
     border-radius: 50%; /* Make logos circular */
     animation: move 5s infinite linear;
   }
+  .back-home-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: #007bff; /* Blue background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
   
+  .back-home-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
   /* Keyframes for logo movement, constrained to stay within the viewport */
   @keyframes move {
     0% {

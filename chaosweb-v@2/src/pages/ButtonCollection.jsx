@@ -21,6 +21,9 @@ const ButtonCollection = () => {
 
   return (
     <div className="min-h-screen bg-[#1a1a2e] text-[#e0e0e0] p-10">
+      <button className="back-home-button" onClick={() => navigate("/")}>
+        Back to Home
+      </button>
       <header className="text-center mb-12">
         <h1 className="text-6xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 drop-shadow-md">
           Button Mania

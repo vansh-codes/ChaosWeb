@@ -115,6 +115,9 @@ const HypnoticChaos = () => {
           Welcome to Chaos! Where sanity is overrated.
         </div>
         <canvas id="myCanvas" width="300" height="300"></canvas>
+        <button className="back-home-button" onClick={() => navigate("/")}>
+        Back to Home
+      </button>
         <div className="chaotic-text bottom-text">
           Relax? Sure, if you like chaos!
         </div>

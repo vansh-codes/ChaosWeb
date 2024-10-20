@@ -8,7 +8,22 @@
   animation: chaos-bg 4s infinite alternate ease-in-out,change-shape 5s infinite alternate ease-in-out;;
   overflow: hidden; /* Prevents overflow from affecting layout */
 }
+.back-home-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 10px 20px;
+  background-color: #007bff; /* Blue background */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
 
+.back-home-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
 @keyframes chaos-bg {
   0% { background: #ff4e50; }
   25% { background: #1e90ff; }

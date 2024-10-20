@@ -22,7 +22,9 @@ const ChaosMania = () => {
 
   return (
     <div id = "fullpage">
-    
+    <button className="back-home-button" onClick={() => navigate("/")}>
+        Back to Home
+      </button>
     
       <Starfield />
     {issnowing ? (

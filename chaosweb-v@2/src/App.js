@@ -1,15 +1,15 @@
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/home";
-import Contact from "./pages/contact";
-import Timeline from "./pages/timeline";
-import HypnoticChaos from "./pages/HypnoticChaos";
-import MazeGame from './components/MazeGame';
+import Home from "./pages/home.jsx";
+import Contact from "./pages/contact.jsx";
+import Timeline from "./pages/timeline.jsx";
+import HypnoticChaos from "./pages/HypnoticChaos.jsx";
+import MazeGame from './components/MazeGame.jsx';
 import './index.css'
-import Review from "./pages/Review";
-import Contributors from "./pages/Contributors";
-import ChaosMania from "./pages/ChaosMania";
-import ButtonCollection from "./pages/ButtonCollection";
+import Review from "./pages/Review.jsx";
+import Contributors from "./pages/Contributors.jsx";
+import ChaosMania from "./pages/ChaosMania.jsx";
+import ButtonCollection from "./pages/ButtonCollection.jsx";
 
 
 function App() {

@@ -63,7 +63,11 @@ const Timeline = () => {
 
   return (
     <div className="timeline">
+      
       <div className="timeline-container">
+      <button className="back-home-button" onClick={() => navigate("/")}>
+        Back to Home
+      </button>
         <h1 className="h1-timeline">Chaotic Timeline of Historical Events</h1>
         <div className="timeline">
           <div className="event">

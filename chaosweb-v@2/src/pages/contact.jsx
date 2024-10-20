@@ -51,6 +51,9 @@ const Contact = () => {
       ref={formRef} // Attach the ref here
       onClick={handleClick} // Add click event to stop animation
     >
+      <button className="back-home-button" onClick={() => navigate("/")}>
+        Back to Home
+      </button>
       <h1>Contact Us</h1>
       <form id="contactForm">
         <div className="form-group">

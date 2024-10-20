@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate for naviga
 import "./navbar.css";
 // import logo from "../assets/logo/ChaosWeb.svg";
 import InvertColorToggle from "./InvertColorToggle";
-import Popup from "/src/components/popup"; // Import Popup component
+import Popup from "./popup.jsx"; // Import Popup component
 import logo from "../assets/logo/logo.png";
 
 import appPages from "../utils/pages.js";

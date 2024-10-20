@@ -8,7 +8,22 @@
       opacity: 0;
     }
   }
+  .back-home-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: #007bff; /* Blue background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
   
+  .back-home-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
   .particle {
     position: absolute;
     width: 10px;
