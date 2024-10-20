@@ -1,0 +1,98 @@
+@keyframes burst {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(var(--x), var(--y)) scale(1.5);
+      opacity: 0;
+    }
+  }
+  
+  .particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 0;
+    pointer-events: none;
+    animation: burst 0.8s ease-out forwards;
+    animation-play-state: paused; /* Ensure animation doesn't play by default */
+  }
+  
+  .particle-1 {
+    --x: -50px;
+    --y: -50px;
+  }
+  .particle-2 {
+    --x: 50px;
+    --y: -50px;
+  }
+  .particle-3 {
+    --x: -50px;
+    --y: 50px;
+  }
+  .particle-4 {
+    --x: 50px;
+    --y: 50px;
+  }
+  .particle-5 {
+    --x: -70px;
+    --y: 0px;
+  }
+  .particle-6 {
+    --x: 70px;
+    --y: 0px;
+  }
+  .particle-7 {
+    --x: 0px;
+    --y: -70px;
+  }
+  .particle-8 {
+    --x: 0px;
+    --y: 70px;
+  }
+  
+  /* When hovering over the div, trigger the burst animation */
+  #hover-me:hover .particle {
+    opacity: 1;
+    animation-play-state: running;
+  }
+  
+  @keyframes shrink {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes subtle-shake {
+    0% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(-5deg);
+    }
+    50% {
+      transform: rotate(5deg);
+    }
+    75% {
+      transform: rotate(-5deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  .shake-slow {
+    animation: subtle-shake 4s ease-in-out infinite;
+  }
+
+  .animate-shrink {
+    animation: shrink 2s infinite;
+  }
