@@ -7,8 +7,7 @@ import InvertColorToggle from "./InvertColorToggle";
 // import MazeGame from "./MazeGame";
 import Popup from "/src/components/popup"; // Import Popup component
 import logo from "../assets/logo/logo.png";
-import Popup from "/src/components/popup"; // Import Popup component
-import logo from "../assets/logo/logo.png";
+import Popup from "/src/components/popup.jsx"; // Import Popup component
 import appPages from "../utils/pages.js";
 
 
@@ -1418,7 +1417,7 @@ const Navbar = () => {
 
           id="review"
           onClick={() => handleNavigate("/review")}
-        >
+        <div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             data-name="Layer 1"
