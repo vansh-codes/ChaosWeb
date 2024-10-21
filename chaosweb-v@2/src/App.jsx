@@ -8,6 +8,8 @@ import MazeGame from './components/MazeGame';
 import './index.css'
 import Review from "./pages/Review";
 import Contributors from "./pages/Contributors";
+import ChaosMania from "./pages/ChaosMania";
+import ButtonCollection from "./pages/ButtonCollection";
 
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
         <Route path="/timeline" element={<Timeline />} />
         <Route path="/hypnotic" element={<HypnoticChaos />} />
         <Route path="/maze" element={<MazeGame />} />
+        <Route path="/chaosmania" element={<ChaosMania />} />
+        <Route path= "/ButtonCollection" element={<ButtonCollection />} />
       </Routes>
 
     </Router>

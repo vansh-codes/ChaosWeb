@@ -1,0 +1,47 @@
+/* FloatingRain.css */
+.rain-container {
+    position: fixed; /* Fixed positioning to overlay over other components */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Prevent interaction with the shapes */
+  }
+  
+  .shape {
+    position: absolute;
+    bottom: -50px; /* Start below the view */
+    animation-name: float;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes float {
+    to {
+      transform: translateY(-100vh); /* Move to the top of the viewport */
+    }
+  }
+  
+  /* Shape styles */
+  .cuboid {
+    width: 30px;
+    height: 30px;
+    background-color: #ff4136; /* Red */
+    transform: rotate(45deg); /* Rotate to look like a cuboid */
+  }
+  
+  .sphere {
+    width: 30px;
+    height: 30px;
+    background-color: #ffdc00; /* Yellow */
+    border-radius: 50%; /* Make it round */
+  }
+  
+  .pyramid {
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 30px solid #2ecc40; /* Green */
+  }
+  
