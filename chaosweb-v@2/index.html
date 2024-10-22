@@ -2,12 +2,35 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <title>ChaosWeb</title>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      // The base title that should not fully change
+      const titleText = "Chaotic Title!";
+      const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+  
+      // Function to randomize certain characters only
+      function randomizeTitle() {
+        let chaoticTitle = '';
+        for (let i = 0; i < titleText.length; i++) {
+          // Randomize only certain characters, while leaving others untouched
+          if (titleText[i] !== ' ' && Math.random() > 0.7) {  // Adjust randomness threshold here (0.7)
+            chaoticTitle += characters.charAt(Math.floor(Math.random() * characters.length));
+          } else {
+            chaoticTitle += titleText[i];  // Keep the original character
+          }
+        }
+        // Set the new title in the document
+        document.title = chaoticTitle;
+      }
+  
+      // Update the title every 500 milliseconds
+      setInterval(randomizeTitle, 500);
+    </script>
   </body>
 </html>
