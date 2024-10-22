@@ -1,0 +1,46 @@
+name: "Auto Greeting for Issues and PRs"
+
+on:
+  issues:
+    types: [opened]
+  pull_request_target:
+    types: [opened]
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Greet first-time contributors
+        id: greet
+        uses: actions/first-interaction@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          issue-message: |
+            👋 Hey @${{ github.actor }}! Thanks for stepping into the chaos and opening an issue in the ChaosWeb project. We embrace disorder, and your contribution adds to the delightful mess! 🎉
+            Welcome to the wild side of web design. Expect the unexpected! 🌍🌀
+          pr-message: |
+            👋 Welcome, @${{ github.actor }}! Thank you for your first pull request to ChaosWeb! We’re excited to see how you’ve contributed to the madness. 🎉 Our team will review your chaotic creation soon. Keep the disorder coming! 🚀
+
+      - name: Assign issue or pull request to a team member
+        if: github.event_name == 'issues' || github.event_name == 'pull_request_target'
+        run: |
+          ISSUE_NUMBER=${{ github.event.issue.number || github.event.pull_request.number }}
+          curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          -d '{"assignees":["team-member-username"]}' \
+          "https://api.github.com/repos/${{ github.repository }}/issues/${ISSUE_NUMBER}"
+
+      - name: Welcome message for community contributors
+        if: github.event_name == 'issues' || github.event_name == 'pull_request_target'
+        uses: EddieHubCommunity/gh-action-community/src/welcome@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          issue-message: "👋 Hey @${{ github.actor }}! Thanks for opening an issue in the ChaosWeb project. We’re excited to see how you’ve contributed to the delightful mess. Our team will review it soon. Stay chaotic! 🎯"
+          pr-message: "🎉 Thanks @${{ github.actor }}! Your pull request has added more chaos to ChaosWeb. We’ll review it shortly. Keep breaking the rules! 🚀"
