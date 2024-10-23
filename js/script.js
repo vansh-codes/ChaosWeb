@@ -1,4 +1,32 @@
-document.addEventListener('DOMContentLoaded', function() {
+function animateInputText(inputField, originalText) {
+    let currentIndex = 0;
+
+    function typeLetter() {
+        if (currentIndex < originalText.length) {
+            inputField.value += originalText[currentIndex];
+            currentIndex++;
+            setTimeout(typeLetter, 200);
+        } else {
+            setTimeout(clearAndRestart, 1000);
+        }
+    }
+
+    function clearAndRestart() {
+        inputField.value = '';
+        currentIndex = 0;
+        typeLetter();
+    }
+
+    clearAndRestart();
+}
+
+// Attach the event to each input field
+document.querySelectorAll('.anim').forEach((inputField) => {
+    const originalText = inputField.value;
+    animateInputText(inputField, originalText);
+});
+
+document.addEventListener('DOMContentLoaded', function () {
     const header = document.getElementById('chaos-header');
     const words = header.textContent.split(' ');
     header.innerHTML = words.map(word => `<span>${word}</span>`).join(' ');
