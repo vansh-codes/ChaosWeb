@@ -33,9 +33,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: linear-gradient(135deg, #000000, #2d2430, #ff6600);
-            background-size: 400% 400%;
-            opacity: 0.2;
+            background-image: url("https://images.pexels.com/photos/7577763/pexels-photo-7577763.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+            background-size: 100% 100%;
+            opacity: 0.5;
             z-index: -1;
             animation: gradientPulse 10s ease infinite;
         }
@@ -60,13 +60,16 @@
             max-width: 1200px;
             margin-top: 10%;
             position: relative;
+            
         }
         .event {
-            background-color: var(--event-bg-color);
-            border: 2px solid #ffffff;
+            color: #fff;
+            background: rgba( 255, 254, 254, 0.1 );
+            box-shadow: 0 8px 8px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 4px );
+            -webkit-backdrop-filter: blur( 4px );
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.4);
             text-align: center;
             cursor: pointer;
             transition: transform 0.4s ease, box-shadow 0.3s ease, background-color 0.2s;
@@ -81,10 +84,9 @@
             transition: transform 0.3s ease-in-out; 
         }
         .event:hover {
-            background-color: var(--highlight-color);
-            color: #ffffff;
+            background: rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 8px 0 rgba( 31, 38, 135, 0.37 );
             transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
         }
         .event:hover img {
             transform: scale(1.1) rotate(5deg);
