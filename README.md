@@ -18,8 +18,10 @@ Welcome to **ChaosWeb** — a web design experiment where nothing behaves as it 
 
 **ChaosWeb** is a quirky and deliberately chaotic HTML, CSS, and JavaScript website project designed to challenge the norms of web design. It’s a place where everything is intentionally messy and unpredictable. The goal isn’t usability, but rather to create an anti-UI experience that’s confusing, frustrating, yet strangely fun to explore.
 
-
-
+## 📈 GitHub Repository Stats
+| 🌟 **Stars** | 🍴 **Forks** | 🐛 **Issues** | 🔔 **Open PRs** | 🔕 **Closed PRs** | 🛠️ **Languages** | ✅ **Contributors** |
+|--------------|--------------|---------------|-----------------|------------------|------------------|------------------|
+| ![GitHub stars](https://img.shields.io/github/stars/vansh-codes/ChaosWeb) | ![forks](https://img.shields.io/github/forks/vansh-codes/ChaosWeb) | ![issues](https://img.shields.io/github/issues/vansh-codes/ChaosWeb?color=32CD32) | ![pull requests](https://img.shields.io/github/issues-pr/vansh-codes/ChaosWeb?color=FFFF8F) | ![Closed PRs](https://img.shields.io/github/issues-pr-closed/vansh-codes/ChaosWeb?color=20B2AA) | ![Languages](https://img.shields.io/github/languages/count/vansh-codes/ChaosWeb?color=20B2AA) | ![Contributors](https://img.shields.io/github/contributors/vansh-codes/ChaosWeb?color=00FA9A) |
 
 ## 🤯 Example Features of the Chaos:
 
