@@ -192,3 +192,27 @@ Thank you for contributing to our project! Your help is greatly appreciated in m
   <img src="https://contrib.rocks/image?repo=vansh-codes/ChaosWeb" />
 </a>
 </center>
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+## Stargazers
+
+<div align='left'>
+
+[![Stargazers repo roster for @vansh-codes/ChaosWeb](https://reporoster.com/stars/dark/vansh-codes/ChaosWeb)](https://github.com/vansh-codes/ChaosWeb/stargazers)
+
+
+</div>
+
+## Forkers
+
+[![Forkers repo roster for @vansh-codes/ChaosWeb](https://reporoster.com/forks/dark/vansh-codes/ChaosWeb)](https://github.com/vansh-codes/ChaosWeb/network/members)
+
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+
+
+
+
+
