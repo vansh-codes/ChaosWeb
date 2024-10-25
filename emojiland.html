@@ -27,12 +27,14 @@
         .emoji {
             position: absolute;
             font-size: 30px;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s ease, color 0.3s ease;
             cursor: pointer;
         }
 
         .emoji:hover {
-            transform: scale(5) !important;
+            transform: scale(6) rotate(20deg);
+            color: #ffcc00;
+            text-shadow: 0 0 10px #ff99cc, 0 0 20px #ff66cc, 0 0 30px #ff33cc;
         }
 
         @keyframes randomChangeSize {
@@ -43,8 +45,8 @@
 
         @keyframes glitchBackground {
             0% { background-color: black; }
-            33% { background-color: lightgrey; }
-            66% { background-color: darkgrey; }
+            33% { background-color: #333333; }
+            66% { background-color: #111111; }
             100% { background-color: black; }
         }
 
@@ -129,9 +131,8 @@
         <canvas id="emojiCanvas"></canvas>
     </section>
 
-    <!-- Audio files -->
-    <audio id="dramaticSound" src="sfx/Emoji-Land/drammatic-cinematic-glitch.mp3"></audio>
     <audio id="introMusic" src="sfx/Emoji-Land/intro-music-black-box-dirty-glitch.mp3"></audio>
+    <audio id="dramaticSound" src="sfx/Emoji-Land/drammatic-cinematic-glitch.mp3"></audio>
     <audio id="electricWasps" src="sfx/Emoji-Land/electric-wasps.mp3"></audio>
     <audio id="hurricane" src="sfx/Emoji-Land/hurricane.mp3"></audio>
     <audio id="glitchSound" src="sfx/Emoji-Land/glitch-sound.mp3"></audio>
@@ -145,7 +146,8 @@
         canvas.height = window.innerHeight;
 
         const emojis = ['😎', '🤯', '😱', '👻', '🤖', '👽', '💀', '😵‍💫', '😈', '🤡', '🔥', '🌪️', '💥', 
-        '🎃', '💣', '⚡', '🤪', '😜', '🌀', '👾', '😬', '🤢', '😠', '🛸', '🐉', '👺', '🥴', '🫨'];
+                        '🎃', '💣', '⚡', '🤪', '😜', '🌀', '👾', '😬', '🤢', '😠', '🛸', '🐉', '👺', 
+                        '🥴', '🫨', '🌈', '✨', '🍕', '🎉', '🥳', '👑', '👩‍🚀', '🦄', '💫'];
 
         const audioFiles = {
             '😎': 'introMusic',
@@ -176,9 +178,7 @@
             '👺': 'electricWasps',
             '🥴': 'hurricane',
             '🫨': 'glitchSound',
-        };        
-
-        let emojiElements = [];
+        };
 
         function randomPosition(max) {
             return Math.floor(Math.random() * max);
@@ -199,8 +199,8 @@
             emojiDiv.classList.add('emoji');
             emojiDiv.style.left = `${randomPosition(window.innerWidth)}px`;
             emojiDiv.style.top = `${randomPosition(window.innerHeight)}px`;
-            emojiDiv.style.fontSize = '20px'; // Initial size
-            emojiDiv.style.animation = `randomChangeSize ${randomDuration()}s infinite ease-in-out`; // Each emoji animates differently
+            emojiDiv.style.fontSize = '20px'; 
+            emojiDiv.style.animation = `randomChangeSize ${randomDuration()}s infinite ease-in-out`; 
 
             const audioId = audioFiles[emoji];
             const audio = document.getElementById(audioId);
@@ -220,11 +220,10 @@
             };
 
             document.body.appendChild(emojiDiv);
-            emojiElements.push(emojiDiv);
         }
 
         function populateEmojiLand() {
-            for (let i = 0; i < 120; i++) {
+            for (let i = 0; i < 150; i++) {
                 createEmoji();
             }
         }
@@ -236,24 +235,14 @@
                 setTimeout(() => {
                     char.classList.add('show');
                 }, delay);
-                delay += 150; 
+                delay += 100;
             });
         }
 
-        const welcomeScreen = document.getElementById('welcome');
-        setTimeout(() => {
-            welcomeScreen.style.visibility = 'visible';
-            showWelcomeText();
-        }, 500); 
-
-        setTimeout(() => {
+        window.onload = function () {
             populateEmojiLand();
-        }, 4000); 
-
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
+            showWelcomeText();
+        };
     </script>
 </body>
 </html>
