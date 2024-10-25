@@ -47,3 +47,27 @@ body.inverted video {
   background: rgba(222, 130, 235, 0.911);
   border-radius: 12px;
 }
+/* Comet cursor trail styling */
+.trail {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,165,0,1) 0%, rgba(138,43,226,1) 100%);
+  pointer-events: none;
+  animation: fade 0.5s ease-out forwards;
+}
+
+@keyframes fade {
+  from {
+      opacity: 1;
+  }
+  to {
+      opacity: 0;
+      transform: scale(0.5);
+  }
+}
+
+body {
+  cursor: none; /* Hide the default cursor */
+}
