@@ -1,0 +1,40 @@
+/* Basic page setup */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;}
+
+/* Parallax effect container */
+.parallax {
+    background-image: url('C:\Users\Riya\OneDrive\Desktop\open source\ChaosWeb\assets\Order And Chaos.png'); 
+    height: 100vh; /* Full viewport height */
+    background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
+    transform-style: preserve-3d;
+}
+
+/* Non-parallax content */
+.content {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.content h1 {
+    font-size: 48px;
+    color: #333;
+}
+/* Additional parallax sections for demonstration */
+.parallax-2 {
+    background-image: url('C:\Users\Riya\OneDrive\Desktop\open source\ChaosWeb\assets\Order And Chaos.png');
+    height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
+}
