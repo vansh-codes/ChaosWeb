@@ -1,11 +1,11 @@
 import React, {useState} from "react";
 import './ChaosMania.css'; // Importing the CSS for cube styles
-import Snowfall from "../components/Snowfall";
+import Snowfall from "../components/Snowfall.jsx";
 import snowyImage from "../assets/snowstruct.png";
-import FireRain from "../components/FireRain";
-import Starfield from "../components/Starfield";
-import FloatingRain from "../components/FloatingRain";
-import Firework from "../components/Firework";
+import FireRain from "../components/FireRain.jsx";
+import Starfield from "../components/Starfield.jsx";
+import FloatingRain from "../components/FloatingRain.jsx";
+import Firework from "../components/Firework.jsx";
 const games = [
   { name: "Hyptonic Chaos", link: "/hypnotic" },
   { name: "Button Collection", link: "/ButtonCollection" },

@@ -1,9 +1,16 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./home.jsx";
+import app from "../App.jsx";
+import '../index.css';
+import { useState } from "react";
 import appPages from "../utils/pages.js";
+import { Link } from 'react-router-dom';
+
 
 const HypnoticChaos = () => {
+
   const navigate = useNavigate(); // Initialize navigate hook
   useEffect(() => {
     // --------------Random page navigation start-------------------------------
@@ -26,7 +33,16 @@ const HypnoticChaos = () => {
       var b = Math.floor(Math.random() * 256);
       return { r, g, b };
     }
-
+    function Home() {
+      return (
+        <div>
+          <h1>Home Page</h1>
+          <Link to="/app">
+            <button>Go to App Page</button>
+          </Link>
+        </div>
+      );
+    }
     function luminance(r, g, b) {
       var a = [r, g, b].map(function (v) {
         v /= 255;
@@ -107,13 +123,19 @@ const HypnoticChaos = () => {
       clearTimeout(timer); // clear random page navigation timeout
     };
   }, [navigate]);
-
+  function Home() {
+    const navigate = useNavigate();
+  }  
   return (
     <div className="parent">
       <div className="content">
         <div className="chaotic-text top-text">
           Welcome to Chaos! Where sanity is overrated.
         </div>
+        <div>
+      <h1>Home Page</h1>
+      <button onClick={() => navigate('/')}>Go to App Page</button>
+    </div>
         <canvas id="myCanvas" width="300" height="300"></canvas>
         <div className="chaotic-text bottom-text">
           Relax? Sure, if you like chaos!
@@ -176,6 +198,7 @@ const HypnoticChaos = () => {
         }
       `}</style>
     </div>
+
   );
 };
 

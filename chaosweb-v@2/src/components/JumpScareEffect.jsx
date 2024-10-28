@@ -1,11 +1,11 @@
 // src/components/JumpScareEffect.jsx
 import React, { useEffect, useState } from 'react';
 import './JumpScareEffect.css';
-import jumpScareImage1 from '../assets/creepyImg/jump-scare.jpg';
-import jumpScareImage2 from '../assets/creepyImg/jump-scare-2.jpg';
-import jumpScareImage3 from '../assets/creepyImg/jump-scare-3.jpg';
-import jumpScareImage4 from '../assets/creepyImg/jump-scare-4.jpg';
-import jumpScareImage5 from '../assets/creepyImg/jump-scare-5.jpg';
+import jumpScareImage1 from './assets/creepyImg/jump-scare.jpg';
+import jumpScareImage2 from './assets/creepyImg/jump-scare-2.jpg';
+import jumpScareImage3 from './assets/creepyImg/jump-scare-3.jpg';
+import jumpScareImage4 from './assets/creepyImg/jump-scare-4.jpg';
+import jumpScareImage5 from './assets/creepyImg/jump-scare-5.jpg';
 
 const images = [jumpScareImage1, jumpScareImage2, jumpScareImage3, jumpScareImage4, jumpScareImage5];
 

@@ -1,16 +1,14 @@
-
-const header = document.getElementById('chaos-header');
-const words = header.textContent.split(' ');
+header = document.getElementById('chaos-header');
+words = header.textContent.split(' ');
 header.innerHTML = words.map(word => `<span>${word}</span>`).join(' ');
 
-
-const navItems = document.querySelectorAll('.nav-item');
-const velocity = 3; // Initial speed of movement
-const collisionBuffer = 50; // Distance to consider for collision detection
-const itemSize = 100; // Approximate size of the nav items (width/height)
+navItems = document.querySelectorAll('.nav-item');
+velocity = 3; // Initial speed of movement
+collisionBuffer = 50; // Distance to consider for collision detection
+itemSize = 100; // Approximate size of the nav items (width/height)
 
 // Define a threshold for edge detection
-const edgeThreshold = 0; // Allow items to use the full page
+edgeThreshold = 0; // Allow items to use the full page
 
 // Function to generate random colors
 function getRandomColor() {
@@ -23,8 +21,9 @@ function getRandomColor() {
 }
 
 // Initialize positions and velocities for each nav item
+
 const fishData = Array.from(navItems).map(item => {
-    const position = {
+    position = {
         x: Math.random() * (window.innerWidth - itemSize),
         y: Math.random() * (window.innerHeight - itemSize)
     };
@@ -43,11 +42,11 @@ const fishData = Array.from(navItems).map(item => {
         target: null // Add target property for gliding back to the center
     };
 });
-
 // Function to update the positions of the nav items
 // Function to update the positions of the nav items
 // Function to update the positions of the nav items
 function updatePositions() {
+    
     fishData.forEach((fish, index) => {
         // Update position based on velocity
         fish.position.x += fish.velocity.x;

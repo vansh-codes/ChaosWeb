@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './ButtonCollection.css';
-import Popup from "../components/popup";
+import Popup from "../components/popup.jsx";
 
 
 const ButtonCollection = () => {
@@ -21,12 +21,10 @@ const ButtonCollection = () => {
 
   return (
     <div className="min-h-screen bg-[#1a1a2e] text-[#e0e0e0] p-10">
-      <header className="text-center mb-12">
         <h1 className="text-6xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 drop-shadow-md">
           Button Mania
         </h1>
         <p className="text-lg text-gray-400">Explore the Unknown with our buttons</p>
-      </header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 shake-slow">
         {/* Game Card with Explosion Effect */}
