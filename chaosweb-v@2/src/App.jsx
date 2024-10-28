@@ -14,6 +14,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/timeline" element={<Timeline />} />
         <Route path="/hypnotic" element={<HypnoticChaos />} />
+        <Route path="/chaos" element={<ChaosInteractions />} /> 
       </Routes>
     </Router>
   );
