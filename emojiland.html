@@ -18,12 +18,6 @@
             position: relative;
         }
 
-        canvas {
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
-
         .emoji {
             position: absolute;
             font-size: 30px;
@@ -33,12 +27,6 @@
 
         .emoji:hover {
             transform: scale(5) !important;
-        }
-
-        @keyframes randomChangeSize {
-            0% { font-size: 20px; }
-            50% { font-size: 70px; }
-            100% { font-size: 20px; }
         }
 
         @keyframes glitchBackground {
@@ -82,11 +70,6 @@
             100% { transform: rotate(0deg) scale(1); opacity: 1; }
         }
 
-        @keyframes alignText {
-            0% { transform: translateY(50px); opacity: 0; }
-            100% { transform: translateY(0); opacity: 1; }
-        }
-
         .char {
             opacity: 0;
             animation: charEnter 2s ease forwards;
@@ -94,7 +77,7 @@
         }
 
         .char.show {
-            animation: charEnter 2s ease forwards, alignText 1s ease-in-out 1.5s forwards;
+            animation: charEnter 2s ease forwards;
         }   
     </style>
 </head>
@@ -125,9 +108,7 @@
         </span>
     </div>
 
-    <section id="emoji-land">
-        <canvas id="emojiCanvas"></canvas>
-    </section>
+    <section id="emoji-land"></section>
 
     <!-- Audio files -->
     <audio id="dramaticSound" src="sfx/Emoji-Land/drammatic-cinematic-glitch.mp3"></audio>
@@ -138,14 +119,9 @@
     <audio id="digitalChaos" src="sfx/Emoji-Land/digital-chaos.mp3"></audio>
 
     <script>
-        const canvas = document.getElementById('emojiCanvas');
-        const ctx = canvas.getContext('2d');
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
+        const emojiLand = document.getElementById('emoji-land');
         const emojis = ['😎', '🤯', '😱', '👻', '🤖', '👽', '💀', '😵‍💫', '😈', '🤡', '🔥', '🌪️', '💥', 
-        '🎃', '💣', '⚡', '🤪', '😜', '🌀', '👾', '😬', '🤢', '😠', '🛸', '🐉', '👺', '🥴', '🫨'];
+            '🎃', '💣', '⚡', '🤪', '😜', '🌀', '👾', '😬', '🤢', '😠', '🛸', '🐉', '👺', '🥴', '🫨'];
 
         const audioFiles = {
             '😎': 'introMusic',
@@ -188,10 +164,6 @@
             return emojis[Math.floor(Math.random() * emojis.length)];
         }
 
-        function randomDuration() {
-            return (Math.random() * 3) + 1; 
-        }
-
         function createEmoji() {
             const emojiDiv = document.createElement('div');
             const emoji = randomEmoji();
@@ -200,27 +172,21 @@
             emojiDiv.style.left = `${randomPosition(window.innerWidth)}px`;
             emojiDiv.style.top = `${randomPosition(window.innerHeight)}px`;
             emojiDiv.style.fontSize = '20px'; // Initial size
-            emojiDiv.style.animation = `randomChangeSize ${randomDuration()}s infinite ease-in-out`; // Each emoji animates differently
 
+            // Play audio on hover
             const audioId = audioFiles[emoji];
             const audio = document.getElementById(audioId);
+            emojiDiv.onmouseenter = () => audio && audio.play();
+            emojiDiv.onmouseleave = () => audio && audio.pause();
 
-            emojiDiv.onmouseover = () => {
-                if (audio) {
-                    audio.currentTime = 0; 
-                    audio.play();
-                }
-            };
-
-            emojiDiv.onmouseout = () => {
-                if (audio) {
-                    audio.pause(); 
-                    audio.currentTime = 0; 
-                }
-            };
-
-            document.body.appendChild(emojiDiv);
+            emojiLand.appendChild(emojiDiv);
             emojiElements.push(emojiDiv);
+
+            // Remove emoji after a while to prevent memory leaks
+            setTimeout(() => {
+                emojiDiv.remove();
+                emojiElements = emojiElements.filter(el => el !== emojiDiv);
+            }, 5000); // Remove emoji after 5 seconds
         }
 
         function populateEmojiLand() {
@@ -251,8 +217,8 @@
         }, 4000); 
 
         window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            emojiLand.innerHTML = ''; // Clear emojis on resize to prevent layout issues
+            populateEmojiLand(); // Re-populate emojis after resize
         });
     </script>
 </body>
