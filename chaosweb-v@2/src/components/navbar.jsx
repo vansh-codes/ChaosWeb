@@ -1662,6 +1662,9 @@ const Navbar = () => {
         <div className="nav-item">
           <InvertColorToggle /> {/* This will render the button */}
         </div>
+        <div className="nav-item" onClick={() => handleNavigate("/barrelroll")}>
+            Do a Barrel Roll
+        </div>
         <div className="nav-item" onClick={() => handleNavigate("/maze")}>
         Maze Game
       </div>
