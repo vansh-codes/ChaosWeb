@@ -5,31 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chaos Web - Sign Up</title>
     <style>
-        img{
+        img {
             width: 170px;
             height: 170px;
-            /* border: white 5px solid; */
             position: absolute;
             top: 10px;
             left: 50px;
             border-radius: 50%;
             box-shadow: 0 1px 10px #87ceeb, 0 1px 20px #87ceeb;
+            animation: chaoticSpin 5s infinite alternate;
         }
+        
         body {
-            /* position: relative; */
             background: url('3d-effect-hypnosis-spiral-vector-7844424.jpg') center center fixed, #000;
             background-size: cover;
-            animation: moveBackground 15s infinite linear;
+            animation: moveBackground 5s infinite linear;
             color: #fff;
             font-family: 'Comic Sans MS', cursive, sans-serif;
             text-align: center;
             font-size: 22px;
             z-index: 1;
+            overflow: hidden; /* Prevents buttons from going off-screen */
         }
 
         @keyframes moveBackground {
             0% { background-position: 0 0; }
-            50% { background-position: 100% 100%; }
+            50% { background-position: 200% 200%; }
             100% { background-position: 0 0; }
         }
 
@@ -40,7 +41,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+            background: rgba(0, 0, 0, 0.6);
             z-index: -1;
         }
 
@@ -49,6 +50,7 @@
             font-weight: bold;
             margin-bottom: 20px;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            animation: chaoticMove 3s infinite;
         }
 
         .container {
@@ -58,9 +60,8 @@
 
         .form-group {
             margin-bottom: 30px;
-            position: relative;
             display: inline-block;
-            margin-top: 50px;
+            animation: chaoticMove 4s infinite;
         }
 
         label {
@@ -76,41 +77,47 @@
             background: #333;
             color: #fff;
             width: 300px;
-            display: block;
             font-size: 20px;
+            animation: chaoticMove 6s infinite;
         }
 
         button {
             padding: 15px 30px;
-            background: linear-gradient(135deg, #555, #888);
             color: #fff;
             border: 2px solid #aaa;
             cursor: pointer;
             font-size: 22px;
             border-radius: 10px;
             position: absolute;
+            animation: chaoticMove 2s infinite, randomColor 1s infinite alternate;
         }
 
-        button:hover {
-            background: linear-gradient(135deg, #777, #999);
-            transform: rotate(10deg) scale(1.1);
-            transition: background 0.3s ease, transform 0.3s ease;
+        @keyframes chaoticMove {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(80px, -20px) rotate(10deg); }
+            50% { transform: translate(-50px, 50px) rotate(-20deg); }
+            75% { transform: translate(100px, -30px) rotate(15deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
+
+        @keyframes randomColor {
+            0% { background-color: #555; }
+            50% { background-color: #888; }
+            100% { background-color: #555; }
+        }
+
+        /* Spinning effect for the image */
+        @keyframes chaoticSpin {
+            0% { transform: rotate(0deg); }
+            50% { transform: rotate(180deg); }
+            100% { transform: rotate(360deg); }
         }
 
         #errorMessage {
             color: red;
             display: none;
             font-size: 26px;
-        }
-
-        /* Style for the logo */
-        .logo {
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            z-index: 10;
-            width: 100px; /* Adjust the size of the logo */
-            height: auto;
+            animation: chaoticMove 1.5s infinite;
         }
 
         /* Blank screen effect */
@@ -126,8 +133,7 @@
     </style>
 </head>
 <body>
-    <!-- Add the logo here -->
-    <img src="https://chaosweb.vercel.app/assets/logo-DJRpIUaM.png" type="image/x-icon">
+    <img src="https://chaosweb.vercel.app/assets/logo-DJRpIUaM.png" alt="Logo">
 
     <div class="container">
         <h1>Create Your Account</h1>
@@ -151,38 +157,24 @@
         <button id="backButton">Back to Sign In</button>
     </div>
 
-    <!-- Blank screen div -->
     <div class="blank-screen"></div>
 
     <script>
-        // Function to smoothly move buttons
         function moveButtons() {
-            const buttons = document.querySelectorAll('button'); // Select all buttons
-
+            const buttons = document.querySelectorAll('button');
             buttons.forEach(button => {
-                // Get the dimensions of the window (screen)
                 const windowWidth = window.innerWidth;
                 const windowHeight = window.innerHeight;
-
-                // Generate random target positions within the screen
                 const randomX = Math.random() * (windowWidth - button.offsetWidth);
                 const randomY = Math.random() * (windowHeight - button.offsetHeight);
-
-                // Set the button's position to the random coordinates with smooth transition
-                button.style.transition = 'left 1s, top 1s'; // Smooth movement with 1s duration
-                button.style.position = 'absolute'; // Ensure the button is positioned absolutely
                 button.style.left = `${randomX}px`;
                 button.style.top = `${randomY}px`;
             });
-
-            // Call the function again after a delay
-            setTimeout(moveButtons, 1500); // Adjust the timeout for how often the buttons move
+            setTimeout(moveButtons, 1000);
         }
 
-        // Start moving the buttons
         moveButtons();
 
-        // Function to generate random color
         function getRandomColor() {
             const letters = '0123456789ABCDEF';
             let color = '#';
@@ -192,25 +184,19 @@
             return color;
         }
 
-        // Function to trigger blank screen with blinking colors
         function triggerBlankScreen() {
             const blankScreen = document.querySelector('.blank-screen');
-            blankScreen.style.display = 'block'; // Show the blank screen
-
+            blankScreen.style.display = 'block';
             const interval = setInterval(() => {
-                // Set a random background color on each interval
                 blankScreen.style.backgroundColor = getRandomColor();
-            }, 200); // Change color every 200ms for a rapid blinking effect
-
-            // Turn off the blank screen after 3 seconds of blinking
+            }, 100);
             setTimeout(() => {
-                blankScreen.style.display = 'none'; // Hide the blank screen
-                clearInterval(interval); // Stop the blinking
-            }, 3000); // Blink for 3 seconds
+                blankScreen.style.display = 'none';
+                clearInterval(interval);
+            }, 3000);
         }
 
-        // Set up the interval to trigger the blank screen every 15 seconds
-        setInterval(triggerBlankScreen, 15000);
+        setInterval(triggerBlankScreen, 10000);
     </script>
 </body>
 </html>

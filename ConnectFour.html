@@ -3,9 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Connect Four</title>
+<title>Chaotic Connect Four</title>
 <style>
-  /* General Styling */
   body {
     display: flex;
     flex-direction: column;
@@ -15,9 +14,9 @@
     color: white;
     margin: 0;
     padding: 0;
+    transition: background-color 0.5s ease;
   }
 
-  /* Connect Four Layout */
   .connect-four {
     display: flex;
     flex-direction: column;
@@ -25,24 +24,22 @@
     margin-top: 50px;
   }
 
-  /* Neon Board Styling */
   .board {
     display: flex;
     flex-direction: column;
     background-color: #003366;
     padding: 20px;
     border-radius: 15px;
-    border: 5px solid #00FFFF;
-    box-shadow: 0 0 20px #00FFFF;
+    border: 5px solid #FF00FF;
+    box-shadow: 0 0 20px #FF00FF;
     animation: neonPulse 1.5s infinite alternate;
   }
 
   @keyframes neonPulse {
-    from { box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF; }
-    to { box-shadow: 0 0 20px #00FFFF, 0 0 40px #00FFFF; }
+    from { box-shadow: 0 0 10px #FF00FF, 0 0 20px #FF00FF; }
+    to { box-shadow: 0 0 20px #FF00FF, 0 0 40px #FF00FF; }
   }
 
-  /* Row and Cell Styling */
   .row {
     display: flex;
   }
@@ -58,7 +55,6 @@
     cursor: pointer;
   }
 
-  /* Hole Styling */
   .hole {
     width: 70px;
     height: 70px;
@@ -69,21 +65,22 @@
   }
 
   .hole:hover {
-    transform: scale(1.1);
+    transform: rotate(360deg) scale(1.1);
   }
 
-  /* Piece Colors */
   .piece {
     width: 70px;
     height: 70px;
     border-radius: 50%;
     position: absolute;
+    animation: pieceChaos 1s forwards;
   }
 
-  .R { background: radial-gradient(circle at 30% 30%, #f48282, #cc0000, #330d0d); }
-  .Y { background: radial-gradient(circle at 30% 30%, #ffff99, #cccc00, #5b5b03); }
+  @keyframes pieceChaos {
+    from { transform: scale(0.5) rotate(0deg); }
+    to { transform: scale(1) rotate(720deg); }
+  }
 
-  /* Title Styling */
   .neon-title {
     font-size: 3rem;
     color: #8800ff;
@@ -94,7 +91,6 @@
     margin-bottom: 20px;
   }
 
-  /* Button Styling */
   button {
     margin-top: 20px;
     padding: 12px 25px;
@@ -109,14 +105,14 @@
 
   button:hover {
     background-color: #0059b3;
-    transform: scale(1.05);
+    transform: scale(1.2);
   }
 </style>
 </head>
 <body>
 
 <div class="connect-four">
-  <h1 class="neon-title">CONNECT FOUR</h1>
+  <h1 class="neon-title">CHAOTIC CONNECT FOUR</h1>
   <div id="board" class="board"></div>
   <button onclick="restartGame()">Restart Game</button>
   <div id="status" class="status"></div>
@@ -125,10 +121,10 @@
 <script>
   const ROWS = 6;
   const COLS = 7;
-  let currentPlayer = 'R'; // Red starts
+  const colors = ['#FF0000', '#FFFF00', '#FF69B4', '#00FF00', '#FFA500', '#00FFFF'];
+  let currentPlayer = colors[Math.floor(Math.random() * colors.length)];
   let board = Array(ROWS).fill().map(() => Array(COLS).fill(null));
 
-  // Create board layout
   const boardElement = document.getElementById("board");
 
   function createBoard() {
@@ -149,47 +145,51 @@
     }
   }
 
-  // Handle player click to place piece
   function handleClick(col) {
     for (let row = ROWS - 1; row >= 0; row--) {
       if (!board[row][col]) {
         board[row][col] = currentPlayer;
         updateBoard();
         if (checkWin(row, col)) {
-          document.getElementById('status').textContent = `${currentPlayer} wins!`;
+          document.getElementById('status').textContent = `${currentPlayer} wins! 🎉`;
         } else {
           switchPlayer();
+          randomizeBackground();
         }
         return;
       }
     }
   }
 
-  // Update the board UI
   function updateBoard() {
     for (let row = 0; row < ROWS; row++) {
       for (let col = 0; col < COLS; col++) {
         if (board[row][col]) {
           const cell = boardElement.children[row].children[col];
           const piece = document.createElement('div');
-          piece.classList.add('piece', board[row][col]);
+          piece.classList.add('piece');
+          piece.style.background = board[row][col];
           cell.appendChild(piece);
         }
       }
     }
   }
 
-  // Switch current player
   function switchPlayer() {
-    currentPlayer = currentPlayer === 'R' ? 'Y' : 'R';
+    currentPlayer = colors[Math.floor(Math.random() * colors.length)];
+    document.getElementById('status').textContent = `Your Turn: ${currentPlayer}`;
   }
 
-  // Check for win condition
+  function randomizeBackground() {
+    const randomColor = `hsl(${Math.random() * 360}, 50%, 25%)`;
+    document.body.style.backgroundColor = randomColor;
+  }
+
   function checkWin(row, col) {
     const directions = [
       { r: 1, c: 0 }, { r: 0, c: 1 }, { r: 1, c: 1 }, { r: 1, c: -1 }
     ];
-    for (let {r, c} of directions) {
+    for (let { r, c } of directions) {
       let count = 1;
       count += countPieces(row, col, r, c);
       count += countPieces(row, col, -r, -c);
@@ -198,7 +198,6 @@
     return false;
   }
 
-  // Count pieces in a direction
   function countPieces(row, col, r, c) {
     let count = 0;
     let color = board[row][col];
@@ -212,15 +211,13 @@
     return count;
   }
 
-  // Restart the game
   function restartGame() {
     board = Array(ROWS).fill().map(() => Array(COLS).fill(null));
-    currentPlayer = 'R';
+    currentPlayer = colors[Math.floor(Math.random() * colors.length)];
     document.getElementById('status').textContent = '';
     createBoard();
   }
 
-  // Initialize the game
   createBoard();
 </script>
 

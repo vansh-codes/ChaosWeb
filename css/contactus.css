@@ -59,17 +59,49 @@ input:focus {
 input::placeholder{
     padding: 10px;
 }
+    /* Existing styles remain here... */
 
-button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #099d1d; 
-    color: #ffffff;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+    /* Keyframes for chaotic button movement */
+    @keyframes chaoticMove {
+        0% {
+            transform: translate(0, 0);
+        }
+        20% {
+            transform: translate(30px, -20px);
+        }
+        40% {
+            transform: translate(-30px, 40px);
+        }
+        60% {
+            transform: translate(40px, 30px);
+        }
+        80% {
+            transform: translate(-20px, -30px);
+        }
+        100% {
+            transform: translate(0, 0);
+        }
+    }
+
+    /* Apply chaotic animation to the submit button */
+    button {
+        padding: 8px 12px;
+        width: auto;
+        cursor: pointer;
+        background-color: #5c4b8a;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        margin-top: 10px;
+        font-size: 1em;
+        transition: background-color 0.3s;
+        animation: chaoticMove 2s infinite; /* Add chaotic animation */
+    }
+
+    button:hover {
+        background-color: #452f63;
+    }
+
 
 button:hover {
     background-color: #0ac419; 
