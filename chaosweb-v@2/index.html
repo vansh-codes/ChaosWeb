@@ -7,17 +7,13 @@
   <title>ChaosWeb</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* Parallax sections */
-    .parallax, .parallax-2 {
-      background: url('parallax-image.jpg') no-repeat fixed center;
-      height: 500px;
-      background-size: cover;
-    }
-
-    /* Content styling */
-    .content {
-      text-align: center;
-      margin: 50px;
+    /* Body styling for chaotic background */
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background: linear-gradient(45deg, #ff6ec4, #7873f5, #33ccff, #ff5733, #33ff57, #5733ff);
+      background-size: 300% 300%;
+      animation: backgroundShift 10s infinite alternate;
       font-family: Arial, sans-serif;
     }
 
@@ -50,7 +46,7 @@
       75% { color: #5733ff; }
     }
 
-    /* Adding random glitches and position shifts */
+    /* Glitch effect */
     @keyframes glitch {
       0% { transform: translate(0px, 0px); }
       25% { transform: translate(-5px, 5px); }
@@ -64,23 +60,42 @@
                  chaoticColor 0.1s infinite alternate,
                  glitch 0.05s infinite alternate ease-in-out;
     }
+
+    /* Background color-changing animation */
+    @keyframes backgroundShift {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    /* Parallax section styling */
+    .parallax, .parallax-2 {
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .content {
+      margin: 50px;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
   <!-- First Parallax Section -->
-  <div class="parallax"></div>
-
-  <!-- Content Section -->
-  <div class="content">
+  <div class="parallax">
     <h1 class="chaos-text glitch" id="chaosText">Welcome to ChaosWeb</h1>
   </div>
-
-  <!-- Second Parallax Section -->
-  <div class="parallax-2"></div>
 
   <!-- Content Section -->
   <div class="content">
     <h1 class="chaos-text glitch" id="chaosScrollText">Scroll for the Chaos</h1>
+  </div>
+
+  <!-- Second Parallax Section -->
+  <div class="parallax-2">
+    <h1 class="chaos-text glitch">Embrace the Madness</h1>
   </div>
 
   <div id="root"></div>
@@ -104,7 +119,7 @@
     }
     setInterval(randomizeTitle, 300);
 
-    // JavaScript for chaotic effects on both text elements
+    // Chaotic effect on elements
     const chaosText = document.getElementById('chaosText');
     const chaosScrollText = document.getElementById('chaosScrollText');
 
@@ -119,7 +134,6 @@
       element.style.marginTop = `${Math.floor(Math.random() * 20) - 10}px`;
     }
 
-    // Apply chaotic effect every 100ms to both elements
     setInterval(() => {
       applyExtremeChaosEffect(chaosText);
       applyExtremeChaosEffect(chaosScrollText);
