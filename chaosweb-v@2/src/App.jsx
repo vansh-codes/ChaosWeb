@@ -11,6 +11,7 @@ import ChaosMania from "./pages/ChaosMania";
 import ButtonCollection from "./pages/ButtonCollection";
 import { useState } from "react";
 import JumpScareEffect from "./components/JumpScareEffect";
+import BarrelRoll from "./pages/BarrelRoll";
 
 function App() {
     const [trigger, setTrigger] = useState(false);
@@ -40,6 +41,7 @@ function App() {
                     <Route path="/maze" element={<MazeGame />} />
                     <Route path="/chaosmania" element={<ChaosMania />} />
                     <Route path="/ButtonCollection" element={<ButtonCollection />} />
+                    <Route path="/BarrelRoll" element={<BarrelRoll />} />
                 </Routes>
             </div>
         </Router>
