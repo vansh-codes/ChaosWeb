@@ -1,56 +1,140 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/logo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ChaosWeb</title>
-    <!-- Link to the external CSS file -->
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- First Parallax Section -->
-    <div class="parallax"></div>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChaosWeb</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background: linear-gradient(45deg, #ff6ec4, #7873f5, #33ccff, #ff5733, #33ff57, #5733ff);
+      background-size: 300% 300%;
+      animation: backgroundShift 10s infinite alternate;
+      font-family: Arial, sans-serif;
+      position: relative;
+    }
 
-    <!-- Content Section -->
-    <div class="content">
-      <h1>Welcome to ChaosWeb</h1>
-    </div>
+    /* Chaotic text styling */
+    .chaos-text {
+      font-size: 3rem;
+      color: #33ccff;
+      display: inline-block;
+      position: relative;
+      animation: chaoticRotation 0.3s infinite alternate ease-in-out, 
+                 chaoticScale 0.2s infinite alternate ease-in-out, 
+                 chaoticColor 0.1s infinite alternate;
+    }
 
-    <!-- Second Parallax Section -->
-    <div class="parallax-2"></div>
+    /* Keyframes for chaotic animations */
+    @keyframes chaoticRotation {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(10deg); }
+    }
 
-    <!-- Content Section -->
-    <div class="content">
-      <h1>Scroll for the Chaos</h1>
-    </div>
-    <div id="root"></div>
-    
-    <script type="module" src="/src/main.jsx"></script>
-    <script>
-      // The base title that should not fully change
-      const titleText = "Chaotic Title!";
-      const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
-  
-      // Function to randomize certain characters only
-      function randomizeTitle() {
-        let chaoticTitle = '';
-        for (let i = 0; i < titleText.length; i++) {
-          // Randomize only certain characters, while leaving others untouched
-          if (titleText[i] !== ' ' && Math.random() > 0.7) {  // Adjust randomness threshold here (0.7)
-            chaoticTitle += characters.charAt(Math.floor(Math.random() * characters.length));
-          } else {
-            chaoticTitle += titleText[i];  // Keep the original character
-          }
-        }
-        // Set the new title in the document
-        document.title = chaoticTitle;
-        
+    @keyframes chaoticScale {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.2); }
+    }
+
+    @keyframes chaoticColor {
+      0%, 100% { color: #33ccff; }
+      25% { color: #ff5733; }
+      50% { color: #33ff57; }
+      75% { color: #5733ff; }
+    }
+
+    /* Emoji styling - fixed position along the edges */
+    .emoji {
+      position: fixed;
+      font-size: 2rem;
+      opacity: 0.9;
+    }
+
+    @keyframes backgroundShift {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    /* Parallax section styling */
+    .parallax, .parallax-2 {
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .content {
+      margin: 50px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- First Parallax Section -->
+  <div class="parallax">
+    <h1 class="chaos-text">Welcome to ChaosWeb</h1>
+  </div>
+
+  <!-- Content Section -->
+  <div class="content">
+    <h1 class="chaos-text">Scroll for the Chaos</h1>
+  </div>
+
+  <!-- Second Parallax Section -->
+  <div class="parallax-2">
+    <h1 class="chaos-text">Embrace the Madness</h1>
+  </div>
+
+  <div id="root"></div>
+
+  <script type="module" src="/src/main.jsx"></script>
+  <script>
+    const emojis = ['👻', '😜', '😈', '💀', '🎃', '👹', '👺'];
+    const emojiSize = 30;
+
+    function createEmojiBoundary() {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+
+      // Top boundary
+      for (let i = 0; i < width / emojiSize; i++) {
+        placeEmoji(i * emojiSize, 0);
       }
-  
-      // Update the title every 500 milliseconds
-      setInterval(randomizeTitle, 500);
-      
-    </script>
-  </body>
+
+      // Bottom boundary
+      for (let i = 0; i < width / emojiSize; i++) {
+        placeEmoji(i * emojiSize, height - emojiSize);
+      }
+
+      // Left boundary
+      for (let i = 0; i < height / emojiSize; i++) {
+        placeEmoji(0, i * emojiSize);
+      }
+
+      // Right boundary
+      for (let i = 0; i < height / emojiSize; i++) {
+        placeEmoji(width - emojiSize, i * emojiSize);
+      }
+    }
+
+    function placeEmoji(x, y) {
+      const emoji = document.createElement('span');
+      emoji.classList.add('emoji');
+      emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      emoji.style.left = `${x}px`;
+      emoji.style.top = `${y}px`;
+      document.body.appendChild(emoji);
+    }
+
+    createEmojiBoundary();
+    window.addEventListener('resize', () => {
+      document.querySelectorAll('.emoji').forEach(emoji => emoji.remove());
+      createEmojiBoundary();
+    });
+  </script>
+</body>
 </html>
