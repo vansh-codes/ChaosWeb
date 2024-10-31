@@ -108,12 +108,14 @@
 │   │   │   ├── ButtonCollection.jsx
 │   │   │   ├── ChaosMania.css
 │   │   │   ├── ChaosMania.jsx
+│   │   │   ├── ColorEffect.css
 │   │   │   ├── Contributors.css
 │   │   │   ├── Contributors.jsx
 │   │   │   ├── HypnoticChaos.jsx
 │   │   │   ├── RateUs.css
 │   │   │   ├── RateUs.jsx
 │   │   │   ├── Review.jsx
+│   │   │   ├── TestEffects.jsx
 │   │   │   ├── Timeline.css
 │   │   │   ├── contact.css
 │   │   │   ├── contact.jsx
