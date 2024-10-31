@@ -115,6 +115,8 @@
 │   │   │   ├── Contributors.css
 │   │   │   ├── Contributors.jsx
 │   │   │   ├── HypnoticChaos.jsx
+│   │   │   ├── RateUs.css
+│   │   │   ├── RateUs.jsx
 │   │   │   ├── Review.jsx
 │   │   │   ├── Timeline.css
 │   │   │   ├── contact.css
