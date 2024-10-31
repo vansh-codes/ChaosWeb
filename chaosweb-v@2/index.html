@@ -7,6 +7,7 @@
   <title>ChaosWeb</title>
   <link rel="stylesheet" href="style.css" />
   <style>
+    /* Body styling for chaotic background */
     body {
       margin: 0;
       overflow-x: hidden;
@@ -46,13 +47,22 @@
       75% { color: #5733ff; }
     }
 
-    /* Emoji styling - fixed position along the edges */
-    .emoji {
-      position: fixed;
-      font-size: 2rem;
-      opacity: 0.9;
+    /* Glitch effect */
+    @keyframes glitch {
+      0% { transform: translate(0px, 0px); }
+      25% { transform: translate(-5px, 5px); }
+      50% { transform: translate(5px, -5px); }
+      75% { transform: translate(-5px, -5px); }
+      100% { transform: translate(5px, 5px); }
+    }
+    .chaos-text.glitch {
+      animation: chaoticRotation 0.3s infinite alternate ease-in-out,
+                 chaoticScale 0.2s infinite alternate ease-in-out,
+                 chaoticColor 0.1s infinite alternate,
+                 glitch 0.05s infinite alternate ease-in-out;
     }
 
+    /* Background color-changing animation */
     @keyframes backgroundShift {
       0% { background-position: 0% 50%; }
       100% { background-position: 100% 50%; }
@@ -76,65 +86,59 @@
 <body>
   <!-- First Parallax Section -->
   <div class="parallax">
-    <h1 class="chaos-text">Welcome to ChaosWeb</h1>
+    <h1 class="chaos-text glitch" id="chaosText">Welcome to ChaosWeb</h1>
   </div>
 
   <!-- Content Section -->
   <div class="content">
-    <h1 class="chaos-text">Scroll for the Chaos</h1>
+    <h1 class="chaos-text glitch" id="chaosScrollText">Scroll for the Chaos</h1>
   </div>
 
   <!-- Second Parallax Section -->
   <div class="parallax-2">
-    <h1 class="chaos-text">Embrace the Madness</h1>
+    <h1 class="chaos-text glitch">Embrace the Madness</h1>
   </div>
 
   <div id="root"></div>
 
   <script type="module" src="/src/main.jsx"></script>
   <script>
-    const emojis = ['👻', '😜', '😈', '💀', '🎃', '👹', '👺'];
-    const emojiSize = 30;
+    // JavaScript for dynamic title changes
+    const titleText = "Chaotic Title!";
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
 
-    function createEmojiBoundary() {
-      const width = window.innerWidth;
-      const height = window.innerHeight;
-
-      // Top boundary
-      for (let i = 0; i < width / emojiSize; i++) {
-        placeEmoji(i * emojiSize, 0);
+    function randomizeTitle() {
+      let chaoticTitle = '';
+      for (let i = 0; i < titleText.length; i++) {
+        if (titleText[i] !== ' ' && Math.random() > 0.5) {
+          chaoticTitle += characters.charAt(Math.floor(Math.random() * characters.length));
+        } else {
+          chaoticTitle += titleText[i];
+        }
       }
+      document.title = chaoticTitle;
+    }
+    setInterval(randomizeTitle, 300);
 
-      // Bottom boundary
-      for (let i = 0; i < width / emojiSize; i++) {
-        placeEmoji(i * emojiSize, height - emojiSize);
-      }
+    // Chaotic effect on elements
+    const chaosText = document.getElementById('chaosText');
+    const chaosScrollText = document.getElementById('chaosScrollText');
 
-      // Left boundary
-      for (let i = 0; i < height / emojiSize; i++) {
-        placeEmoji(0, i * emojiSize);
-      }
-
-      // Right boundary
-      for (let i = 0; i < height / emojiSize; i++) {
-        placeEmoji(width - emojiSize, i * emojiSize);
-      }
+    function applyExtremeChaosEffect(element) {
+      const randomRotation = Math.floor(Math.random() * 30) - 15;
+      const randomScale = 1 + Math.random() * 0.3;
+      const randomColor = `hsl(${Math.floor(Math.random() * 360)}, 100%, 50%)`;
+      
+      element.style.transform = `rotate(${randomRotation}deg) scale(${randomScale})`;
+      element.style.color = randomColor;
+      element.style.marginLeft = `${Math.floor(Math.random() * 20) - 10}px`;
+      element.style.marginTop = `${Math.floor(Math.random() * 20) - 10}px`;
     }
 
-    function placeEmoji(x, y) {
-      const emoji = document.createElement('span');
-      emoji.classList.add('emoji');
-      emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-      emoji.style.left = `${x}px`;
-      emoji.style.top = `${y}px`;
-      document.body.appendChild(emoji);
-    }
-
-    createEmojiBoundary();
-    window.addEventListener('resize', () => {
-      document.querySelectorAll('.emoji').forEach(emoji => emoji.remove());
-      createEmojiBoundary();
-    });
+    setInterval(() => {
+      applyExtremeChaosEffect(chaosText);
+      applyExtremeChaosEffect(chaosScrollText);
+    }, 100);
   </script>
 </body>
 </html>
