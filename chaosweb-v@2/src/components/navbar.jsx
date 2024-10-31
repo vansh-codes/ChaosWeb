@@ -1665,8 +1665,14 @@ const Navbar = () => {
         <div className="nav-item" onClick={() => handleNavigate("/barrelroll")}>
             Do a Barrel Roll
         </div>
+        <div className="nav-item" onClick={() => handleNavigate("/rateus")}>
+            Rate Us
+        </div>
         <div className="nav-item" onClick={() => handleNavigate("/maze")}>
         Maze Game
+      </div>
+      <div className="nav-item" onClick={() => handleNavigate("/coloreffects")}>
+        Cursor Effects !!
       </div>
       <div className="nav-item" onClick={() => handleNavigate("/chaosmania")}>
         ChaosMania
