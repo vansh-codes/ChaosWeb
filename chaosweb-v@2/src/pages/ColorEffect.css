@@ -1,0 +1,59 @@
+.color-effect-container {
+    position: absolute;
+    top:0px;
+    left:0px;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .effect {
+    position: absolute;
+    pointer-events: none;
+  }
+  
+  .splash {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    animation: splashAnimation 1s ease-out forwards;
+    opacity: 0.8;
+  }
+  
+  .shatter {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid;
+    animation: shatterAnimation 1s ease-out forwards;
+    opacity: 0.8;
+  }
+  
+  @keyframes splashAnimation {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(2);
+      opacity: 0.7;
+    }
+    100% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes shatterAnimation {
+    0% {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.5) translate(50px, 50px) rotate(180deg);
+      opacity: 0;
+    }
+  }
+  

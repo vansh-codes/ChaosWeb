@@ -55,7 +55,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="nav">
+      <nav className="nav ">
         <img src={logo} alt="ChaosWeb Logo" id="chaos-logo" />
         <h1 id="chaos-header">ChaosWeb - The Disorderly UI Experiment</h1>
       </nav>
@@ -1662,8 +1662,17 @@ const Navbar = () => {
         <div className="nav-item">
           <InvertColorToggle /> {/* This will render the button */}
         </div>
+        <div className="nav-item" onClick={() => handleNavigate("/barrelroll")}>
+            Do a Barrel Roll
+        </div>
+        <div className="nav-item" onClick={() => handleNavigate("/rateus")}>
+            Rate Us
+        </div>
         <div className="nav-item" onClick={() => handleNavigate("/maze")}>
         Maze Game
+      </div>
+      <div className="nav-item" onClick={() => handleNavigate("/coloreffects")}>
+        Cursor Effects !!
       </div>
       <div className="nav-item" onClick={() => handleNavigate("/chaosmania")}>
         ChaosMania

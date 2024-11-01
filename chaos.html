@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chaos Web - Sign In</title>
     <style>
-        img{
-            width: 170px;
-            height: 170px;
-            /* border: white 5px solid; */
-            position: absolute;
-            top: 10px;
-            left: 50px;
-            border-radius: 50%;
-            box-shadow: 0 1px 10px #87ceeb, 0 1px 20px #87ceeb;
-        }
+    img {
+        width: 170px;
+        height: 170px;
+        position: absolute;
+        top: 10px;
+        left: 50px;
+        border-radius: 50%;
+        box-shadow: 0 1px 20px rgba(135, 206, 235, 0.5), 0 1px 30px rgba(135, 206, 235, 0.5); /* Soften shadow with transparency */
+        background-color: rgba(0, 0, 0, 0.2); /* Optional: slight dark overlay for better blending */
+        animation: rotate 5s linear infinite; /* Rotate continuously */
+    }
         body {
             background: url('3d-effect-hypnosis-spiral-vector-7844424.jpg') center center fixed, #000;
             background-size: cover;
@@ -26,6 +27,14 @@
             z-index: 1;
             overflow: hidden; /* Prevent scrolling */
         }
+        @keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
 
         @keyframes moveBackground {
             0% { background-position: 0 0; }

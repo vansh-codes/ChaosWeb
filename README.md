@@ -18,8 +18,10 @@ Welcome to **ChaosWeb** — a web design experiment where nothing behaves as it 
 
 **ChaosWeb** is a quirky and deliberately chaotic HTML, CSS, and JavaScript website project designed to challenge the norms of web design. It’s a place where everything is intentionally messy and unpredictable. The goal isn’t usability, but rather to create an anti-UI experience that’s confusing, frustrating, yet strangely fun to explore.
 
-
-
+## 📈 GitHub Repository Stats
+| 🌟 **Stars** | 🍴 **Forks** | 🐛 **Issues** | 🔔 **Open PRs** | 🔕 **Closed PRs** | 🛠️ **Languages** | ✅ **Contributors** |
+|--------------|--------------|---------------|-----------------|------------------|------------------|------------------|
+| ![GitHub stars](https://img.shields.io/github/stars/vansh-codes/ChaosWeb) | ![forks](https://img.shields.io/github/forks/vansh-codes/ChaosWeb) | ![issues](https://img.shields.io/github/issues/vansh-codes/ChaosWeb?color=32CD32) | ![pull requests](https://img.shields.io/github/issues-pr/vansh-codes/ChaosWeb?color=FFFF8F) | ![Closed PRs](https://img.shields.io/github/issues-pr-closed/vansh-codes/ChaosWeb?color=20B2AA) | ![Languages](https://img.shields.io/github/languages/count/vansh-codes/ChaosWeb?color=20B2AA) | ![Contributors](https://img.shields.io/github/contributors/vansh-codes/ChaosWeb?color=00FA9A) |
 
 ## 🤯 Example Features of the Chaos:
 
@@ -76,6 +78,9 @@ ChaosWeb is proudly part of global initiatives engaging with passionate develope
   </tr>
 </table>
 
+## ✨ Project Structure
+
+Check the project structure here [Project Structure](PROJECT_STRUCTURE.md) and choose where to start with spreading chaos.
   
 ## 💥Live Preview:
 **[Chaos web🚀](https://chaosweb.vercel.app/)**
@@ -192,3 +197,27 @@ Thank you for contributing to our project! Your help is greatly appreciated in m
   <img src="https://contrib.rocks/image?repo=vansh-codes/ChaosWeb" />
 </a>
 </center>
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+## Stargazers
+
+<div align='left'>
+
+[![Stargazers repo roster for @vansh-codes/ChaosWeb](https://reporoster.com/stars/dark/vansh-codes/ChaosWeb)](https://github.com/vansh-codes/ChaosWeb/stargazers)
+
+
+</div>
+
+## Forkers
+
+[![Forkers repo roster for @vansh-codes/ChaosWeb](https://reporoster.com/forks/dark/vansh-codes/ChaosWeb)](https://github.com/vansh-codes/ChaosWeb/network/members)
+
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+
+
+
+
+

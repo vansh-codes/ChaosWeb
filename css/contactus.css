@@ -23,12 +23,13 @@ body {
 
 
 .contact-form-container {
-    background-color: rgba(161, 161, 161, 0.2); 
-    padding: 20px;
+    background: rgba(255, 255, 255, 0.1); /* Transparent white background */
+    backdrop-filter: blur(10px); /* Glassmorphism blur effect */
     border-radius: 12px;
-    box-shadow: 0 0 15px rgba(162, 152, 152, 0.515); 
+    padding: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Softer shadow for glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border for glassmorphism */
     width: 320px;
-    border: 2px solid rgba(255, 251, 251, 0.779); 
 }
 
 h1 {
