@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dancing Letters</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        text-align: center;
+        padding-top: 100px;
+        overflow: hidden;
+      }
+      .video-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+        opacity: 0.5;
+        filter: brightness(50%) blur(5%);
+      }
+      input {
+        height: 2rem;
+        width: 20rem;
+      }
+      input::placeholder {
+        padding: 0 1rem;
+      }
+      h1 {
+        font-weight: bolder;
+      }
+      .letter {
+        position: absolute;
+        animation: bounce 1s infinite ease-in-out;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <video autoplay muted loop class="video-background">
+      <source src="dance_video.mp4" type="video/mp4" />
+    </video>
+
+    <h1>Type anything Thing in your keyboard</h1>
+    <input
+      type="text"
+      placeholder="Type something..."
+      oninput="displayDancingLetters(event)"
+    />
+
+    <script>
+      function displayDancingLetters(event) {
+        const text = event.target.value;
+
+        document
+          .querySelectorAll(".letter")
+          .forEach((letter) => letter.remove());
+
+        Array.from(text).forEach((char, index) => {
+          const letter = document.createElement("span");
+          letter.classList.add("letter");
+          letter.innerText = char;
+
+          letter.style.left = Math.random() * 90 + "vw";
+          letter.style.top = Math.random() * 80 + "vh";
+
+          letter.style.animationDelay = Math.random() * 0.5 + "s";
+
+          letter.style.color = getRandomDeepColor();
+
+          letter.style.fontSize = getRandomFontSize();
+          letter.style.fontWeight = getRandomFontWeight();
+          letter.style.fontFamily = getRandomFontStyle();
+
+          document.body.appendChild(letter);
+        });
+      }
+
+      function getRandomDeepColor() {
+        const r = Math.floor(Math.random() * 150) + 50;
+        const g = Math.floor(Math.random() * 150) + 50;
+        const b = Math.floor(Math.random() * 150) + 50;
+        return `rgb(${r},${g},${b})`;
+      }
+
+      function getRandomFontSize() {
+        const sizes = ["1.5rem", "2rem", "2.5rem", "3rem", "3.5rem"];
+        return sizes[Math.floor(Math.random() * sizes.length)];
+      }
+
+      function getRandomFontWeight() {
+        const weights = ["normal", "bold", "bolder"];
+        return weights[Math.floor(Math.random() * weights.length)];
+      }
+
+      function getRandomFontStyle() {
+        const fonts = [
+          "Arial",
+          "Georgia",
+          "Courier New",
+          "Times New Roman",
+          "Comic Sans MS",
+          "Cursive",
+        ];
+        return fonts[Math.floor(Math.random() * fonts.length)];
+      }
+    </script>
+  </body>
+</html>
