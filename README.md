@@ -78,6 +78,9 @@ ChaosWeb is proudly part of global initiatives engaging with passionate develope
   </tr>
 </table>
 
+## ✨ Project Structure
+
+Check the project structure here [Project Structure](PROJECT_STRUCTURE.md) and choose where to start with spreading chaos.
   
 ## 💥Live Preview:
 **[Chaos web🚀](https://chaosweb.vercel.app/)**
