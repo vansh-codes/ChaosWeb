@@ -36,11 +36,3 @@ jobs:
           curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
           -d '{"assignees":["team-member-username"]}' \
           "https://api.github.com/repos/${{ github.repository }}/issues/${ISSUE_NUMBER}"
-
-      - name: Welcome message for community contributors
-        if: github.event_name == 'issues' || github.event_name == 'pull_request_target'
-        uses: EddieHubCommunity/gh-action-community/src/welcome@main
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          issue-message: "👋 Hey @${{ github.actor }}! Thanks for opening an issue in the ChaosWeb project. We’re excited to see how you’ve contributed to the delightful mess. Our team will review it soon. Stay chaotic! 🎯"
-          pr-message: "🎉 Thanks @${{ github.actor }}! Your pull request has added more chaos to ChaosWeb. We’ll review it shortly. Keep breaking the rules! 🚀"
