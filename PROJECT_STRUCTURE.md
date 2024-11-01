@@ -7,6 +7,7 @@
 ├── CONTRIBUTING.md
 ├── ConnectFour.html
 ├── ContactUs.html
+├── DancingLetters.html
 ├── IMG_20241015_121622.jpg
 ├── LICENSE
 ├── LightsOut.html
@@ -20,6 +21,7 @@
 │   ├── Order And Chaos.png
 │   ├── colourfulbg.png
 │   ├── crayonbg.png
+│   ├── dance_video.mp4
 │   ├── logo/
 │   │   ├── ChaosWeb.jpg
 │   │   ├── ChaosWeb.png
