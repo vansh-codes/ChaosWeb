@@ -138,6 +138,7 @@
 ├── emojiland.html
 ├── hypnotic.html
 ├── index.html
+├── jokes.js
 ├── js/
 │   ├── night_time.js
 │   ├── script.js
