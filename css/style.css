@@ -402,3 +402,56 @@ body
     will-change: transform;
     /* Optimize for performance */
 }
+
+
+/* maddness css */
+.joke-popup {
+    position: fixed;
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 68px 1px rgba(255, 255, 255, 0.5);
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 18px;
+    z-index: 9999;
+    opacity: 0;
+    width: 300px;
+    transform: scale(0);
+    animation: popupAppear 4s ease-in both;
+    cursor: zoom-in;
+}
+
+@keyframes popupAppear {
+    0% {
+        opacity: 0;
+        transform: translateX(-1000px) rotate(-720deg);
+        filter: blur(50px);
+    }
+
+    10% {
+        opacity: 1;
+        transform: scale(1.1);
+        filter: blur(0);
+    }
+
+    20% {
+        transform: scale(1.2);
+    }
+    60% {
+        transform: scale(1.1);
+    }
+
+    80% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    90% {
+        opacity: 50;
+        transform: translateX(0) rotate(0);
+        filter: blur(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(1000px) rotate(-720deg);
+        filter: blur(10px);
+    }
+}
