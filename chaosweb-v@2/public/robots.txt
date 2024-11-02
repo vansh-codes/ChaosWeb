@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /private
 Allow: /
-Sitemap: https://social-media-management-djkz.vercel.app/sitemap.xml
+Sitemap: https://chaosweb.vercel.app/sitemap.xml
