@@ -16,9 +16,11 @@
     "react-confetti": "^6.1.0",
     "react-dom": "^18.3.1",
     "react-fireworks": "^1.0.4",
+    "react-helmet": "^6.1.0",
     "react-router-dom": "^6.27.0",
     "react-slick": "^0.30.2",
     "react-tsparticles": "^2.12.2",
+    "sitemap": "^8.0.0",
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {

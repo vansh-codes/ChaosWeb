@@ -14,6 +14,7 @@ import JumpScareEffect from "./components/JumpScareEffect";
 import BarrelRoll from "./pages/BarrelRoll";
 import RateUs from "./pages/RateUs";
 import TestEffects from "./pages/TestEffects";
+import Metadata from "./metadata"; 
 
 function App() {
     const [trigger, setTrigger] = useState(false);
@@ -26,6 +27,7 @@ function App() {
 
     return (
         <Router>
+             <Metadata />
             <div
                 onMouseEnter={handleJumpScare} // Triggers on hover
                 onClick={handleJumpScare} // Triggers on click
