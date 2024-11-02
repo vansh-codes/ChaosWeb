@@ -16,9 +16,7 @@
         html,
         body {
             height: 100%;
-            /* Ensure the body takes the full height of the viewport */
             overflow: hidden;
-            /* Prevent scrollbars from appearing */
         }
 
         .parent {
@@ -31,14 +29,12 @@
             position: relative;
             overflow: hidden;
             background-color: black;
-            /* Background color can be changed if needed */
         }
 
         .content {
             text-align: center;
             position: relative;
             width: 100%;
-            /* Ensures it takes full width */
         }
 
         .chaotic-text {
@@ -54,12 +50,10 @@
 
         .top-text {
             top: 20%;
-            /* Adjusted for better visibility */
         }
 
         .bottom-text {
             bottom: 20%;
-            /* Adjusted for better visibility */
         }
 
         @keyframes shake {
@@ -86,86 +80,80 @@
 
         #myCanvas {
             width: 100%;
-            /* Responsive width */
             height: 100%;
-            /* Responsive height */
-            max-width: 100%;
-            /* Maximum width */
             margin: auto;
             display: block;
-            /* Centering */
         }
 
-        /* Responsive font size */
         @media (max-width: 768px) {
             .chaotic-text {
                 font-size: 1.5rem;
-                /* Smaller font on mobile */
             }
         }
 
         @media (max-width: 480px) {
             .chaotic-text {
                 font-size: 1rem;
-                /* Even smaller font on very small screens */
             }
         }
     </style>
 </head>
 
 <body class="parent">
-    <!-- preloader -->
+    <!-- Preloader -->
     <div class="container">
         <div class="preloader">
             <div class="preloader__wheel-wrapper">
                 <div class="preloader__wheel"><span class="preloader__content">l</span>
                     <div class="preloader__inner-wheel"></div>
-                    <div class="preloader__second-inner-whell"></div>
+                    <div class="preloader__second-inner-wheel"></div>
                 </div>
             </div>
             <div class="preloader__wheel-wrapper">
                 <div class="preloader__wheel"><span class="preloader__content">o</span>
                     <div class="preloader__inner-wheel"></div>
-                    <div class="preloader__second-inner-whell"></div>
+                    <div class="preloader__second-inner-wheel"></div>
                 </div>
             </div>
             <div class="preloader__wheel-wrapper">
                 <div class="preloader__wheel"><span class="preloader__content">a</span>
                     <div class="preloader__inner-wheel"></div>
-                    <div class="preloader__second-inner-whell"></div>
+                    <div class="preloader__second-inner-wheel"></div>
                 </div>
             </div>
             <div class="preloader__wheel-wrapper">
                 <div class="preloader__wheel"><span class="preloader__content">d</span>
                     <div class="preloader__inner-wheel"></div>
-                    <div class="preloader__second-inner-whell"></div>
+                    <div class="preloader__second-inner-wheel"></div>
                 </div>
             </div>
             <div class="preloader__wheel-wrapper">
                 <div class="preloader__wheel"><span class="preloader__content">i</span>
                     <div class="preloader__inner-wheel"></div>
-                    <div class="preloader__second-inner-whell"></div>
+                    <div class="preloader__second-inner-wheel"></div>
                 </div>
             </div>
             <div class="preloader__wheel-wrapper">
                 <div class="preloader__wheel"><span class="preloader__content">n</span>
                     <div class="preloader__inner-wheel"></div>
-                    <div class="preloader__second-inner-whell"></div>
+                    <div class="preloader__second-inner-wheel"></div>
                 </div>
             </div>
             <div class="preloader__wheel-wrapper">
                 <div class="preloader__wheel"><span class="preloader__content">g</span>
                     <div class="preloader__inner-wheel"></div>
-                    <div class="preloader__second-inner-whell"></div>
+                    <div class="preloader__second-inner-wheel"></div>
                 </div>
             </div>
         </div>
     </div>
+    
     <div class="content">
         <div class="chaotic-text top-text">Welcome to Chaos! Where sanity is overrated.</div>
         <canvas id="myCanvas" width="300" height="300"></canvas>
         <div class="chaotic-text bottom-text">Relax? Sure, if you like chaos!</div>
     </div>
+    
     <script src="preloader.js"></script>
     <script>
         window.onload = function () {
