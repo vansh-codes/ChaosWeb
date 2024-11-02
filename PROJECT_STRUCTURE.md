@@ -38,6 +38,7 @@
 ├── chaosweb-v@2/
 │   ├── README.md
 │   ├── eslint.config.js
+│   ├── generate-sitemap.js
 │   ├── index.html
 │   ├── package-lock.json
 │   ├── package.json
@@ -56,7 +57,9 @@
 │   │   │   │   ├── ChaosWeb.webp
 │   │   │   │   └── favicon.ico
 │   │   │   └── react.svg
-│   │   └── logo.png
+│   │   ├── logo.png
+│   │   ├── robots.txt
+│   │   └── sitemap.xml
 │   ├── src/
 │   │   ├── App.css
 │   │   ├── App.jsx
@@ -106,6 +109,7 @@
 │   │   │   └── popup.jsx
 │   │   ├── index.css
 │   │   ├── main.jsx
+│   │   ├── metadata.jsx
 │   │   ├── pages/
 │   │   │   ├── BarrelRoll.css
 │   │   │   ├── BarrelRoll.jsx
