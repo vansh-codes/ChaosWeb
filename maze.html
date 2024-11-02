@@ -1,96 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reverse Scrolling Maze Game</title>
     <style>
         body {
-            background-color: rgba(20, 108, 21, 0.982);
-            animation: blink 1s steps 0s infinite normal;
+            background-color: #146c15;
             margin: 0;
-            padding: 0;
             font-family: Arial, sans-serif;
-            /* Added a default font */
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: white;
+            margin: 20px 0;
         }
 
         h1 {
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             font-size: 4vw;
-            /* Responsive font size */
-            text-align: center;
-            margin-top: 40px;
         }
 
         h2 {
-            font-size: 3vw;
-            /* Responsive font size for h2 */
-            text-align: center;
-            margin: 20px 0;
-            /* Added margin */
-        }
-
-        @keyframes blink {
-            0% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
-
-        .blink {
-            animation: blink 1s infinite;
+            font-size: 2.5vw;
         }
 
         #maze-section {
+            display: none;
             margin: 0 auto;
-            /* Centered the maze section */
             width: 90%;
-            /* Responsive width */
             max-width: 800px;
-            /* Max width for larger screens */
+            text-align: center;
         }
 
         canvas {
             border: 6px solid black;
             width: 100%;
-            /* Full width */
             height: auto;
-            /* Maintain aspect ratio */
         }
 
         .hint {
             color: yellow;
-            text-align: center;
-            /* Centered hint text */
-            font-size: 1.5em;
-            /* Responsive hint font size */
+            font-size: 1.2em;
             margin: 20px 0;
-            /* Added margin */
         }
 
-        @media (min-width: 768px) {
-            h1 {
-                font-size: 5vw;
-                /* Adjust font size for larger screens */
-            }
-
-            h2 {
-                font-size: 3vw;
-                /* Adjust h2 font size for larger screens */
-            }
-
-            .hint {
-                font-size: 1.5em;
-                /* Keep hint size for larger screens */
-            }
+        #restartBtn {
+            display: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            background-color: #333;
+            border: none;
+            cursor: pointer;
+            margin: 20px;
         }
     </style>
 </head>
@@ -101,44 +64,36 @@
         <h1>Scroll down to discover something fun...</h1>
     </section>
 
-    <br><br><br><br><br><br><br><br>
-
-    <section style="margin-top: 20px;"></section>
-    <br><br>
-
-    <section id="maze-section" class="hidden">
+    <section id="maze-section">
         <h2>Reverse Maze Game</h2>
         <canvas id="mazeCanvas" width="600" height="600"></canvas>
-    </section>
-
-    <section class="hint">
-        <p>HINT: Use arrow keys to navigate the maze (controls are reversed).</p>
+        <p class="hint">HINT: Use arrow keys to navigate the maze (controls are reversed).</p>
+        <button id="restartBtn" onclick="restartGame()">Restart Game</button>
     </section>
 
     <script>
+        const canvas = document.getElementById('mazeCanvas');
+        const ctx = canvas.getContext('2d');
+        const mazeSection = document.getElementById('maze-section');
+        const restartBtn = document.getElementById('restartBtn');
+
+        const mazeSize = 10;
+        const cellSize = canvas.width / mazeSize;
+        let playerX = 0, playerY = 0;
+        let maze = [];
+        let mazeInitialized = false;
+
+        // Show maze when scrolling into view
         window.addEventListener('scroll', () => {
-            const mazeSection = document.getElementById('maze-section');
             const viewportHeight = window.innerHeight;
             const mazePosition = mazeSection.getBoundingClientRect();
-
-            // Check if the maze section is within the viewport
             if (mazePosition.top < viewportHeight && mazePosition.bottom >= 0) {
-                mazeSection.classList.remove('hidden'); // Show the maze section
+                mazeSection.style.display = 'block';
                 if (!mazeInitialized) {
-                    initMazeGame(); // Initialize maze once when section is visible
+                    initMazeGame();
                 }
             }
         });
-
-        const canvas = document.getElementById('mazeCanvas');
-        const ctx = canvas.getContext('2d');
-
-        const mazeSize = 10; // Size of the maze grid (10x10)
-        const cellSize = canvas.width / mazeSize;
-
-        let playerX = 0, playerY = 0; // Initial player position
-        let maze = []; // Maze grid
-        let mazeInitialized = false;
 
         // Initialize the maze game
         function initMazeGame() {
@@ -150,64 +105,65 @@
 
         // Generate a random maze
         function generateMaze() {
-            maze = [];
-            for (let i = 0; i < mazeSize; i++) {
-                const row = [];
-                for (let j = 0; j < mazeSize; j++) {
-                    row.push(Math.random() > 0.7 ? 1 : 0); // 1 for wall, 0 for free space
-                }
-                maze.push(row);
-            }
-            maze[0][0] = 0; // Start position
-            maze[mazeSize - 1][mazeSize - 1] = 0; // Goal position
+            maze = Array.from({ length: mazeSize }, () =>
+                Array.from({ length: mazeSize }, () => Math.random() > 0.7 ? 1 : 0)
+            );
+            maze[0][0] = 0;
+            maze[mazeSize - 1][mazeSize - 1] = 0;
         }
 
-        // Draw the maze on the canvas
+        // Draw the maze and player
         function drawMaze() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
-
-            for (let i = 0; i < mazeSize; i++) {
-                for (let j = 0; j < mazeSize; j++) {
-                    if (maze[i][j] === 1) {
-                        ctx.fillStyle = '#333'; // Draw wall
-                    } else {
-                        ctx.fillStyle = '#fff'; // Draw path
-                    }
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            maze.forEach((row, i) => {
+                row.forEach((cell, j) => {
+                    ctx.fillStyle = cell === 1 ? '#333' : '#fff';
                     ctx.fillRect(j * cellSize, i * cellSize, cellSize, cellSize);
-                }
-            }
+                });
+            });
             drawPlayer();
         }
 
-        // Draw the player
+        // Draw player
         function drawPlayer() {
             ctx.fillStyle = 'blue';
             ctx.fillRect(playerX * cellSize, playerY * cellSize, cellSize, cellSize);
         }
 
-        // Handle reversed movement controls
+        // Handle movement with reversed controls
         function handleMovement(event) {
             const key = event.key;
-
             if (key === 'ArrowUp' && playerY < mazeSize - 1 && maze[playerY + 1][playerX] === 0) {
-                playerY++; // Move down (reversed)
+                playerY++;
             } else if (key === 'ArrowDown' && playerY > 0 && maze[playerY - 1][playerX] === 0) {
-                playerY--; // Move up (reversed)
+                playerY--;
             } else if (key === 'ArrowLeft' && playerX < mazeSize - 1 && maze[playerY][playerX + 1] === 0) {
-                playerX++; // Move right (reversed)
+                playerX++;
             } else if (key === 'ArrowRight' && playerX > 0 && maze[playerY][playerX - 1] === 0) {
-                playerX--; // Move left (reversed)
+                playerX--;
             }
-
             drawMaze();
+            checkGoal();
+        }
 
-            // Check if the player has reached the goal
+        // Check if player has reached the goal
+        function checkGoal() {
             if (playerX === mazeSize - 1 && playerY === mazeSize - 1) {
                 alert('Congratulations! You reached the goal.');
                 window.removeEventListener('keydown', handleMovement);
+                restartBtn.style.display = 'inline-block';
             }
+        }
+
+        // Restart game
+        function restartGame() {
+            playerX = 0;
+            playerY = 0;
+            generateMaze();
+            drawMaze();
+            restartBtn.style.display = 'none';
+            window.addEventListener('keydown', handleMovement);
         }
     </script>
 </body>
-
 </html>
