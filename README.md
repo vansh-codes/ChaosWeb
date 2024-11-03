@@ -73,7 +73,7 @@ ChaosWeb is proudly part of global initiatives engaging with passionate develope
   </tr>
   <tr>
     <td>Hacktoberfest 2024 </td>
-    <td><a href="https://hacktoberfest.com/" ><img src="https://github.com/user-attachments/assets/027eb349-43f2-4834-9343-1e8ba0bf54ed" alt="logo of Hacktoberfest 2024"></a></td>
+    <td><a href="https://hacktoberfest.com/" ><img src="hactoberfesy.jpg" width="200" height="auto" loading="lazy" alt="Hacktoberfest 2024"/></a></td>
     <td> Hacktoberfest is a month-long October event welcoming all skill levels to join the open source community </td>
   </tr>
 </table>
