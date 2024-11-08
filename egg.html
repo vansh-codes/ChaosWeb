@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaotic Neon Easter Eggs</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #1e1e1e;
+            color: #fff;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+            overflow: auto;
+            animation: flicker 0.2s infinite;
+            height: auto;
+        }
+
+        h1, h2 {
+            margin-bottom: 20px;
+            font-size: 3rem;
+            text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f, 0 0 30px #ff007f, 0 0 40px #ff007f;
+            animation: rotateText 2s infinite cubic-bezier(0.25, 0.8, 0.25, 1);
+
+
+        }
+
+        .reward-message, .konami-message, .hidden-reward, .secret-tooltip {
+            display: none;
+            font-size: 2rem;
+            margin-top: 20px;
+            text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc, 0 0 40px #00ffcc;
+        }
+
+        .secret-button {
+            display: none;
+            background-color: #ff6347;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            cursor: pointer;
+            font-size: 2rem;
+            border-radius: 10px;
+            margin-top: 20px;
+            transform: scale(0);
+            transition: transform 0.5s ease, box-shadow 0.3s;
+            box-shadow: 0 0 15px #ff6347;
+        }
+
+        .secret-button.revealed {
+            transform: scale(1);
+            box-shadow: 0 0 25px #ff6347, 0 0 50px #ff6347;
+        }
+
+        .secret-area {
+        height: 200px;
+        background-color: #333;
+        margin-top: 30px;
+        padding: 20px;
+        cursor: pointer;
+        border: 3px solid #ff007f;
+        border-radius: 10px;
+        transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    }
+
+    .secret-area:hover {
+        box-shadow: 0 0 15px #00f, 0 0 30px #00f, 0 0 60px #00f; /* Neon blue light effect */
+        transform: rotate(5deg); /* Rotate slightly */
+    }
+
+    @keyframes rotateEffect {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+        .click-area, .click-area-2 {
+            width: 200px;
+            height: 200px;
+            cursor: pointer;
+            display: inline-block;
+            border-radius: 10px;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .click-area {
+            background-color: #ff6347;
+        }
+
+        .click-area:hover {
+            background-color: #ff0055;
+            box-shadow: 0 0 15px #ff0055, 0 0 30px #ff0055;
+        }
+
+        .click-area-2 {
+            background-color: #00ffcc;
+        }
+
+        .click-area-2:hover {
+            background-color: #00cc99;
+            box-shadow: 0 0 15px #00cc99, 0 0 30px #00cc99;
+        }
+
+        .tooltip-container {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .tooltip {
+            visibility: hidden;
+            position: absolute;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px 10px;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .tooltip-container:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .hidden-sound {
+            display: none;
+        }
+
+        .rotating-shape {
+            position: absolute;
+            animation: rotateShape 4s infinite linear, fadeOut 3s forwards;
+        }
+
+        @keyframes rotateShape {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .circle {
+            width: 50px;
+            height: 50px;
+            background-color: #ff6347;
+            border-radius: 50%;
+        }
+
+        .square {
+            width: 50px;
+            height: 50px;
+            background-color: #00ffcc;
+        }
+
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-bottom: 50px solid #ff007f;
+            position: relative;
+            top: 10px;
+        }
+
+        .confetti {
+            position: absolute;
+            background-color: #ff6347;
+            width: 10px;
+            height: 10px;
+            opacity: 0;
+            animation: confettiAnimation 3s forwards;
+        }
+
+        @keyframes confettiAnimation {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(500px) rotate(720deg);
+                opacity: 1;
+            }
+        }
+
+        .emoji {
+            position: absolute;
+            font-size: 70px;
+            animation: fallAndBounce 4s forwards;
+        }
+
+        @keyframes fallAndBounce {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(90vh) scale(1.2); /* Fall to the bottom */
+                opacity: 1;
+            }
+            75% {
+                transform: translateY(80vh) scale(0.8); /* Bounce up a bit */
+            }
+            100% {
+                transform: translateY(70vh) scale(1); /* Bounce down to bottom */
+                opacity: 0;
+            }
+        }
+
+        @keyframes flicker {
+            0% { opacity: -1; }
+            50% { opacity: 0.1; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes rotateText {
+            0% { transform: rotate(0deg); }
+            50% { transform: rotate(180deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes fallAndBounce {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(90vh) scale(1.2); /* Fall to the bottom */
+                opacity: 1;
+            }
+            75% {
+                transform: translateY(80vh) scale(0.8); /* Bounce up a bit */
+            }
+            100% {
+                transform: translateY(70vh) scale(1); /* Bounce down to bottom */
+                opacity: 0;
+            }
+        }
+        button {
+    position: relative;
+    background-color: #4e4e4e; /* Dark metallic color */
+    color: #fff;
+    padding: 20px 40px;
+    border: 2px solid #2e2e2e; /* Dark border for metallic look */
+    border-radius: 5px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #8f8f8f, #333); /* Metallic gradient */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Shadow for better text visibility */
+}
+
+button:before {
+    content: '';
+    position: absolute;
+    top: -150%;
+    left: -150%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(45deg, #3be53b, #0906bc, #ff0055);
+    background-size: 400%;
+    animation: laserEffect 1.5s infinite;
+    z-index: 1;
+    filter: blur(10px);
+}
+
+button span {
+    position: relative;
+    z-index: 2;
+}
+
+button:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 30px rgb(197, 15, 170), 0 0 60px rgb(103, 5, 79);
+    background: linear-gradient(135deg, #d3d3d3, #666); /* Lightened gradient on hover */
+}
+
+@keyframes laserEffect {
+    0% {
+        background-position: 100% 0;
+    }
+    50% {
+        background-position: 0 100%;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+
+    <h1 class="flicker-effect">Discover the Hidden Neon Easter Eggs!</h1>
+
+    <div class="chaotic-element">
+        <h2 class="flicker-effect">💥 Chaotic Neon Effect 💥</h2>
+        <p class="flicker-effect">The chaos begins here!</p>
+    </div>
+
+    <p>Hover over the secret area below to reveal a hidden button:</p>
+    <div class="secret-area">
+        Hover here to uncover a secret!
+    </div>
+    <button class="secret-button" onclick="showReward()">🎉 You've found the secret button! 🎉</button>
+
+    <h2 class="flicker-effect">Click to Change Shape and Color!</h2>
+    <div class="click-area" onclick="changeShape(this)">Click Me!</div>
+    <div class="click-area-2" onclick="changeSize(this)">Click Me Too!</div>
+
+    <button onclick="generateRotatingShapes()">
+        <span>Let's have a look in this one</span>
+    </button>
+    <button onclick="triggerConfetti()">
+        <span>I think you might like it!</span>
+    </button>
+    <button onclick="generateEmojis()">
+        <span>What's speical here!</span>
+    </button>
+    
+
+    
+
+    <audio id="rewardSound" class="hidden-sound">
+        <source src="https://www.soundjay.com/button/beep-07.wav" type="audio/wav">
+    </audio>
+
+    <script>
+        document.querySelector('.secret-area').addEventListener('mouseover', function() {
+            document.querySelector('.secret-button').classList.add('revealed');
+        });
+
+        const secretArea = document.querySelector('.secret-area');
+
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+secretArea.addEventListener('mouseenter', function() {
+    const randomColor = getRandomColor();
+    secretArea.style.backgroundColor = randomColor;
+});
+
+secretArea.addEventListener('mouseleave', function() {
+    secretArea.style.backgroundColor = '#333'; // Reset to default color
+});
+
+        function showReward() {
+            document.querySelector('.reward-message').style.display = 'block';
+            document.querySelector('.reward-message').innerText = 'Congratulations! You found the hidden reward!';
+            document.querySelector('.hidden-reward').style.display = 'block';
+            document.querySelector('.secret-button').style.display = 'none';
+            document.getElementById('rewardSound').play();
+        }
+        function changeShape(element) {
+            const shapes = ['circle', 'square', 'triangle'];
+            const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
+            element.className = `click-area ${randomShape}`;
+        }
+
+        function changeSize(element) {
+            const sizes = ['small', 'medium', 'large'];
+            const randomSize = sizes[Math.floor(Math.random() * sizes.length)];
+            element.style.transform = randomSize === 'small' ? 'scale(0.8)' : randomSize === 'large' ? 'scale(1.5)' : 'scale(1)';
+        }
+
+        function generateRotatingShapes() {
+            for (let i = 0; i < 100; i++) {
+                let shape = document.createElement('div');
+                let randomShape = Math.random();
+                if (randomShape < 0.33) {
+                    shape.classList.add('rotating-shape', 'circle');
+                } else if (randomShape < 0.66) {
+                    shape.classList.add('rotating-shape', 'square');
+                } else {
+                    shape.classList.add('rotating-shape', 'triangle');
+                }
+
+                shape.style.top = `${Math.random() * window.innerHeight}px`;
+                shape.style.left = `${Math.random() * window.innerWidth}px`;
+                shape.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                document.body.appendChild(shape);
+
+                setTimeout(() => {
+                    shape.remove();
+                }, 3000);
+            }
+        }
+
+        function triggerConfetti() {
+            for (let i = 0; i < 100; i++) {
+                let confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.left = `${Math.random() * window.innerWidth}px`;
+                confetti.style.top = `${Math.random() * window.innerHeight}px`;
+                confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                document.body.appendChild(confetti);
+            }
+        }
+
+        function generateEmojis() {
+            const emojis = ['😀', '😂', '🤣', '😜', '😎', '😱', '🤩', '🥳', '💀', '👑', '🍕', '🍔', '🌈', '🌟', '💥', '🎉', '🔥', '🌻', '🍎', '🍓'];
+            for (let i = 0; i < 200; i++) {
+                let emoji = document.createElement('div');
+                emoji.classList.add('emoji');
+                emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+                emoji.style.left = `${Math.random() * window.innerWidth}px`;
+                emoji.style.top = `-50px`;  // Start from above the screen
+                emoji.style.animationDuration = `${Math.random() * 6 + 2}s`;
+                document.body.appendChild(emoji);
+
+                setTimeout(() => {
+                    emoji.remove();
+                }, 8000); 
+            }
+        }
+    </script>
+
+</body>
+</html>
