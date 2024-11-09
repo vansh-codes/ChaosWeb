@@ -90,6 +90,10 @@
 │   │   │   ├── react.svg
 │   │   │   └── snowstruct.png
 │   │   ├── components/
+│   │   │   ├── ContributorCard.css
+│   │   │   ├── ContributorCard.jsx
+│   │   │   ├── ContributorsList.css
+│   │   │   ├── ContributorsList.jsx
 │   │   │   ├── FireRain.css
 │   │   │   ├── FireRain.jsx
 │   │   │   ├── Firework.css
