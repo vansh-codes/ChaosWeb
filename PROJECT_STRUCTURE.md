@@ -123,6 +123,8 @@
 │   │   │   ├── ButtonCollection.jsx
 │   │   │   ├── ChaosMania.css
 │   │   │   ├── ChaosMania.jsx
+│   │   │   ├── ChaoticTypingTest.css
+│   │   │   ├── ChaoticTypingTest.jsx
 │   │   │   ├── ColorEffect.css
 │   │   │   ├── Contributors.css
 │   │   │   ├── Contributors.jsx
