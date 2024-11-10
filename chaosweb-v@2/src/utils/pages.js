@@ -4,5 +4,6 @@ const appPages = [
   "/review",
   "/timeline",
   "/hypnotic",
+  "/chaotictypingTest",
 ];
 export default appPages;

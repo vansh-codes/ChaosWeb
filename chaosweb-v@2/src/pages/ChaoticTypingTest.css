@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    position: relative;
+    animation: flickerBackground 0.5s infinite alternate;
+  }
+  
+  #container {
+    margin-top: 20%;
+    text-align: center;
+    z-index: 10;
+    max-width: 700px;
+    padding: 20px;
+    border: 3px solid #888;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    animation: flashBackground 0.11s infinite alternate;
+  }
+  
+  #scrambled-text {
+    font-size: 1.2em;
+    margin: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    color: #f4f4f4;
+    min-height: 50px;
+    display: inline-block;
+    transition: all 0.3s ease;
+  }
+  
+  #typed-output {
+    font-size: 1.5em;
+    margin-top: 20px;
+    color: #ff6347;
+    background-color: #222;
+    padding: 10px;
+    border-radius: 4px;
+    border: 2px solid #555;
+    min-height: 50px;
+    white-space: pre-wrap;
+    animation: flashBackground 0.11s infinite alternate;
+  }
+  
+  .chaotic-element {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 1;
+    animation: moveChaos 2s infinite ease-in-out alternate;
+  }
+  
+  .chaotic-element:nth-child(2n) {
+    animation-duration: 7s;
+    background-color: rgba(255, 0, 0, 0.6);
+  }
+  
+  .chaotic-element:nth-child(3n) {
+    animation-duration: 6s;
+    background-color: rgba(0, 255, 0, 0.6);
+  }
+  
+  .chaotic-element:nth-child(5n) {
+    animation-duration: 3s;
+    background-color: rgba(0, 0, 255, 0.6);
+  }
+  
+  .chaotic-element:nth-child(7n) {
+    animation-duration: 4s;
+    background-color: rgba(255, 0, 255, 0.6);
+  }
+  
+  .chaotic-element:nth-child(11n) {
+    animation-duration: 5s;
+    background-color: rgba(255, 255, 0, 0.6);
+  }
+  
+  .thunderbolt {
+    position: absolute;
+    width: 10px;
+    height: 300px;
+    background: linear-gradient(to bottom, #fff, #ff0);
+    opacity: 1;
+    animation: thunderboltAnimation 2s infinite;
+    transform-origin: top;
+  }
+  
+  @keyframes thunderboltAnimation {
+    0% {
+      opacity: 0;
+      transform: translate(50%, -100%) scaleY(0.2);
+    }
+    50% {
+      opacity: 1;
+      transform: translate(50%, 0) scaleY(1.5);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(50%, -100%) scaleY(0.2);
+    }
+  }
+  
+  @keyframes moveChaos {
+    0% {
+      transform: translate(0, 0) scale(1);
+    }
+    50% {
+      transform: translate(calc(100vw - 20px), calc(100vh - 20px)) scale(1.5) rotate(45deg);
+    }
+    100% {
+      transform: translate(calc(-100vw + 20px), calc(-100vh + 20px)) scale(0.8) rotate(-45deg);
+    }
+  }
+  
+  @keyframes flickerBackground {
+    0%, 100% {
+      background-color: #1029e5;
+    }
+    20% {
+      background-color: #f0e405;
+    }
+    40% {
+      background-color: #e91414;
+    }
+    60% {
+      background-color: #0aebee;
+    }
+    80% {
+      background-color: #8b3ded;
+    }
+  }
+  
+  .floating-title {
+    position: absolute;
+    font-size: 10em;
+    color: #90e4da;
+    animation: flickerText 0.6s infinite alternate;
+  }
+  
+  @keyframes flickerText {
+    0%, 100% {
+      opacity: -10;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.3;
+      transform: scale(1.1);
+    }
+  }
+  
+  .random-effect {
+    position: absolute;
+    font-size: 1.5em;
+    animation: chaoticEffect 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes chaoticEffect {
+    0%, 100% {
+      transform: rotate(0deg);
+      opacity: 1;
+    }
+    50% {
+      transform: rotate(180deg);
+      opacity: 0.5;
+    }
+  }
+  
+
+  
