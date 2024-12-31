@@ -1,0 +1,37 @@
+# GitHub Files
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+LICENSE
+repo_structure.txt
+SECURITY.md
+
+# Node.js dependencies
+node_modules/
+
+# Build artifacts
+dist/
+build/
+
+# Environment files
+.env
+.env.*
+.github
+.gitignore
+.eslint.config.js
+postcss.config.js
+tsconfig.json
+tsconfig.node.json
+tsconfig.app.json
+vite.config.ts
+
+# Static files and assets
+public/
+src/assets
+*.ico
+*.png
+*.jpg
+*.svg
+
+# Minified files
+*.min.js
+*.min.css

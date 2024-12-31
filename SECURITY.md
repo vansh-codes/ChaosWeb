@@ -6,10 +6,10 @@ Welcome to **ChaosWeb**! We aim to foster creativity and experimentation in web 
 
 ChaosWeb is actively maintained. Please ensure you're using the latest version of the project, as older versions may not include important security updates.
 
-| Version     | Supported          |
-| ----------- | ------------------ |
-| Latest (main branch) | ✅ Fully supported |
-| Older versions | ❌ No longer supported |
+| Version              | Supported              |
+| -------------------- | ---------------------- |
+| Latest (main branch) | ✅ Fully supported     |
+| Older versions       | ❌ No longer supported |
 
 ## 🛡️ Reporting a Vulnerability
 
@@ -22,6 +22,7 @@ If you discover a security vulnerability within **ChaosWeb**, we highly apprecia
 ## 🔐 What to Include in Your Report
 
 When reporting a vulnerability, please provide the following information:
+
 - A clear and detailed description of the issue.
 - Steps to reproduce the vulnerability, if possible.
 - Potential impact and any suggestions for mitigating the issue.
@@ -30,6 +31,7 @@ When reporting a vulnerability, please provide the following information:
 ## 🚨 Scope
 
 We appreciate vulnerability reports related to:
+
 - Code injections (JavaScript, HTML, etc.)
 - Cross-site scripting (XSS)
 - Authentication bypass
@@ -41,4 +43,3 @@ Please note, due to the deliberately chaotic nature of the project, **design-rel
 ## 🛠️ Thank You!
 
 We greatly value the time and effort it takes to identify and report security issues, and we thank you for helping us keep **ChaosWeb** safe and secure for everyone!
-

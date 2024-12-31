@@ -1,6 +1,7 @@
 ## Project Structure ✨
 
 <!-- START_STRUCTURE -->
+
 ```
 ├── 3d-effect-hypnosis-spiral-vector-7844424.jpg
 ├── CODE_OF_CONDUCT.md
@@ -193,4 +194,5 @@
 ├── testing.html
 └── yarn.lock
 ```
+
 <!-- END_STRUCTURE -->
