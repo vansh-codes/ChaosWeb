@@ -24,5 +24,6 @@ body:
         - label: "I agree to follow this project's Code of Conduct"
           required: true
         - label: "I want to work on this feature"
-        - label: "I'm GSSOC'24 Extd registered Contributor"
+        - label: "I'm SWOC registered Contributor"
+        # - label: "I'm GSSOC'24 Extd registered Contributor"
         # - label: "I'm Hacktoberfest registered Contributor"

@@ -28,6 +28,7 @@ body:
           required: true
         - label: "I'm enjoying the mess!"
           required: true
-        - label: "I'm GSSOC'24 Extd registered Contributor"
+        - label: "I'm SWOC registered Contributor"
+        # - label: "I'm GSSOC'24 Extd registered Contributor"
         # - label: "I'm Hacktoberfest registered Contributor"
 
