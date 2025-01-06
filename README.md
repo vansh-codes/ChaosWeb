@@ -62,6 +62,10 @@ ChaosWeb is proudly part of global initiatives engaging with passionate develope
     <td><a href="https://hacktoberfest.com/" ><img src="https://github.com/user-attachments/assets/484d4816-e493-4c5f-ae96-db7d764f704d" width="200" height="auto" loading="lazy" alt="Hacktoberfest 2024"/></a></td>
     <td> Hacktoberfest is a month-long October event welcoming all skill levels to join the open source community </td>
   </tr>
+  <td>SWOC 2024</td>
+    <td><a href="https://www.socialwinterofcode.com/" ><img src="https://github.com/user-attachments/assets/eb175a0d-a4c4-4380-a971-fffb23288002" width="200" height="auto" loading="lazy" alt="SWOC 2024"/></a></td>
+    <td> Social Winter of Code introduces participants to open source through projects, mentorship, and workshops on development, AI, Web3, and more. </td>
+  </tr>
 </table>
 
 ## ✨ Project Structure
