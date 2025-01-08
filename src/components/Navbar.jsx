@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import '../index.css';
 
+
 const Navbar = () => {
   useEffect(() => {
     const handleMouseMove = (event) => {
