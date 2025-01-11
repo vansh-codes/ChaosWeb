@@ -1,0 +1,128 @@
+
+/* Ensure the body takes full height but has a separate background color */
+body {
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove default margin */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    background-color: #f0f0f0; /* Background color for the body (rest of the page) */
+  }
+  
+  /* Navbar Custom Styles */
+  .navbar {
+    display: flex;
+    justify-content: center; /* Center the navbar content horizontally */
+    align-items: center; /* Center the navbar content vertically */
+    flex-direction: row; /* Align the logo and nav items horizontally */
+    padding: 20px 60px; /* Increased padding for a wider navbar */
+    background-color: #ffffff; /* Set background color only for the navbar */
+    color: #333333;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transform: rotate(-45deg); /* Apply diagonal rotation */
+    transform-origin: center center; /* Ensure it rotates from the center */
+    margin: 50px auto; /* Adds space around the navbar */
+    width: 100%; /* Full width for the navbar */
+    height: auto;
+    max-width: 1600px; /* Maximum width for the navbar */
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Spinning Logo */
+.navbar .logo img {
+    width: 100%; /* Adjust width as a percentage of its container */
+    height: 60px; /* Fixed height */
+    margin-right: 20px; /* Add some space between the logo and nav items */
+    transition: transform 0.3s ease;
+  }
+  
+  /* Spinning Animation */
+  .spin {
+    animation: spin 5s infinite linear;
+  }
+  
+  /* Navigation Links */
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  /* Navbar Items */
+  .nav-links .nav-item {
+    font-size: 1.5rem;
+    margin: 0 25px; /* Increased space between items */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Glowing Button Styles */
+  .button {
+    display: inline-block;
+    font-size: 1rem;
+    padding: 10px 20px;
+    margin: 10px;
+    border: 2px solid transparent;
+    border-radius: 50px; /* Rounded edges for a modern look */
+    background: linear-gradient(90deg, #ff8a00, #e52e71); /* Gradient background */
+    color: white;
+    text-transform: uppercase; /* Modern typography */
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 138, 0, 0.6); /* Initial glowing shadow */
+  }
+  
+  .button:hover {
+    background: linear-gradient(90deg, #e52e71, #ff8a00); /* Reverse gradient on hover */
+    box-shadow: 0 6px 20px rgba(255, 138, 0, 0.8); /* Increase glow intensity on hover */
+    transform: scale(1.1); /* Slightly enlarge the button */
+  }
+  
+  .button:active {
+    transform: scale(1); /* Reset scale when clicked */
+    box-shadow: 0 4px 10px rgba(255, 138, 0, 0.6); /* Dim the glow */
+  }
+  
+  /* Floating Boxes */
+  .floating-boxes {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .floating-box {
+    width: 40px;
+    height: 40px;
+    background-color: blue;
+    border-radius: 5px;
+    animation: float 1s ease-in-out infinite alternate;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-15px);
+    }
+  }
+  
+  /* Spinning Animation */
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
